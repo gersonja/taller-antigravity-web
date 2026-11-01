@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Práctico Intensivo: De Cero a Software en Producción con Antigravity & IA</title>
+  <meta name="description" content="Aprende a dirigir a Google Antigravity IDE con el método de un Desarrollador Senior. 8 horas prácticas en vivo. Educación 100% concluyente: sales con tu software en producción.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Taller Práctico Intensivo: Antigravity & Creación de Software con IA">
+  <meta property="og:description" content="Deja de pegar código a ciegas. Aprende Arquitectura Limpia, Ciclo SDD y despliega software real de negocio en vivo.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet & Anti-Watermark Overrides -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #090d16;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .glow-cyan {
+      box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.25);
+    }
+    .glow-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      backdrop-filter: blur(12px);
+    }
+    .glow-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+  </style>
+</head>
+<body class="selection:bg-sky-500 selection:text-white pb-20 md:pb-0">
+
+  <!-- BARRA SUPERIOR DE ALERTA DE COHORTE -->
+  <div class="bg-gradient-to-r from-sky-950 via-slate-900 to-sky-950 border-b border-sky-800/40 py-2.5 px-4 text-center text-xs sm:text-sm">
+    <div class="container mx-auto flex items-center justify-center gap-2 font-medium">
+      <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30 animate-pulse">
+        🔴 Cohorte En Vivo
+      </span>
+      <span>Solo <strong>30 cupos disponibles</strong> para garantizar desbloqueo técnico 1-a-1.</span>
+      <a href="#precio" class="hidden md:inline-flex items-center text-sky-400 hover:text-sky-300 font-semibold underline ml-1">
+        Asegurar cupo &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-400/30 flex items-center justify-center text-sky-400 font-bold">
+          ⚡
+        </div>
+        <div>
+          <span class="font-extrabold tracking-tight text-white text-base sm:text-lg">Antigravity<span class="text-sky-400">.Lab</span></span>
+          <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Taller Práctico</span>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#metodo" class="hover:text-sky-400 transition">El Método</a>
+        <a href="#triage" class="hover:text-sky-400 transition">Calculadora</a>
+        <a href="#temario" class="hover:text-sky-400 transition">Temario</a>
+        <a href="#garantia" class="hover:text-sky-400 transition">Garantías</a>
+        <a href="#instructor" class="hover:text-sky-400 transition">Instructor</a>
+      </nav>
+
+      <a href="#precio" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2 rounded-lg transition shadow-lg shadow-sky-500/20 flex items-center gap-1.5">
+        <span>Inscribirme</span>
+        <span id="header-cta-text" class="text-xs opacity-75 font-mono">(COP $100.000)</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    <!-- Luces de fondo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+      
+      <!-- Badge de Credibilidad -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-slate-300 text-xs sm:text-sm mb-6 shadow-sm">
+        <span class="flex h-2 w-2 rounded-full bg-emerald-400"></span>
+        <span class="text-slate-200 font-medium">Educación 100% Concluyente</span>
+        <span class="text-slate-500">|</span>
+        <span class="text-sky-400 font-mono">4 Sesiones en Vivo (8 Horas)</span>
+      </div>
+
+      <!-- Título Principal -->
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+        Deja de pegar código a ciegas en ChatGPT. <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-sky-300">
+          Aprende a construir software real con Antigravity & IA.
+        </span>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed mb-8">
+        Un taller práctico intensivo diseñado por un <strong>Desarrollador Senior</strong> para programadores junior y creadores de software. Aprende a gobernar al agente con <strong>Ciclo SDD</strong>, reglas <code class="text-sky-300 font-mono bg-slate-800 px-1.5 py-0.5 rounded text-sm">AGENTS.md</code> y arquitectura limpia. Sales con un <strong>Sistema de Gestión de Requerimientos & PQRs</strong> en producción con HTTPS, persistencia local y sincronización con Google Sheets.
+      </p>
+
+      <!-- Botones de Acción -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-sky-400 hover:from-sky-400 hover:to-sky-300 text-slate-950 font-extrabold text-base transition shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2 group">
+          <span id="hero-cta-text">Asegurar mi Cupo (COP $100.000)</span>
+          <span class="group-hover:translate-x-1 transition">&rarr;</span>
+        </a>
+        <a href="#temario" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 font-semibold text-base transition flex items-center justify-center gap-2">
+          <span>Ver Temario Detallado</span>
+          <span class="text-slate-400">📜</span>
+        </a>
+      </div>
+
+      <!-- Métricas / Badges de Confianza -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto text-left">
+        <div class="glow-card rounded-xl p-4">
+          <div class="text-sky-400 font-bold text-lg sm:text-xl mb-1">Cero Humo</div>
+          <p class="text-xs text-slate-400">Sin promesas de "hacer el nuevo Uber". Software real de negocio.</p>
+        </div>
+        <div class="glow-card rounded-xl p-4">
+          <div class="text-emerald-400 font-bold text-lg sm:text-xl mb-1">Desde 4 GB RAM</div>
+          <p class="text-xs text-slate-400">Sin tarjetas gráficas ni Docker pesado para arrancar.</p>
+        </div>
+        <div class="glow-card rounded-xl p-4">
+          <div class="text-amber-400 font-bold text-lg sm:text-xl mb-1">Máx. 30 Alumnos</div>
+          <p class="text-xs text-slate-400">Soporte y desbloqueo técnico directo durante cada clase.</p>
+        </div>
+        <div class="glow-card rounded-xl p-4">
+          <div class="text-purple-400 font-bold text-lg sm:text-xl mb-1">100% Concluyente</div>
+          <p class="text-xs text-slate-400">Sales con tu app funcionando y enlace público para mostrar.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EL PROBLEMA: EL MURO DE LA INCONCLUSIÓN -->
+  <section id="metodo" class="py-16 bg-slate-950 border-y border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-2">La Realidad de Aprender con IA en 2026</h2>
+        <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          ¿Por qué los tutoriales de YouTube te dejan frustrado a la mitad?
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+        <!-- Columna El Tutorial Inconcluso -->
+        <div class="rounded-2xl p-6 sm:p-8 bg-red-950/20 border border-red-800/30 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-900/40 text-red-300 text-xs font-semibold mb-4">
+              ❌ Lo que encuentras gratis en Internet
+            </div>
+            <h4 class="text-lg sm:text-xl font-bold text-white mb-4">La Trampa del "Vibe Coding" sin Control</h4>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-400 font-bold">✕</span>
+                <span>Prompts gigantes de 3 párrafos que la IA olvida a la siguiente instrucción.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-400 font-bold">✕</span>
+                <span>Código en un solo archivo espagueti de 800 líneas que se rompe al modificar un botón.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-400 font-bold">✕</span>
+                <span>Regresiones constantes: arreglas el formulario y se borra la tabla.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-400 font-bold">✕</span>
+                <span>Cero persistencia: recargas la página (F5) y todos tus datos desaparecen.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-red-400 font-bold">✕</span>
+                <span>Al primer error de consola te quedas varado porque nadie te responde en los comentarios.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-red-900/30 text-xs text-red-300 italic">
+            Resultado: Horas perdidas, frustración y proyectos abandonados en localhost.
+          </div>
+        </div>
+
+        <!-- Columna El Taller Concluyente -->
+        <div class="rounded-2xl p-6 sm:p-8 bg-sky-950/25 border border-sky-500/40 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -right-12 -top-12 w-40 h-40 bg-sky-500/10 rounded-full blur-2xl"></div>
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-semibold mb-4 border border-sky-400/30">
+              ✨ El Método de este Taller
+            </div>
+            <h4 class="text-lg sm:text-xl font-bold text-white mb-4">El Rigor de un Ingeniero Senior con IA</h4>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Ciclo SDD (Spec-Driven Development):</strong> La IA nunca escribe código sin un plano <code class="text-sky-300 font-mono text-xs">SPEC.md</code> revisado y aprobado por ti.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Constitución <code class="text-sky-300 font-mono text-xs">AGENTS.md</code>:</strong> Reglas inquebrantables que le impiden a la IA inventar librerías o cambiar de idea.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Screaming Architecture:</strong> Módulos separados (<code class="text-sky-300 font-mono text-xs">operaciones.js</code>, <code class="text-sky-300 font-mono text-xs">metricas.js</code>, <code class="text-sky-300 font-mono text-xs">reportes.js</code>).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Persistencia Local Real:</strong> Datos seguros en <code class="text-sky-300 font-mono text-xs">LocalStorage</code>, métricas en tiempo real y sincronización con Google Sheets.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Desbloqueo en Vivo:</strong> 30 a 60 minutos de soporte por sesión con el instructor.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-800/40 text-xs text-sky-300 font-medium">
+            Resultado: Sales con tu aplicación desplegada en GitHub Pages y código QR en tu celular.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA INTERACTIVA DE TRIAGE -->
+  <section id="triage" class="py-16 bg-slate-900/60 relative">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="text-xs font-mono uppercase tracking-wider text-sky-400 bg-sky-950/80 px-3 py-1 rounded-full border border-sky-800/60">
+          Herramienta Interactiva
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 mb-2">
+          ¿Qué tipo de software quieres construir?
+        </h3>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">
+          Prueba la <strong>Matriz de Triage Canónica</strong> que enseñamos en la clase para diagnosticar el nivel técnico de cualquier idea antes de escribir una sola línea.
+        </p>
+      </div>
+
+      <!-- Componente Interactivo -->
+      <div class="glow-card rounded-2xl p-6 sm:p-8">
+        <label class="block text-xs uppercase font-bold text-slate-400 mb-3 tracking-wider">
+          Selecciona tu caso de uso:
+        </label>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6" id="triage-buttons">
+          <button onclick="setTriage(1)" id="btn-1" class="triage-btn text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 text-sm font-medium transition active">
+            <div class="font-bold text-sky-400 mb-0.5">🚀 Nivel 1</div>
+            <div>Landing Page / Formulario de Captación</div>
+          </button>
+          
+          <button onclick="setTriage(2)" id="btn-2" class="triage-btn text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 text-sm font-medium transition">
+            <div class="font-bold text-emerald-400 mb-0.5">📊 Nivel 3 (El Taller)</div>
+            <div>Gestión de PQRs, Requerimientos & Sheets</div>
+          </button>
+
+          <button onclick="setTriage(3)" id="btn-3" class="triage-btn text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 text-sm font-medium transition">
+            <div class="font-bold text-indigo-400 mb-0.5">🚀 Nivel 4 (Escala)</div>
+            <div>Software Corporativo & Bases de Datos</div>
+          </button>
+        </div>
+
+        <!-- Tarjeta de Resultado Dinámica -->
+        <div id="triage-result" class="p-5 rounded-xl bg-slate-950/80 border border-slate-700 text-sm">
+          <!-- Renderizado con JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMARIO DETALLADO DE LOS 4 MÓDULOS -->
+  <section id="temario" class="py-20 bg-slate-950">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-2 block">8 Horas de Rigor Técnico</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Estructura del Taller: Paso a Paso
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Cada sesión dura <strong>2 horas (90 min de práctica guiada + 30 a 60 min de soporte y desbloqueo en vivo)</strong>.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Módulo 1 -->
+        <div class="glow-card rounded-2xl p-6 sm:p-7 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm border border-sky-500/30">
+                1
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">Módulo 1: Fundamentos, Cabina Antigravity & Fast-Path</h3>
+            </div>
+            <span class="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 self-start sm:self-auto">
+              Sesión 1 (2h)
+            </span>
+          </div>
+          <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+            Instalamos y configuramos Google Antigravity IDE con Gemini 3.8 Flash. Dominamos la diferencia entre <em>Idea vs. Stack</em>, aplicamos la Matriz de Triage y construimos una Landing Page moderna y responsiva por la vía rápida (Fast-Path).
+          </p>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🎯 Entregable de la sesión:</span>
+            <span>Landing Page comercial moderna de alto impacto visual terminada en 45 minutos.</span>
+          </div>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div class="glow-card rounded-2xl p-6 sm:p-7 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm border border-teal-500/30">
+                2
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">Módulo 2: El Cerebro del Agente — Constitución & Ciclo SDD</h3>
+            </div>
+            <span class="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 self-start sm:self-auto">
+              Sesión 2 (2h)
+            </span>
+          </div>
+          <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+            Blindamos al agente. Creamos la constitución <code class="text-sky-300 font-mono text-xs">AGENTS.md</code>, aplicamos las 3 plantillas semilla y obligamos a Antigravity a redactar la <code class="text-sky-300 font-mono text-xs">SPEC.md</code> (el plano técnico de la aplicación de gestión). La auditamos juntos antes de generar una sola línea de código.
+          </p>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🎯 Entregable de la sesión:</span>
+            <span>Plano <code class="text-sky-300 font-mono">SPEC.md</code> aprobado, contrato de datos inmutable y reglas anti-amnesia.</span>
+          </div>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div class="glow-card rounded-2xl p-6 sm:p-7 transition border-sky-500/40">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm border border-emerald-500/30">
+                3
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">Módulo 3: Construcción Quirúrgica de un Sistema de Requerimientos & PQRs</h3>
+            </div>
+            <span class="text-xs font-mono px-3 py-1 rounded bg-sky-950 text-sky-300 border border-sky-800 self-start sm:self-auto">
+              Sesión 3 (2h) — Core Práctico
+            </span>
+          </div>
+          <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+            Compilamos módulo por módulo con <em>Screaming Architecture</em>: formularios de captación de solicitudes con validaciones de prioridad, persistencia en <code class="text-sky-300 font-mono text-xs">LocalStorage</code> (prueba de fuego con recarga F5), tarjetas KPI dinámicas con estados de resolución y motor de sincronización con <strong>Google Sheets en la nube</strong>.
+          </p>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🎯 Entregable de la sesión:</span>
+            <span>Sistema completo de gestión de solicitudes/PQRs con métricas en tiempo real y conexión a Google Sheets.</span>
+          </div>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div class="glow-card rounded-2xl p-6 sm:p-7 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm border border-amber-500/30">
+                4
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">Módulo 4: De Localhost al Mundo — Despliegue, Escala Empresarial & Negocio</h3>
+            </div>
+            <span class="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 self-start sm:self-auto">
+              Sesión 4 (2h)
+            </span>
+          </div>
+          <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+            Desplegamos en 1 clic a <strong>GitHub Pages con enlace HTTPS público</strong> y código QR para abrir en tu celular. Analizamos la <strong>Oportunidad de Escala Corporativa (Nivel 4)</strong>: cómo dimensionar proyectos de bases de datos multiusuario, monetizar vendiendo soluciones a empresas reales y Showcase en pantalla gigante.
+          </p>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">🎯 Entregable de la sesión:</span>
+            <span>Tu software publicado en Internet, enlace público, visión de monetización y diploma del taller.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉN TE ENSEÑA: POSICIONAMIENTO DEL INSTRUCTOR -->
+  <section id="instructor" class="py-16 bg-slate-900/40 border-y border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="glow-card rounded-3xl p-6 sm:p-10 border border-slate-700/80">
+        <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+          <div class="relative flex-shrink-0">
+            <img src="https://github.com/gersonja.png" alt="Gerson Javier" class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover border-2 border-sky-400/40 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
+            <div class="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] px-2 py-0.5 rounded-full font-bold shadow-md">
+              En Vivo
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-sky-400 text-xs font-bold mb-2 border border-slate-700">
+              Instructor & Mentor
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-1">
+              Gerson Javier
+            </h3>
+            <div class="text-sky-400 font-semibold text-xs sm:text-sm mb-3 font-mono">
+              Senior Software Engineer & SaaS Builder
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-3">
+              "No soy un gurú de redes sociales ni un vendedor de cursos mágicos. Soy un desarrollador con años de experiencia en la trinchera del código real: construí software robusto mucho antes de la existencia de ChatGPT y he puesto en producción plataformas SaaS utilizadas por usuarios reales."
+            </p>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              "Hoy utilizo la inteligencia artificial todos los días para construir 5 veces más rápido, pero con los principios de arquitectura, seguridad y rigor que ningún tutorial de 15 minutos en YouTube te enseña. Mi meta en este taller es transmitirte ese mismo criterio para que construyas software con autonomía y sin frustraciones."
+            </p>
+            
+            <!-- Enlaces directos a perfiles reales -->
+            <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-800/80 text-xs">
+              <a href="https://github.com/gersonja" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <span>🐙 GitHub:</span>
+                <span class="font-mono text-sky-400 font-semibold">@gersonja</span>
+              </a>
+              <a href="https://www.linkedin.com/in/gersonjavier/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <span>💼 LinkedIn:</span>
+                <span class="font-mono text-sky-400 font-semibold">gersonjavier</span>
+              </a>
+              <a href="https://www.facebook.com/gersonjavier" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <span>📘 Facebook:</span>
+                <span class="font-mono text-sky-400 font-semibold">gersonjavier</span>
+              </a>
+              <span class="text-slate-500 text-xs flex items-center gap-1">
+                <span>📍</span> Ecuador & Colombia
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTÍAS CERO HUMO -->
+  <section id="garantia" class="py-16 bg-slate-950">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-2">Tu Tranquilidad Primero</h2>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-10">
+        Nuestras 4 Garantías Inquebrantables
+      </h3>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl mb-2">🛡️</div>
+          <h4 class="font-bold text-white text-sm mb-1">Garantía Concluyente</h4>
+          <p class="text-xs text-slate-400">Si sigues el taller y tu app no queda desplegada en HTTPS, el instructor te da 30 min de soporte 1-a-1 hasta resolverlo.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl mb-2">💻</div>
+          <h4 class="font-bold text-white text-sm mb-1">Hardware Inclusivo</h4>
+          <p class="text-xs text-slate-400">Todo el código corre fluido en portátiles desde 4 GB de RAM. Sin herramientas pesadas ni compras ocultas.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl mb-2">🔓</div>
+          <h4 class="font-bold text-white text-sm mb-1">Cero Ataduras</h4>
+          <p class="text-xs text-slate-400">El código generado es 100% tuyo. Sin suscripciones a plataformas cerradas ni costos mensuales de hosting.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl mb-2">🤝</div>
+          <h4 class="font-bold text-white text-sm mb-1">Soporte Humano</h4>
+          <p class="text-xs text-slate-400">Grupo privado de Telegram con el instructor para resolver dudas técnicas antes, durante y después del taller.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA IRRESISTIBLE & PRECIO -->
+  <section id="precio" class="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-4">
+        🎟️ Precio de Lanzamiento Comunidad
+      </div>
+      
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        Invierte en Criterio Técnico Real
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-xl mx-auto">
+        Aprende una habilidad de alto valor para generar nuevos ingresos, ofrecer soluciones de software a clientes y construir tus propios activos digitales.
+      </p>
+
+      <!-- Selector de Moneda (COP / USD) -->
+      <div class="inline-flex items-center p-1 rounded-xl bg-slate-900 border border-slate-800 mb-8 shadow-inner">
+        <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md">
+          <span>🇨🇴 Pesos Colombianos (COP)</span>
+        </button>
+        <button id="curr-usd" onclick="setCurrency('USD')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5">
+          <span>🌎 Dólares (USD) / Ecuador</span>
+        </button>
+      </div>
+
+      <!-- Tarjeta de Precio -->
+      <div class="glow-card rounded-3xl p-6 sm:p-10 border-2 border-sky-500/50 glow-cyan relative text-left">
+        
+        <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
+          Ahorras $50.000 COP
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-slate-800 pb-6 mb-6">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white">Taller Completo (4 Sesiones)</h3>
+            <p class="text-xs sm:text-sm text-slate-400">Acceso a clases en vivo, grabaciones y plantillas</p>
+          </div>
+          <div class="text-right">
+            <span id="price-regular" class="text-sm text-slate-500 line-through block font-mono">COP $150.000</span>
+            <span id="price-active" class="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight text-sky-400">
+              COP $100.000
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm text-slate-300 mb-8">
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>8 Horas Prácticas en Vivo:</strong> 4 módulos interactivos con código en vivo.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Mesa de Ayuda Técnica (30-60 min):</strong> Desbloqueo en vivo en cada sesión.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>3 Plantillas Semilla Listas:</strong> Reglas <code class="text-sky-300 font-mono text-xs">AGENTS.md</code>, Ciclo SDD y Reglas de Diseño UI.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Acceso a las Grabaciones:</strong> Repasa el paso a paso las veces que quieras.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Canal Privado de Telegram:</strong> Red de contactos y resolución de dudas.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span><strong>Garantía de Despliegue:</strong> Sales con tu software publicado o te ayudamos 1-a-1.</span>
+          </div>
+        </div>
+
+        <!-- Botón de Pago Principal (WhatsApp) -->
+        <a id="cta-whatsapp" href="https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP" target="_blank" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold text-center text-base sm:text-lg block transition shadow-lg shadow-emerald-500/20 mb-4">
+          📲 Reservar mi Cupo por WhatsApp (COP $100.000)
+        </a>
+
+        <div id="payment-methods-info" class="text-center text-xs text-slate-400 flex flex-col items-center justify-center gap-2 pt-2">
+          <div class="flex items-center gap-2">
+            <span>💳 Medios de pago Colombia:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-sky-400 font-mono font-bold">Nequi</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-amber-400 font-mono font-bold">Bancolombia</span>
+          </div>
+          <p class="text-slate-400 text-[11px]">
+            Los datos exactos de transferencia o código QR te los compartimos directamente en la conversación de WhatsApp al escribirnos.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES (FAQ) -->
+  <section class="py-16 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h3 class="text-2xl font-extrabold text-white">Preguntas Frecuentes</h3>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">Resolvemos tus dudas con total transparencia</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="glow-card rounded-xl p-4 sm:p-5">
+          <h4 class="font-bold text-white text-sm sm:text-base mb-1">¿Necesito ser un programador experto?</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">No. Si entiendes conceptos básicos de qué es una página web, botones e interfaces, el taller te enseñará a gobernar la IA con rigor. No necesitas saber escribir algoritmos complejos de memoria.</p>
+        </div>
+
+        <div class="glow-card rounded-xl p-4 sm:p-5">
+          <h4 class="font-bold text-white text-sm sm:text-base mb-1">¿Mi computador servirá para el taller?</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Sí. Hemos diseñado todo el taller para que funcione desde portátiles modestos con <strong>4 GB de memoria RAM</strong> en Windows, Mac o Linux. No necesitas tarjetas gráficas Nvidia ni entornos pesados.</p>
+        </div>
+
+        <div class="glow-card rounded-xl p-4 sm:p-5">
+          <h4 class="font-bold text-white text-sm sm:text-base mb-1">¿Qué pasa si no puedo asistir a una clase en vivo?</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Todas las sesiones quedan grabadas en alta definición y se suben al canal de Telegram al terminar la clase, junto con los archivos y el código del día para que no te atrases.</p>
+        </div>
+
+        <div class="glow-card rounded-xl p-4 sm:p-5">
+          <h4 class="font-bold text-white text-sm sm:text-base mb-1">¿Por qué limitan el cupo a 30 participantes?</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Porque en este taller el instructor revisa pantallas y desbloquea errores técnicos reales. En una sala con 200 personas nadie aprende; con 30 garantizamos atención y resultados concluyentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
+    <div class="max-w-4xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2 font-bold text-slate-400">
+        <span>⚡ Antigravity.Lab</span>
+        <span>•</span>
+        <span>Educación Concluyente en Software</span>
+      </div>
+      <p>Diseñado con rigor técnico para la comunidad de desarrolladores y creadores de software.</p>
+      <p class="text-slate-600">© 2026 Todos los derechos reservados. No afiliado formalmente a Google LLC ni Microsoft.</p>
+    </div>
+  </footer>
+
+  <!-- BARRA STICKY INFERIOR MÓVIL -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-3 flex items-center justify-between">
+    <div>
+      <div class="text-[10px] text-slate-400 uppercase font-mono">Solo 30 Cupos</div>
+      <div id="mobile-price" class="text-base font-extrabold text-sky-400 font-mono">COP $100.000</div>
+    </div>
+    <a href="#precio" class="px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs transition shadow-md shadow-sky-500/20">
+      Asegurar Cupo &rarr;
+    </a>
+  </div>
+
+  <!-- SCRIPTS INTERACTIVOS: TRIAGE Y SELECTOR DE MONEDA -->
+  <script>
+    // --- GESTIÓN DE MONEDAS (COP / USD) ---
+    const currencyData = {
+      COP: {
+        regular: "COP $150.000",
+        active: "COP $100.000",
+        savings: "Ahorras $50.000 COP",
+        headerCta: "(COP $100.000)",
+        heroCta: "Asegurar mi Cupo (COP $100.000)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (COP $100.000)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP",
+        methodsHtml: `
+          <div class="flex items-center gap-2">
+            <span>💳 Medios de pago Colombia:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-sky-400 font-mono font-bold">Nequi</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-amber-400 font-mono font-bold">Bancolombia</span>
+          </div>
+          <p class="text-slate-400 text-[11px]">
+            Los datos exactos de transferencia o código QR te los compartimos directamente en la conversación de WhatsApp al escribirnos.
+          </p>
+        `
+      },
+      USD: {
+        regular: "USD $40",
+        active: "USD $25",
+        savings: "Ahorras $15 USD",
+        headerCta: "(USD $25)",
+        heroCta: "Asegurar mi Cupo (USD $25)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (USD $25)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$25%20USD",
+        methodsHtml: `
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <span>💳 Medios de pago Ecuador / Internacional:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-amber-400 font-mono font-bold">Banco Pichincha</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-sky-400 font-mono font-bold">Banco Guayaquil</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-teal-400 font-mono font-bold">Deuna</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-indigo-400 font-mono font-bold">PayPal</span>
+          </div>
+          <p class="text-slate-400 text-[11px]">
+            Los datos de transferencia bancaria en Ecuador (o enlace PayPal internacional) te los compartimos directamente por WhatsApp.
+          </p>
+        `
+      }
+    };
+
+    function setCurrency(curr) {
+      const btnCop = document.getElementById('curr-cop');
+      const btnUsd = document.getElementById('curr-usd');
+      
+      if (!btnCop || !btnUsd) return;
+
+      if (curr === 'COP') {
+        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+      } else {
+        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+      }
+
+      const d = currencyData[curr];
+      const savingsEl = document.getElementById('price-savings');
+      const regularEl = document.getElementById('price-regular');
+      const activeEl = document.getElementById('price-active');
+      const headerCta = document.getElementById('header-cta-text');
+      const heroCta = document.getElementById('hero-cta-text');
+      const mobilePrice = document.getElementById('mobile-price');
+      const ctaWa = document.getElementById('cta-whatsapp');
+      const methodsEl = document.getElementById('payment-methods-info');
+
+      if (savingsEl) savingsEl.innerText = d.savings;
+      if (regularEl) regularEl.innerText = d.regular;
+      if (activeEl) activeEl.innerText = d.active;
+      if (headerCta) headerCta.innerText = d.headerCta;
+      if (heroCta) heroCta.innerText = d.heroCta;
+      if (mobilePrice) mobilePrice.innerText = d.active;
+      if (ctaWa) {
+        ctaWa.innerText = d.btnWhatsapp;
+        ctaWa.href = d.whatsappUrl;
+      }
+      if (methodsEl) methodsEl.innerHTML = d.methodsHtml;
+    }
+
+    // --- LÓGICA DE LA CALCULADORA DE TRIAGE ---
+    const triageData = {
+      1: {
+        title: "Nivel 1: Fast-Path (Vía Rápida)",
+        badge: "100% Autónimo | Listo en 45 Minutos",
+        color: "text-sky-400",
+        bgBadge: "bg-sky-950 text-sky-300 border-sky-800",
+        desc: "Ideal para páginas de aterrizaje, portafolios, formularios de cotización o cartas de ventas. Todo vive en un solo archivo HTML estilizado con Tailwind CSS vía CDN.",
+        stack: "HTML5 + Tailwind CDN + JS Vanilla (Sin compiladores ni dependencias).",
+        veredicto: "✅ No requiere ciclo SDD complejo. Se genera directamente con un buen prompt de Fast-Path en la Sesión 1."
+      },
+      2: {
+        title: "Nivel 3: Sistema de Gestión de Requerimientos & PQRs (El Núcleo del Taller)",
+        badge: "100% Autónomo | Lo que construyes en la Sesión 3",
+        color: "text-emerald-400",
+        bgBadge: "bg-emerald-950 text-emerald-300 border-emerald-800",
+        desc: "Ideal para cualquier negocio, clínica, agencia o comercio: captura de requerimientos, peticiones, quejas o reclamos con validaciones, filtros por estado (Pendiente / En Proceso / Resuelto), tarjetas KPI en tiempo real y sincronización directa con Google Sheets en la nube.",
+        stack: "Screaming Architecture (index.html, operaciones.js, metricas.js, reportes.js) + LocalStorage + Google Sheets Sync.",
+        veredicto: "💎 El software de alta demanda que las empresas necesitan y pagan con gusto. Lo construyes y despliegas en el taller con total autonomía."
+      },
+      3: {
+        title: "Nivel 4: Software Corporativo & Arquitectura Cloud",
+        badge: "Oportunidad de Alto Valor | Escala Empresarial",
+        color: "text-indigo-400",
+        bgBadge: "bg-indigo-950 text-indigo-300 border-indigo-800",
+        desc: "Cuando tu cliente necesita multiusuario concurrente con permisos por roles, bases de datos PostgreSQL transaccionales, APIs autenticadas con JWT y despliegues en servidores Linux cloud.",
+        stack: "PostgreSQL 16 + Docker + Node.js/TypeScript + Prisma ORM + Cloud Hosting.",
+        veredicto: "🚀 La gran oportunidad de negocio: en el taller aprendes a dimensionar estos proyectos de alto ticket para cotizarlos con confianza, liderarlos como Director de Producto o continuar tu formación técnica con nuestro Nivel 2."
+      }
+    };
+
+    function setTriage(level) {
+      // Toggle button styles
+      document.querySelectorAll('.triage-btn').forEach(btn => {
+        btn.classList.remove('border-sky-500', 'bg-slate-800');
+        btn.classList.add('border-slate-700', 'bg-slate-800/60');
+      });
+      const activeBtn = document.getElementById('btn-' + level);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-700', 'bg-slate-800/60');
+        activeBtn.classList.add('border-sky-500', 'bg-slate-800');
+      }
+
+      // Render content
+      const data = triageData[level];
+      const container = document.getElementById('triage-result');
+      container.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <span class="font-bold text-base ${data.color}">${data.title}</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full border ${data.bgBadge} font-mono self-start sm:self-auto">${data.badge}</span>
+        </div>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">${data.desc}</p>
+        <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-xs font-mono text-slate-400 mb-3">
+          <strong class="text-slate-300">Stack:</strong> ${data.stack}
+        </div>
+        <div class="text-xs font-semibold ${data.color}">${data.veredicto}</div>
+      `;
+    }
+
+    // Inicializar con Nivel 2 (el núcleo del taller)
+    setTriage(2);
+  </script>
+
+</body>
+</html>
+

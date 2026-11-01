@@ -1,0 +1,114 @@
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS & CONTROL DE HOSTING — EMBUDO ANTIGRAVITY.LAB
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BLOQUEO ESTRICTO DE MARCAS, BADGES & WIDGETS DE NETLIFY (PLAN GRATUITO)
+   -------------------------------------------------------------------------- */
+#netlify-badge,
+.netlify-badge,
+a[href*="netlify.com"]:not(.allowed-link),
+[data-netlify-drawer],
+[data-netlify-identity],
+#netlify-banner,
+.netlify-feedback-banner,
+iframe[src*="netlify"],
+iframe[id*="netlify"],
+.netlify-identity-menu,
+#netlify-identity-widget,
+[class*="netlify-banner"],
+[class*="netlify-drawer"],
+[class*="netlify-feedback"],
+div[data-netlify-feedback],
+div[data-collaborative-tools],
+#collaborative-summary {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -999999 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. MEJORAS DE RENDERIZADO, TIPOGRAFÍA & SUAVIZADO
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #090d16;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado moderno */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   3. EFECTOS GLOW, GLASSMORPHISM & TARJETAS
+   -------------------------------------------------------------------------- */
+.glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.25);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+}
+
+.glow-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. DETALLES DE INTERACTIVIDAD & BOTONES
+   -------------------------------------------------------------------------- */
+.triage-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.triage-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Asegurar que en pantallas táctiles los botones tengan respuesta táctil */
+@media (hover: none) {
+  .glow-card:hover {
+    transform: none;
+  }
+}
+
