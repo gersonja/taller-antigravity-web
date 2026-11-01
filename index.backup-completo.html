@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Práctico Intensivo: De Cero a Software en Producción con Antigravity & IA</title>
+  <meta name="description" content="Aprende a dirigir a Google Antigravity IDE con el método de un Desarrollador Senior. 8 horas prácticas en vivo. Educación 100% concluyente: sales con tu software en producción.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Taller Práctico Intensivo: Antigravity & Creación de Software con IA">
+  <meta property="og:description" content="Deja de pegar código a ciegas. Aprende Arquitectura Limpia, Ciclo SDD y despliega software real de negocio en vivo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.png">
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0284c7">
+  
+  <!-- Fonts: The Golden Trio (Outfit + Plus Jakarta Sans + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet & Anti-Watermark Overrides -->
+  <link rel="stylesheet" href="styles.css?v=2.2">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Outfit"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inicialización de Tema: Light Theme por defecto -->
+  <script>
+    if (localStorage.getItem('antigravity_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-[#090d16] dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white pb-20 md:pb-0 transition-colors duration-300">
+
+  <!-- BARRA SUPERIOR DE ALERTA DE COHORTE -->
+  <div class="bg-sky-100/90 dark:bg-gradient-to-r dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 border-b border-sky-200/80 dark:border-sky-800/40 py-2.5 px-4 text-center text-xs sm:text-sm text-sky-950 dark:text-slate-200 transition-colors">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2 font-medium">
+      <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/30 animate-pulse">
+        🔴 Cohorte En Vivo
+      </span>
+      <span>Estrictamente <strong>30 cupos disponibles</strong> para garantizar desbloqueo técnico 1-a-1.</span>
+      <a href="#precio" class="hidden md:inline-flex items-center text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 font-bold underline ml-1">
+        Asegurar cupo &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <header class="sticky top-0 z-40 bg-white/85 dark:bg-slate-950/85 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="favicon.svg" alt="Antigravity.Lab" class="w-9 h-9 rounded-xl shadow-md border border-sky-400/40 group-hover:scale-105 group-hover:border-sky-400 transition">
+          <div>
+            <span class="font-display font-extrabold tracking-tight text-slate-900 dark:text-white text-lg sm:text-xl">Antigravity<span class="text-sky-500">.Lab</span></span>
+            <span class="hidden sm:inline-block ml-2 text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-semibold">Taller Práctico</span>
+          </div>
+        </a>
+      </div>
+      
+      <!-- MENÚ DE ESCRITORIO (4 ENLACES ESENCIALES, LIMPIO Y ESPACIOSO) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#metodo" class="hover:text-sky-600 dark:hover:text-sky-400 transition">El Método</a>
+        <a href="#temario" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Temario</a>
+        <a href="#triage" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Calculadora</a>
+        <a href="#garantia" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Garantías</a>
+      </nav>
+
+      <!-- ACCIONES DE CABECERA (ESCRITORIO) -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Switch Sun / Moon -->
+        <button onclick="toggleTheme()" id="theme-btn-desktop" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition shadow-sm" title="Alternar Modo Claro / Modo Oscuro">
+          <span class="dark:hidden text-base">🌙</span>
+          <span class="hidden dark:inline text-base">☀️</span>
+        </button>
+
+        <a href="#precio" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-sky-500/20 flex items-center gap-1.5 font-display tracking-wide">
+          <span>Inscribirme</span>
+          <span class="text-xs">&rarr;</span>
+          <span id="header-cta-text" class="hidden"></span>
+        </a>
+      </div>
+
+      <!-- BOTONES MÓVIL: TEMA + HAMBURGUESA -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Switch Sun/Moon móvil -->
+        <button onclick="toggleTheme()" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition">
+          <span class="dark:hidden text-sm">🌙</span>
+          <span class="hidden dark:inline text-sm">☀️</span>
+        </button>
+
+        <!-- Botón Hamburguesa Animado -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center gap-1.5 p-2.5 transition">
+          <span class="hamburger-line hamburger-line-1 w-5 h-0.5 bg-slate-800 dark:bg-slate-200 rounded-full"></span>
+          <span class="hamburger-line hamburger-line-2 w-5 h-0.5 bg-slate-800 dark:bg-slate-200 rounded-full"></span>
+          <span class="hamburger-line hamburger-line-3 w-5 h-0.5 bg-slate-800 dark:bg-slate-200 rounded-full"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-5 py-6 space-y-4 shadow-2xl transition-all duration-300">
+      <nav class="flex flex-col space-y-3 font-semibold text-slate-700 dark:text-slate-200 text-base">
+        <a href="#metodo" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">⚡</span> El Método
+        </a>
+        <a href="#antigravity" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">🧠</span> ¿Por qué Google & Gemini?
+        </a>
+        <a href="#triage" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">🧭</span> Calculadora de Triage
+        </a>
+        <a href="#temario" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">📚</span> Temario de 4 Módulos
+        </a>
+        <a href="#garantia" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">🛡️</span> Nuestras 4 Garantías
+        </a>
+        <a href="#instructor" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <span class="text-sky-500">👨‍🏫</span> Instructor
+        </a>
+      </nav>
+
+      <!-- Selector de Moneda en Móvil -->
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+        <div class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-2">Moneda del taller:</div>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="setCurrency('COP'); toggleMobileMenu()" class="py-2 rounded-lg text-xs font-bold bg-sky-500 text-slate-950 text-center">
+            🇨🇴 Pesos (COP)
+          </button>
+          <button onclick="setCurrency('USD'); toggleMobileMenu()" class="py-2 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-center">
+            💵 Dólares (USD)
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <a href="#precio" onclick="toggleMobileMenu()" class="w-full py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-center block shadow-lg shadow-sky-500/20 font-display">
+          Inscribirme al Taller
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION CON MAQUETA INTERACTIVA -->
+  <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+    <!-- Luces de atmósfera difusas -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-400/10 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-emerald-400/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+      
+      <!-- Badge de Credibilidad -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 text-xs sm:text-sm mb-6 shadow-sm">
+        <span class="flex h-2 w-2 rounded-full bg-emerald-500"></span>
+        <span class="font-medium">Educación 100% Concluyente</span>
+        <span class="text-slate-400">|</span>
+        <span class="text-sky-600 dark:text-sky-400 font-mono font-semibold">4 Sesiones en Vivo (8 Horas)</span>
+      </div>
+
+      <!-- Título Principal con Outfit (Display) -->
+      <h1 class="font-display font-black text-3xl sm:text-5xl md:text-6xl tracking-tight text-slate-950 dark:text-white leading-[1.12] mb-5">
+        Deja de pegar código a ciegas en ChatGPT. <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-500 to-sky-500 dark:from-sky-400 dark:via-teal-300 dark:to-sky-300">
+          Aprende a construir software real con Antigravity & IA.
+        </span>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8 font-normal leading-relaxed">
+        Domina <strong>Google Antigravity IDE</strong>, el motor <strong>Gemini 3.8 Flash (High)</strong> y la metodología <strong>SDD</strong>. Sales con tu primera aplicación de gestión en vivo, enlace HTTPS y código QR en tu celular.
+      </p>
+
+      <!-- Botones de Acción -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-display font-bold text-base sm:text-lg transition shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2">
+          <span>🚀</span>
+          <span id="hero-cta-text">Asegurar mi Cupo (COP $100.000)</span>
+        </a>
+        <a href="#triage" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-display font-bold text-base border border-slate-200 dark:border-slate-700 transition shadow-sm flex items-center justify-center gap-2">
+          <span>🧭 Probar Calculadora de Triage</span>
+        </a>
+      </div>
+
+      <!-- Barra de Confianza Hero (Fluida, Elegante, Sin Saturación de Cajas) -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm max-w-3xl mx-auto mb-12 text-xs text-slate-600 dark:text-slate-300">
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">⏱️ 8h en Vivo</strong> (4 Sesiones)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">👥 Solo 30 Cupos</strong> (Revisión 1-a-1)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">📱 100% Concluyente</strong> (QR en Celular)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">💻 Desde 4 GB RAM</strong></span>
+      </div>
+
+      <!-- MAQUETA INTERACTIVA DE APLICACIÓN (SHOWCASE WINDOW MOCKUP) -->
+      <div class="mockup-window bg-white dark:bg-slate-900 text-left border border-slate-200 dark:border-slate-800/90 shadow-2xl rounded-2xl max-w-4xl mx-auto overflow-hidden reveal-scale">
+        
+        <!-- Barra de Ventana Mac -->
+        <div class="bg-slate-100 dark:bg-slate-950 px-4 py-3 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+            <span class="ml-2 font-mono text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">antigravity://sistema-requerimientos</span>
+          </div>
+
+          <!-- Selector de Pestañas del Mockup -->
+          <div class="flex items-center gap-1 bg-slate-200/70 dark:bg-slate-900 p-1 rounded-lg text-xs font-mono">
+            <button id="tab-btn-spec" onclick="switchHeroTab('spec')" class="mockup-tab-btn px-3 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+              📄 SPEC.md
+            </button>
+            <button id="tab-btn-app" onclick="switchHeroTab('app')" class="mockup-tab-btn active px-3 py-1 rounded">
+              🚀 App en Vivo
+            </button>
+            <button id="tab-btn-mobile" onclick="switchHeroTab('mobile')" class="mockup-tab-btn px-3 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+              📱 Móvil QR
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido Pestaña 1: SPEC.md -->
+        <div id="hero-tab-spec" class="hidden p-6 font-mono text-xs sm:text-sm bg-slate-950 text-slate-200 overflow-x-auto">
+          <div class="text-slate-500 mb-2">// 📐 docs/specs/01-requerimientos-spec.md — Gobernanza Antigravity</div>
+          <div class="text-sky-400 font-bold mb-1"># ESPECIFICACIÓN: Sistema de Gestión de Requerimientos & PQRs</div>
+          <div class="text-emerald-400 mb-1">✓ AXIOMA INMUTABLE: ¡Estamos siempre en producción! Cero roturas.</div>
+          <div class="text-slate-400 mb-2">✓ ARQUITECTURA: Screaming Architecture (`features/requerimientos`, `features/metricas`)</div>
+          <div class="text-amber-300 mb-1">## 1. Contrato de Datos (LocalStorage):</div>
+          <div class="text-slate-300 pl-4">ticket: { id: "REQ-01", solicitante: string, estado: "PENDIENTE"|"RESUELTO", fecha: ISO }</div>
+          <div class="text-amber-300 mt-2 mb-1">## 2. Métricas KPI en Tiempo Real:</div>
+          <div class="text-slate-300 pl-4">calcularKPIs(tickets) ➔ Total, Pendientes, Resueltos y % Cumplimiento.</div>
+          <div class="text-sky-300 mt-3 pt-2 border-t border-slate-800">STATUS: ✅ PLANO APROBADO POR EL TECH LEAD ➔ COMPILACIÓN AUTORIZADA</div>
+        </div>
+
+        <!-- Contenido Pestaña 2: App en Vivo (Por Defecto) -->
+        <div id="hero-tab-app" class="p-5 sm:p-6 bg-slate-50/50 dark:bg-slate-900/50">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="font-display font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">
+                Sistema de Requerimientos & PQRs
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Software modular con persistencia y sincronización Google Sheets</p>
+            </div>
+            <button onclick="simularExportacion()" class="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition shadow-sm">
+              <span>📊 Exportar a Sheets / CSV</span>
+            </button>
+          </div>
+
+          <!-- Tarjetas KPI del Software -->
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Total Solicitudes</div>
+              <div id="kpi-total" class="font-display font-black text-xl sm:text-2xl text-sky-600 dark:text-sky-400">12</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Pendientes</div>
+              <div id="kpi-pendientes" class="font-display font-black text-xl sm:text-2xl text-amber-500">4</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Resueltos</div>
+              <div id="kpi-resueltos" class="font-display font-black text-xl sm:text-2xl text-emerald-500">8</div>
+            </div>
+          </div>
+
+          <!-- Tabla Visual Simulada -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/60 shadow-sm">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 font-mono font-semibold uppercase">
+                <tr>
+                  <th class="p-2.5">Radicado</th>
+                  <th class="p-2.5">Solicitante</th>
+                  <th class="p-2.5">Requerimiento</th>
+                  <th class="p-2.5">Estado</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                  <td class="p-2.5 font-mono text-sky-600 dark:text-sky-400">#REQ-1024</td>
+                  <td class="p-2.5 text-slate-900 dark:text-slate-200">Dra. Claudia Vargas</td>
+                  <td class="p-2.5 text-slate-600 dark:text-slate-300">Solicitud de informe mensual en Excel</td>
+                  <td class="p-2.5"><span class="px-2 py-0.5 rounded-full text-[10px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-bold border border-amber-300 dark:border-amber-800">Pendiente</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                  <td class="p-2.5 font-mono text-sky-600 dark:text-sky-400">#REQ-1023</td>
+                  <td class="p-2.5 text-slate-900 dark:text-slate-200">Carlos Mendoza (Finanzas)</td>
+                  <td class="p-2.5 text-slate-600 dark:text-slate-300">Aprobación de liquidación comercial</td>
+                  <td class="p-2.5"><span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-800">Resuelto</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="export-toast" class="hidden mt-3 p-2.5 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 text-xs font-mono text-center border border-emerald-300 dark:border-emerald-800">
+            ✅ Archivo CSV con BOM UTF-8 descargado y sincronizado con Google Sheets.
+          </div>
+
+        </div>
+
+        <!-- Contenido Pestaña 3: Móvil QR -->
+        <div id="hero-tab-mobile" class="hidden p-6 bg-slate-100 dark:bg-slate-950 text-center">
+          <div class="max-w-xs mx-auto p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+            <div class="w-12 h-1 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-4"></div>
+            <div class="w-36 h-36 bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-sky-400 rounded-xl mx-auto flex flex-col items-center justify-center p-3 mb-3">
+              <span class="text-4xl mb-1">📱</span>
+              <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400">Código QR Desplegado</span>
+            </div>
+            <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">https://tunombre.github.io/app/</div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Escaneable desde cualquier teléfono celular en 3 segundos.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTRASTE VISUAL: YOUTUBE VS ANTIGRAVITY.LAB -->
+  <section id="metodo" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-5xl mx-auto px-4">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Educación Concluyente</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-4">
+          La Gran Frustración de los Tutoriales de YouTube
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          Internet está inundado de videos de 12 minutos que prometen crear software en un instante, pero te dejan con código incompleto y frustración. Aquí tienes el contraste real:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Tarjeta Roja: YouTube Promedio -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-red-50/60 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 text-left reveal-left">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-sm">✕</span>
+            <h4 class="font-display font-bold text-lg text-red-950 dark:text-red-200">El Vibe Coder Frustrado (YouTube)</h4>
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Tutoriales inconclusos:</strong> Te muestran la pantalla pero no cómo correr ni guardar tus archivos.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Regresiones con ChatGPT:</strong> Pides un cambio cosmético y te borra la lógica anterior dañando la app.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Librerías alucinadas:</strong> Paquetes inventados o desactualizados que colapsan en la línea 30 sin soporte.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>El abismo del chat:</strong> Copia y pega infinito entre ventanas web sin control de versiones ni Git.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta Verde: Antigravity.Lab -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-sm reveal-right">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">✓</span>
+            <h4 class="font-display font-bold text-lg text-emerald-950 dark:text-emerald-200">El Creador con Método (Antigravity.Lab)</h4>
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Constitución inmutable:</strong> <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">AGENTS.md</code> y <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">design.md</code> blindan tu software de cambios destructivos.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Ciclo SDD Determinista:</strong> La IA redacta y aprueba el plano técnico antes de tocar una sola línea de código.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Datos reales y Sheets:</strong> Persistencia local con LocalStorage + sincronización en tiempo real con Google Sheets.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Despliegue HTTPS en vivo:</strong> Publicación gratuita en GitHub Pages con código QR funcional en tu propio teléfono.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EL MAPA MENTAL: 4 NIVELES Y EL MURO DE LA REALIDAD -->
+  <section class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
+    <div class="max-w-5xl mx-auto px-4">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Criterio Profesional</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
+          El Mapa Mental del Software: 4 Niveles
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          No vendemos la fantasía de crear Amazon en una tarde. Te enseñamos a dominar la <strong>Zona de Autonomía</strong> y a entender la <strong>Zona Senior</strong>.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        
+        <!-- Nivel 1 -->
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 1</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Landing Page Comercial</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">Páginas de captación, cartas de venta o formularios por WhatsApp. 1 solo archivo HTML + Tailwind.</p>
+          <div class="text-[11px] font-mono text-slate-500">Sesión 1 del Taller</div>
+        </div>
+
+        <!-- Nivel 2 -->
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 2</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Mini-App con Memoria</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">Formularios con persistencia en LocalStorage, validaciones defensivas y cálculos numéricos.</p>
+          <div class="text-[11px] font-mono text-slate-500">Sesión 2 del Taller</div>
+        </div>
+
+        <!-- Nivel 3 -->
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500/60 shadow-md reveal-up stagger-3">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 3</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold">Núcleo del Taller</span>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Sistema de Negocio</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">Screaming Architecture, PQRs, tarjetas KPI en tiempo real y sincronizador con Google Sheets.</p>
+          <div class="text-[11px] font-mono text-sky-600 dark:text-sky-400 font-bold">Sesión 3 del Taller</div>
+        </div>
+
+        <!-- Nivel 4 -->
+        <div class="p-5 rounded-2xl bg-indigo-50/50 dark:bg-slate-900/80 border border-indigo-200 dark:border-indigo-900/60 shadow-sm reveal-up stagger-4">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-display font-bold text-sm text-indigo-600 dark:text-indigo-400">Nivel 4</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold">Zona Senior</span>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Monorepo & Cloud</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">PostgreSQL, Docker, autenticación JWT, Linux VPS y radar de dependencias con Graphify.</p>
+          <div class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">Sesión 4 & Nivel 2</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ¿POR QUÉ GOOGLE ANTIGRAVITY & GEMINI? -->
+  <section id="antigravity" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-5xl mx-auto px-4">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Criterio Tecnológico</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
+          ¿Por qué Google Antigravity & Gemini?
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          En el ecosistema existen herramientas extraordinarias. No venimos a hablar mal de ninguna; te enseñamos dónde brilla cada una y por qué Google es la mejor cabina para este taller:
+        </p>
+      </div>
+
+      <!-- Cuadrante Comparativo Objetivo -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+          <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">ChatGPT & Claude</div>
+          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Ideación y Textos</div>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Insuperables para pulir propuestas de valor, lluvias de ideas y redacción de copys comerciales.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+          <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">GitHub Copilot</div>
+          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Autocompletado Rápido</div>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Excelente para programadores que ya dominan la sintaxis y quieren teclear código más rápido en su editor.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+          <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Cursor & Windsurf</div>
+          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Diffs Multi-archivo</div>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Pioneros destacados para desarrolladores avanzados con flujos de terminal y suscripciones por API.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border-2 border-sky-400 dark:border-sky-500/60 shadow-sm reveal-up stagger-4">
+          <div class="font-display font-bold text-base text-sky-900 dark:text-sky-200 mb-1">Google Antigravity</div>
+          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-bold">Creación Agéntica Unificada</div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">Cero barreras de pago con Gmail, ventana monumental de 1M de tokens y optimizado desde 4 GB de RAM.</p>
+        </div>
+      </div>
+
+      <!-- 5 Puntos Clave de Elección -->
+      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left reveal-up">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xl mb-1.5">🔑</div>
+          <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Cero Fricción</div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Acceso inmediato con tu cuenta de Google (Gmail). Sin tarjetas de crédito internacionales.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xl mb-1.5">🧠</div>
+          <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">1M+ Tokens</div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Gemini retiene tu proyecto entero en memoria para no desincronizar HTML, CSS y lógica.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xl mb-1.5">📐</div>
+          <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">High Reasoning</div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Obliga al agente a reflexionar, simular dependencias y actuar como arquitecto sénior.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xl mb-1.5">💻</div>
+          <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Desde 4 GB RAM</div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Ligero y accesible para computadoras portátiles normales sin tarjetas gráficas caras.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-xl mb-1.5">📊</div>
+          <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Google Sheets</div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Sincronización en la nube en tiempo real sin pagar costos mensuales de servidores.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CALCULADORA DE TRIAGE INTERACTIVA -->
+  <section id="triage" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Simulador de Decisiones Técnicas</h2>
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-4">
+          Calculadora de Triage Determinista
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          El gran secreto de los ingenieros senior es no sobrediseñar lo simple ni subestimar lo complejo. Selecciona qué tipo de software quieres construir para ver el veredicto:
+        </p>
+      </div>
+
+      <!-- Selector de Casos -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-6 reveal-up">
+        <button id="btn-1" onclick="setTriage(1)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
+          1. Folleto / Landing Page
+        </button>
+        <button id="btn-2" onclick="setTriage(2)" class="triage-btn px-4 py-2.5 rounded-xl border-2 border-sky-500 bg-sky-50 dark:bg-slate-800 text-sky-900 dark:text-sky-300 text-xs sm:text-sm font-bold transition shadow-sm">
+          2. Sistema de Requerimientos & PQRs
+        </button>
+        <button id="btn-3" onclick="setTriage(3)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
+          3. Software Corporativo Multiusuario
+        </button>
+      </div>
+
+      <!-- Resultado de Triage -->
+      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors reveal-scale">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEMARIO: NAVEGADOR INTERACTIVO DE MÓDULOS (TABS) -->
+  <section id="temario" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-4xl mx-auto px-4">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Programa Curricular</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
+          4 Módulos Prácticos en Vivo (8 Horas)
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          Toca cada pestaña para explorar los objetivos y el entregable concluyente de cada sesión:
+        </p>
+      </div>
+
+      <!-- Selector de Pestañas de Módulos -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 reveal-up">
+        <button id="mod-tab-1" onclick="setModuleTab(1)" class="module-tab-btn py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border transition text-center border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+          Módulo 1: El Despegue
+        </button>
+        <button id="mod-tab-2" onclick="setModuleTab(2)" class="module-tab-btn py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border transition text-center border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+          Módulo 2: El Cerebro
+        </button>
+        <button id="mod-tab-3" onclick="setModuleTab(3)" class="module-tab-btn active py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border-2 border-sky-500 bg-sky-50 dark:bg-slate-800 text-sky-900 dark:text-sky-300 shadow-md text-center">
+          Módulo 3: Construcción SDD
+        </button>
+        <button id="mod-tab-4" onclick="setModuleTab(4)" class="module-tab-btn py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border transition text-center border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+          Módulo 4: Producción & Negocio
+        </button>
+      </div>
+
+      <!-- Tarjeta de Contenido del Módulo Activo -->
+      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 sm:p-8 text-left transition-colors reveal-scale">
+        <!-- Render dinámico por JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EL INSTRUCTOR: GERSON JAVIER -->
+  <section id="instructor" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors reveal-scale">
+        <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+          <div class="relative flex-shrink-0">
+            <img src="https://github.com/gersonja.png" alt="Gerson Javier" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-sky-400 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
+            <div class="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] px-2.5 py-0.5 rounded-full font-bold shadow-md">
+              En Vivo
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-slate-800 text-sky-700 dark:text-sky-400 text-xs font-bold mb-2">
+              Instructor & Mentor
+            </div>
+            <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-950 dark:text-white mb-1">
+              Gerson Javier
+            </h3>
+            <div class="text-sky-600 dark:text-sky-400 font-semibold text-xs sm:text-sm mb-3 font-mono">
+              Senior Software Engineer & SaaS Builder
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+              "No soy un gurú de redes sociales ni un vendedor de cursos mágicos. Soy un desarrollador con años de experiencia en la trinchera del código real: construí software robusto mucho antes de ChatGPT y he puesto en producción plataformas SaaS utilizadas por usuarios reales."
+            </p>
+            <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              "Hoy utilizo la inteligencia artificial todos los días para construir 5 veces más rápido, pero con los principios de arquitectura, seguridad y rigor que ningún tutorial de 15 minutos en YouTube te enseña. Mi meta en este taller es transmitirte ese mismo criterio para que construyas software con autonomía y sin frustraciones."
+            </p>
+            
+            <!-- Enlaces directos a perfiles reales -->
+            <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-200 dark:border-slate-800 text-xs">
+              <a href="https://github.com/gersonja" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+                <span>🐙 GitHub:</span>
+                <span class="font-mono text-sky-600 dark:text-sky-400 font-semibold">@gersonja</span>
+              </a>
+              <a href="https://www.linkedin.com/in/gersonjavier/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+                <span>💼 LinkedIn:</span>
+                <span class="font-mono text-sky-600 dark:text-sky-400 font-semibold">gersonjavier</span>
+              </a>
+              <a href="https://www.facebook.com/gersonjavier" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+                <span>📘 Facebook:</span>
+                <span class="font-mono text-sky-600 dark:text-sky-400 font-semibold">gersonjavier</span>
+              </a>
+              <span class="text-slate-500 text-xs flex items-center gap-1">
+                <span>📍</span> Ecuador & Colombia
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTÍAS CERO HUMO -->
+  <section id="garantia" class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Tu Tranquilidad Primero</h2>
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-10">
+          Nuestras 4 Garantías Inquebrantables
+        </h3>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+          <div class="text-2xl mb-2">🎯</div>
+          <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Software en Producción</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No te vas con apuntes teóricos. Sales con tu aplicación desplegada con enlace público HTTPS y código QR.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+          <div class="text-2xl mb-2">💻</div>
+          <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Cero Gastos Ocultos</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Todo el taller corre sobre herramientas 100% gratuitas (Google Antigravity, Gemini Flash y GitHub Pages).</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+          <div class="text-2xl mb-2">🤝</div>
+          <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Desbloqueo en Vivo</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dedicamos 30 a 60 minutos exclusivos por sesión para revisar pantallas y destrabar cualquier error.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
+          <div class="text-2xl mb-2">🔒</div>
+          <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Satisfacción Total</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Participa en la Sesión 1. Si sientes que no era lo que esperabas, te reembolsamos el 100% de inmediato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARJETA DE PRECIO Y RETORNO DE INVERSIÓN (ROI) -->
+  <section id="precio" class="py-16 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Inversión & Reserva</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-2">
+          Asegura tu Cupo en la Cohorte
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-6">
+          Limitado a 30 participantes para asegurar soporte y revisión en vivo a cada uno.
+        </p>
+      </div>
+
+      <!-- Selector de Moneda Dinámico (COP / USD) -->
+      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-up">
+        <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md">
+          <span>🇨🇴</span> Pesos Colombianos (COP)
+        </button>
+        <button id="curr-usd" onclick="setCurrency('USD')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5">
+          <span>💵</span> Dólares (USD / Ecuador)
+        </button>
+      </div>
+
+      <!-- Tarjeta de Precio -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl transition-colors reveal-scale">
+        
+        <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
+          Ahorras $50.000 COP
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-6">
+          <div>
+            <h3 class="font-display font-black text-xl sm:text-2xl text-slate-950 dark:text-white">Taller Completo (4 Sesiones)</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Acceso a clases en vivo, grabaciones y kit de plantillas</p>
+          </div>
+          <div class="text-right">
+            <span id="price-regular" class="text-sm text-slate-400 line-through block font-mono">COP $150.000</span>
+            <span id="price-active" class="font-display font-black text-3xl sm:text-4xl text-sky-600 dark:text-sky-400 tracking-tight">
+              COP $100.000
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm text-slate-700 dark:text-slate-300 mb-8 font-medium">
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>8 Horas Prácticas en Vivo:</strong> 4 módulos interactivos con código en vivo.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>Mesa de Ayuda Técnica (30-60 min):</strong> Desbloqueo en vivo en cada sesión.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>Kit Canónico de Gobierno:</strong> Plantillas de <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">AGENTS.md</code>, <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">design.md</code>, <strong>Rules</strong> (Ciclo SDD) y <strong>Skills</strong> de Antigravity.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>Acceso a las Grabaciones:</strong> Repasa el paso a paso las veces que quieras en 1080p.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>Canal Privado de Telegram:</strong> Red de contactos y resolución de dudas.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span><strong>Garantía de Despliegue:</strong> Sales con tu software publicado o te ayudamos 1-a-1.</span>
+          </div>
+        </div>
+
+        <!-- Botón de Pago Principal (WhatsApp) -->
+        <a id="cta-whatsapp" href="https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP" target="_blank" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-display font-black text-center text-base sm:text-lg block transition shadow-lg shadow-emerald-500/20 mb-4 tracking-wide">
+          📲 Reservar mi Cupo por WhatsApp (COP $100.000)
+        </a>
+
+        <div id="payment-methods-info" class="text-center text-xs text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center gap-2 pt-2">
+          <div class="flex items-center gap-2">
+            <span>💳 Medios de pago Colombia:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Nequi</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-mono font-bold">Bancolombia</span>
+          </div>
+          <p class="text-[11px]">
+            Los datos exactos de transferencia o código QR te los compartimos directamente en la conversación de WhatsApp al escribirnos.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES (FAQ) -->
+  <section class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-10 reveal-up">
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">Preguntas Frecuentes</h3>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Resolvemos tus dudas con total transparencia</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-1">
+          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Necesito ser un programador experto?</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">No. Si entiendes conceptos básicos de qué es una página web, botones e interfaces, el taller te enseñará a gobernar la IA con rigor. No necesitas saber escribir algoritmos complejos de memoria.</p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-2">
+          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Mi computador servirá para el taller?</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Sí. Hemos diseñado todo el taller para que funcione desde portátiles modestos con <strong>4 GB de memoria RAM</strong> en Windows, Mac o Linux. No necesitas tarjetas gráficas Nvidia ni entornos pesados.</p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-3">
+          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Qué pasa si no puedo asistir a una clase en vivo?</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas las sesiones quedan grabadas en alta definición y se suben al canal de Telegram al terminar la clase, junto con los archivos y el código del día para que no te atrases.</p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-4">
+          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué limitan el cupo a 30 participantes?</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Porque en este taller el instructor revisa pantallas y desbloquea errores técnicos reales. En una sala con 200 personas nadie aprende; con 30 garantizamos atención y resultados concluyentes.</p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-5">
+          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué enseñan con Google Antigravity y no con Cursor o ChatGPT?</h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas son herramientas extraordinarias: ChatGPT es excelente para idear y redactar copys, y Cursor es un pionero fantástico para desarrolladores avanzados. Elegimos <strong>Google Antigravity & Gemini</strong> para este taller porque ofrece la combinación perfecta de <strong>cero fricción de entrada</strong> (acceso directo con tu cuenta de Google, sin tarjetas internacionales), una ventana de contexto masiva de 1 millón de tokens para no perder la sincronía de tu proyecto, y un rendimiento sumamente ligero optimizado para laptops desde 4 GB de RAM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2.5 font-bold text-slate-700 dark:text-slate-300">
+        <img src="favicon.svg" alt="Antigravity.Lab" class="w-6 h-6 rounded-lg shadow border border-sky-400/40">
+        <span class="font-display text-slate-900 dark:text-white font-extrabold text-sm">Antigravity<span class="text-sky-500">.Lab</span></span>
+        <span class="text-slate-400">•</span>
+        <span>Educación Concluyente en Software</span>
+      </div>
+      <p>Diseñado con rigor técnico para la comunidad de desarrolladores y creadores de software.</p>
+      <p class="text-slate-400 dark:text-slate-600">© 2026 Todos los derechos reservados. No afiliado formalmente a Google LLC ni Microsoft.</p>
+    </div>
+  </footer>
+
+  <!-- BARRA STICKY INFERIOR MÓVIL -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-3 flex items-center justify-between shadow-lg">
+    <div>
+      <div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-mono">Solo 30 Cupos</div>
+      <div id="mobile-price" class="text-base font-display font-black text-sky-600 dark:text-sky-400 font-mono">COP $100.000</div>
+    </div>
+    <a href="#precio" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-display font-bold text-xs transition shadow-md shadow-sky-500/20">
+      Asegurar Cupo &rarr;
+    </a>
+  </div>
+
+  <!-- SCRIPTS INTERACTIVOS: TEMA, MENÚ MÓVIL, MOCKUP HERO, TEMARIO TABS, TRIAGE Y DIVISAS -->
+  <script>
+    // --- 1. GESTIÓN DE TEMA (LIGHT THEME POR DEFECTO + DARK THEME TOGGLE) ---
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('antigravity_theme', isDark ? 'dark' : 'light');
+    }
+
+    // --- 2. MENÚ HAMBURGUESA MÓVIL ---
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const btn = document.getElementById('mobile-menu-btn');
+      if (!drawer || !btn) return;
+
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        btn.classList.add('hamburger-active');
+      } else {
+        drawer.classList.add('hidden');
+        btn.classList.remove('hamburger-active');
+      }
+    }
+
+    // --- 3. PESTAÑAS DEL SHOWCASE MOCKUP EN EL HERO ---
+    function switchHeroTab(tabId) {
+      const tabs = ['spec', 'app', 'mobile'];
+      tabs.forEach(t => {
+        const content = document.getElementById('hero-tab-' + t);
+        const btn = document.getElementById('tab-btn-' + t);
+        if (content) content.classList.add('hidden');
+        if (btn) {
+          btn.classList.remove('active');
+          btn.className = 'mockup-tab-btn px-3 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+        }
+      });
+
+      const activeContent = document.getElementById('hero-tab-' + tabId);
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.className = 'mockup-tab-btn active px-3 py-1 rounded';
+      }
+    }
+
+    function simularExportacion() {
+      const toast = document.getElementById('export-toast');
+      if (!toast) return;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // --- 4. NAVEGADOR DE MÓDULOS DEL TEMARIO (TABS) ---
+    const modulesData = {
+      1: {
+        num: 1,
+        title: "Módulo 1: El Despegue — Tu Entorno de Creación Agéntica",
+        duration: "Sesión 1 (2h) — 90m Práctica + 30m Q&A",
+        desc: "Instalamos y calibramos <strong>Google Antigravity IDE</strong> con <strong>Gemini 3.8 Flash (High Reasoning)</strong>. Separamos la Idea del Stack y construimos una Landing Page responsiva en tu PC desde 4 GB de RAM, realizando tu primer commit en GitHub.",
+        points: [
+          "Del chat web conversacional al agente residente en tu código.",
+          "Separación estricta de Idea de Negocio vs. Stack Tecnológico.",
+          "Construcción y personalización de Landing Page comercial (HTML5 + Tailwind CDN)."
+        ],
+        deliverable: "Tu primera Landing Page comercial creada y versionada en GitHub."
+      },
+      2: {
+        num: 2,
+        title: "Módulo 2: Domando a la IA — AGENTS.md, design.md, Rules & Skills",
+        duration: "Sesión 2 (2h) — 90m Práctica + 30m Q&A",
+        desc: "Blindamos al agente con el cuarteto canónico: la constitución <code>AGENTS.md</code>, el sistema de UI <code>design.md</code>, las <strong>Rules</strong> de Ciclo SDD y las <strong>Skills</strong> de Antigravity. La IA redacta el plano técnico (<code>SPEC.md</code>) sin tirar código a ciegas.",
+        points: [
+          "Screaming Architecture: carpetas que gritan el negocio (`features/requerimientos`).",
+          "Matriz de Triage Determinista: Fast-Path vs. SDD Obligatorio.",
+          "Inyección del Prompt Génesis y aprobación del plano antes de construir."
+        ],
+        deliverable: "Constitución AGENTS.md, design.md y Especificación previa SPEC.md aprobada."
+      },
+      3: {
+        num: 3,
+        title: "Módulo 3: Construcción Quirúrgica con SDD — Del Plano a la App con KPIs",
+        duration: "Sesión 3 (2h) — 90m Práctica + 30-60m Desbloqueo",
+        desc: "Compilamos el <strong>Sistema de Gestión de Requerimientos & PQRs</strong>. Persistencia local en LocalStorage, tarjetas KPI en tiempo real y sincronización en vivo con <strong>Google Sheets</strong>. Aplicamos parches milimétricos con el Prompt Cirujano.",
+        points: [
+          "Motor de Captura de Requerimientos y validación estricta de entradas.",
+          "Motor de Métricas KPI en vivo: Total, Pendientes, Resueltos y porcentajes.",
+          "Exportador con BOM UTF-8 y enlace en tiempo real con Google Sheets en la nube."
+        ],
+        deliverable: "Sistema de Requerimientos 100% funcional con LocalStorage y Google Sheets."
+      },
+      4: {
+        num: 4,
+        title: "Módulo 4: De Localhost al Mundo — Despliegue, Escala Empresarial & Negocio",
+        duration: "Sesión 4 (2h) — 90m Práctica/Estrategia + 30m Showcase",
+        desc: "Desplegamos en 1 clic a <strong>GitHub Pages (HTTPS)</strong> con código QR abriendo en tu celular. Analizamos la <strong>Escala Corporativa (Nivel 4)</strong> con demostración de <strong>Graphify</strong> para auditar grandes monorepos y estrategia para vender a empresas.",
+        points: [
+          "Despliegue global gratuito en 3 clics con HTTPS y certificado SSL.",
+          "Detrás de la Nube Senior: VPS Linux, Nginx, Docker y PostgreSQL.",
+          "Demostración de Graphify como radar de dependencias para proyectos grandes."
+        ],
+        deliverable: "Tu software publicado en Internet, enlace público, código QR y diploma."
+      }
+    };
+
+    function setModuleTab(tabId) {
+      document.querySelectorAll('.module-tab-btn').forEach((btn, idx) => {
+        btn.classList.remove('active', 'border-2', 'border-sky-500', 'bg-sky-50', 'dark:bg-slate-800', 'text-sky-900', 'dark:text-sky-300', 'shadow-md');
+        btn.classList.add('border-slate-200', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300');
+      });
+
+      const activeBtn = document.getElementById('mod-tab-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-200', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300');
+        activeBtn.classList.add('active', 'border-2', 'border-sky-500', 'bg-sky-50', 'dark:bg-slate-800', 'text-sky-900', 'dark:text-sky-300', 'shadow-md');
+      }
+
+      const mod = modulesData[tabId];
+      const card = document.getElementById('module-content-card');
+      if (!card || !mod) return;
+
+      card.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center font-display font-bold text-sm border border-sky-500/30">
+              ${mod.num}
+            </span>
+            <h4 class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
+              ${mod.title}
+            </h4>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 self-start sm:self-auto font-semibold">
+            ${mod.duration}
+          </span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+          ${mod.desc}
+        </p>
+        <div class="mb-5 space-y-2">
+          ${mod.points.map(p => `
+            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">
+              <span class="text-sky-500 font-bold">✓</span>
+              <span>${p}</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="p-3.5 bg-emerald-50 dark:bg-slate-950/70 rounded-xl border border-emerald-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2.5">
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold">🎯 Entregable Concluyente:</span>
+          <span>${mod.deliverable}</span>
+        </div>
+      `;
+    }
+
+    // --- 5. GESTIÓN DE MONEDAS (COP / USD) ---
+    const currencyData = {
+      COP: {
+        regular: "COP $150.000",
+        active: "COP $100.000",
+        savings: "Ahorras $50.000 COP",
+        headerCta: "(COP $100.000)",
+        heroCta: "Asegurar mi Cupo (COP $100.000)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (COP $100.000)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP",
+        methodsHtml: `
+          <div class="flex items-center gap-2">
+            <span>💳 Medios de pago Colombia:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Nequi</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-mono font-bold">Bancolombia</span>
+          </div>
+          <p class="text-[11px]">
+            Los datos exactos de transferencia o código QR te los compartimos directamente en la conversación de WhatsApp al escribirnos.
+          </p>
+        `
+      },
+      USD: {
+        regular: "USD $40",
+        active: "USD $25",
+        savings: "Ahorras $15 USD",
+        headerCta: "(USD $25)",
+        heroCta: "Asegurar mi Cupo (USD $25)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (USD $25)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$25%20USD",
+        methodsHtml: `
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <span>💳 Medios de pago Ecuador / Internacional:</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-mono font-bold">Banco Pichincha</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Banco Guayaquil</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 font-mono font-bold">Deuna</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-mono font-bold">PayPal</span>
+          </div>
+          <p class="text-[11px]">
+            Los datos de transferencia bancaria en Ecuador (o enlace PayPal internacional) te los compartimos directamente por WhatsApp.
+          </p>
+        `
+      }
+    };
+
+    function setCurrency(curr) {
+      const btnCop = document.getElementById('curr-cop');
+      const btnUsd = document.getElementById('curr-usd');
+      
+      if (!btnCop || !btnUsd) return;
+
+      if (curr === 'COP') {
+        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
+      } else {
+        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
+      }
+
+      const d = currencyData[curr];
+      const savingsEl = document.getElementById('price-savings');
+      const regularEl = document.getElementById('price-regular');
+      const activeEl = document.getElementById('price-active');
+      const headerCta = document.getElementById('header-cta-text');
+      const heroCta = document.getElementById('hero-cta-text');
+      const mobilePrice = document.getElementById('mobile-price');
+      const ctaWa = document.getElementById('cta-whatsapp');
+      const methodsEl = document.getElementById('payment-methods-info');
+
+      if (savingsEl) savingsEl.innerText = d.savings;
+      if (regularEl) regularEl.innerText = d.regular;
+      if (activeEl) activeEl.innerText = d.active;
+      if (headerCta) headerCta.innerText = d.headerCta;
+      if (heroCta) heroCta.innerText = d.heroCta;
+      if (mobilePrice) mobilePrice.innerText = d.active;
+      if (ctaWa) {
+        ctaWa.innerText = d.btnWhatsapp;
+        ctaWa.href = d.whatsappUrl;
+      }
+      if (methodsEl) methodsEl.innerHTML = d.methodsHtml;
+    }
+
+    // --- 6. CALCULADORA DE TRIAGE ---
+    const triageData = {
+      1: {
+        title: "Nivel 1: Fast-Path (Vía Rápida)",
+        badge: "100% Autónomo | Listo en 45 Minutos",
+        color: "text-sky-600 dark:text-sky-400",
+        bgBadge: "bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+        desc: "Ideal para páginas de aterrizaje, portafolios, formularios de cotización o cartas de ventas. Todo vive en un solo archivo HTML estilizado con Tailwind CSS vía CDN.",
+        stack: "HTML5 + Tailwind CDN + JS Vanilla (Sin compiladores ni dependencias).",
+        veredicto: "✅ No requiere ciclo SDD complejo. Se genera directamente con un buen prompt de Fast-Path en la Sesión 1."
+      },
+      2: {
+        title: "Nivel 3: Sistema de Gestión de Requerimientos & PQRs (El Núcleo del Taller)",
+        badge: "100% Autónomo | Lo que construyes en la Sesión 3",
+        color: "text-emerald-600 dark:text-emerald-400",
+        bgBadge: "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+        desc: "Ideal para cualquier negocio, clínica, agencia o comercio: captura de requerimientos, peticiones, quejas o reclamos con validaciones, filtros por estado (Pendiente / En Proceso / Resuelto), tarjetas KPI en tiempo real y sincronización directa con Google Sheets en la nube.",
+        stack: "Screaming Architecture (index.html, operaciones.js, metricas.js, reportes.js) + LocalStorage + Google Sheets Sync.",
+        veredicto: "💎 El software de alta demanda que las empresas necesitan y pagan con gusto. Lo construyes y despliegas en el taller con total autonomía."
+      },
+      3: {
+        title: "Nivel 4: Software Corporativo & Arquitectura Cloud",
+        badge: "Oportunidad de Alto Valor | Escala Empresarial",
+        color: "text-indigo-600 dark:text-indigo-400",
+        bgBadge: "bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+        desc: "Cuando tu cliente necesita multiusuario concurrente con permisos por roles, bases de datos PostgreSQL transaccionales, APIs autenticadas con JWT y despliegues en servidores Linux cloud. Aquí es donde entra Graphify para auditar y mapear monorepos complejos sin romper dependencias.",
+        stack: "PostgreSQL 16 + Docker + Node.js/TypeScript + Prisma ORM + Radar Graphify.",
+        veredicto: "🚀 La gran oportunidad de negocio: en el taller aprendes a dimensionar estos proyectos de alto ticket para cotizarlos con confianza, liderarlos como Director de Producto o continuar tu formación técnica con nuestro Nivel 2."
+      }
+    };
+
+    function setTriage(level) {
+      document.querySelectorAll('.triage-btn').forEach(btn => {
+        btn.classList.remove('border-2', 'border-sky-500', 'bg-sky-50', 'dark:bg-slate-800', 'text-sky-900', 'dark:text-sky-300', 'font-bold');
+        btn.classList.add('border-slate-200', 'dark:border-slate-700', 'bg-white', 'dark:bg-slate-800/60', 'font-semibold');
+      });
+      const activeBtn = document.getElementById('btn-' + level);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-200', 'dark:border-slate-700', 'bg-white', 'dark:bg-slate-800/60', 'font-semibold');
+        activeBtn.classList.add('border-2', 'border-sky-500', 'bg-sky-50', 'dark:bg-slate-800', 'text-sky-900', 'dark:text-sky-300', 'font-bold');
+      }
+
+      const data = triageData[level];
+      const container = document.getElementById('triage-result');
+      if (!container || !data) return;
+
+      container.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <span class="font-display font-bold text-base ${data.color}">${data.title}</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full border ${data.bgBadge} font-mono font-semibold self-start sm:self-auto">${data.badge}</span>
+        </div>
+        <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">${data.desc}</p>
+        <div class="bg-slate-100 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 mb-3">
+          <strong class="text-slate-900 dark:text-white">Stack Técnico:</strong> ${data.stack}
+        </div>
+        <div class="text-xs font-bold ${data.color}">${data.veredicto}</div>
+      `;
+    }
+
+    // --- 7. OBSERVADOR DE ANIMACIONES DE SCROLL (60 FPS NATIVO) ---
+    function initScrollAnimations() {
+      const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('revealed'));
+        return;
+      }
+      
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+    }
+
+    // Inicializaciones
+    setTriage(2);
+    setModuleTab(3);
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+      initScrollAnimations();
+    }
+  </script>
+
+</body>
+</html>

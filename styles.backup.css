@@ -1,0 +1,262 @@
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS & CONTROL DE HOSTING — ANTIGRAVITY.LAB
+   SISTEMA DE DISEÑO DUAL: LIGHT THEME (DEFAULT) & DARK THEME
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BLOQUEO ESTRICTO DE MARCAS, BADGES & WIDGETS DE TERCEROS (NETLIFY / FREE)
+   -------------------------------------------------------------------------- */
+#netlify-badge,
+.netlify-badge,
+a[href*="netlify.com"]:not(.allowed-link),
+[data-netlify-drawer],
+[data-netlify-identity],
+#netlify-banner,
+.netlify-feedback-banner,
+iframe[src*="netlify"],
+iframe[id*="netlify"],
+.netlify-identity-menu,
+#netlify-identity-widget,
+[class*="netlify-banner"],
+[class*="netlify-drawer"],
+[class*="netlify-feedback"],
+div[data-netlify-feedback],
+div[data-collaborative-tools],
+#collaborative-summary {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -999999 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. MEJORAS DE RENDERIZADO, TIPOGRAFÍA & SUAVIZADO
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Encabezados con Personalidad: Outfit Obligatorio con Tracking Ajustado */
+h1, h2, h3, h4, h5, h6, .font-display, .brand-heading {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.025em;
+}
+
+/* Scrollbar personalizado adaptativo */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   3. SISTEMA DE SUPERFICIES Y TARJETAS DUALES (LIGHT & DARK)
+   -------------------------------------------------------------------------- */
+/* Tarjetas en Modo Claro (Default): Limpias, flotantes con sombra suave */
+.glow-card {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 12px 28px -4px rgba(14, 165, 233, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Tarjetas en Modo Oscuro: Glassmorphism translúcido con borde reactivo */
+.dark .glow-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dark .glow-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 35px -5px rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Resplandores de atmósfera (Glow Mesh) */
+.glow-cyan {
+  box-shadow: 0 0 40px -8px rgba(14, 165, 233, 0.18);
+}
+.dark .glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 40px -8px rgba(16, 185, 129, 0.18);
+}
+.dark .glow-emerald {
+  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAQUETA INTERACTIVA DE APLICACIÓN (HERO SHOWCASE MOCKUP)
+   -------------------------------------------------------------------------- */
+.mockup-window {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  transition: all 0.3s ease;
+}
+
+.dark .mockup-window {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(51, 65, 85, 0.6), 0 0 40px -10px rgba(56, 189, 248, 0.15);
+}
+
+.mockup-tab-btn {
+  transition: all 0.2s ease;
+}
+
+.mockup-tab-btn.active {
+  background: #ffffff;
+  color: #0284c7;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dark .mockup-tab-btn.active {
+  background: #1e293b;
+  color: #38bdf8;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   5. MENÚ HAMBURGUESA MÓVIL ANIMADO
+   -------------------------------------------------------------------------- */
+.hamburger-line {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.hamburger-active .hamburger-line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-active .hamburger-line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-active .hamburger-line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE TOUCH & INTERACTIVIDAD
+   -------------------------------------------------------------------------- */
+@media (hover: none) {
+  .glow-card:hover {
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. ANIMACIONES DE SCROLL DETERMINISTAS & LIGERAS (60 FPS NATIVAS)
+   -------------------------------------------------------------------------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(20px);
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado Revelado */
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Retardos escalonados para tarjetas y cuadrículas */
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+.stagger-5 { transition-delay: 400ms; }
+
+/* En móviles, suavizar desplazamientos laterales a verticales para evitar jitter horizontal */
+@media (max-width: 768px) {
+  .reveal-left, .reveal-right {
+    transform: translateY(22px);
+  }
+}
+
+/* Accesibilidad: si el usuario prefiere reducir movimiento en su SO */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
