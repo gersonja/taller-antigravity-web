@@ -566,16 +566,18 @@
   <section id="triage" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
     <div class="max-w-4xl mx-auto px-4 text-center">
       
-      <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Simulador de Decisiones Técnicas</h2>
-      <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-4">
-        Calculadora de Triage Determinista
-      </h3>
-      <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
-        El gran secreto de los ingenieros senior es no sobrediseñar lo simple ni subestimar lo complejo. Selecciona qué tipo de software quieres construir para ver el veredicto:
-      </p>
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Simulador de Decisiones Técnicas</h2>
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-4">
+          Calculadora de Triage Determinista
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          El gran secreto de los ingenieros senior es no sobrediseñar lo simple ni subestimar lo complejo. Selecciona qué tipo de software quieres construir para ver el veredicto:
+        </p>
+      </div>
 
       <!-- Selector de Casos -->
-      <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-6 reveal-up">
         <button id="btn-1" onclick="setTriage(1)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
           1. Folleto / Landing Page
         </button>
@@ -588,7 +590,7 @@
       </div>
 
       <!-- Resultado de Triage -->
-      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors">
+      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors reveal-scale">
         <!-- Renderizado dinámico vía JavaScript -->
       </div>
 
@@ -599,7 +601,7 @@
   <section id="temario" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-4xl mx-auto px-4">
       
-      <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Programa Curricular</h2>
         <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
           4 Módulos Prácticos en Vivo (8 Horas)
@@ -610,7 +612,7 @@
       </div>
 
       <!-- Selector de Pestañas de Módulos -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 reveal-up">
         <button id="mod-tab-1" onclick="setModuleTab(1)" class="module-tab-btn py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border transition text-center border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
           Módulo 1: El Despegue
         </button>
@@ -626,7 +628,7 @@
       </div>
 
       <!-- Tarjeta de Contenido del Módulo Activo -->
-      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 sm:p-8 text-left transition-colors">
+      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 sm:p-8 text-left transition-colors reveal-scale">
         <!-- Render dinámico por JavaScript -->
       </div>
 
@@ -636,7 +638,7 @@
   <!-- EL INSTRUCTOR: GERSON JAVIER -->
   <section id="instructor" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors reveal-scale">
         <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
           <div class="relative flex-shrink-0">
             <img src="https://github.com/gersonja.png" alt="Gerson Javier" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-sky-400 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
@@ -688,28 +690,30 @@
   <!-- GARANTÍAS CERO HUMO -->
   <section id="garantia" class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-5xl mx-auto px-4 text-center">
-      <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Tu Tranquilidad Primero</h2>
-      <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-10">
-        Nuestras 4 Garantías Inquebrantables
-      </h3>
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Tu Tranquilidad Primero</h2>
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white tracking-tight mb-10">
+          Nuestras 4 Garantías Inquebrantables
+        </h3>
+      </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
           <div class="text-2xl mb-2">🎯</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Software en Producción</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No te vas con apuntes teóricos. Sales con tu aplicación desplegada con enlace público HTTPS y código QR.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
           <div class="text-2xl mb-2">💻</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Cero Gastos Ocultos</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Todo el taller corre sobre herramientas 100% gratuitas (Google Antigravity, Gemini Flash y GitHub Pages).</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
           <div class="text-2xl mb-2">🤝</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Desbloqueo en Vivo</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dedicamos 30 a 60 minutos exclusivos por sesión para revisar pantallas y destrabar cualquier error.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
           <div class="text-2xl mb-2">🔒</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Satisfacción Total</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Participa en la Sesión 1. Si sientes que no era lo que esperabas, te reembolsamos el 100% de inmediato.</p>
@@ -722,16 +726,18 @@
   <section id="precio" class="py-16 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-3xl mx-auto px-4 text-center">
       
-      <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Inversión & Reserva</h2>
-      <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-2">
-        Asegura tu Cupo en la Cohorte
-      </h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-6">
-        Limitado a 30 participantes para asegurar soporte y revisión en vivo a cada uno.
-      </p>
+      <div class="reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Inversión & Reserva</h2>
+        <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-2">
+          Asegura tu Cupo en la Cohorte
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-6">
+          Limitado a 30 participantes para asegurar soporte y revisión en vivo a cada uno.
+        </p>
+      </div>
 
       <!-- Selector de Moneda Dinámico (COP / USD) -->
-      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-up">
         <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md">
           <span>🇨🇴</span> Pesos Colombianos (COP)
         </button>
@@ -741,7 +747,7 @@
       </div>
 
       <!-- Tarjeta de Precio -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl transition-colors">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl transition-colors reveal-scale">
         
         <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
           Ahorras $50.000 COP
@@ -811,33 +817,33 @@
   <!-- PREGUNTAS FRECUENTES (FAQ) -->
   <section class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-10">
+      <div class="text-center mb-10 reveal-up">
         <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">Preguntas Frecuentes</h3>
         <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Resolvemos tus dudas con total transparencia</p>
       </div>
 
       <div class="space-y-3">
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-1">
           <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Necesito ser un programador experto?</h4>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">No. Si entiendes conceptos básicos de qué es una página web, botones e interfaces, el taller te enseñará a gobernar la IA con rigor. No necesitas saber escribir algoritmos complejos de memoria.</p>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-2">
           <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Mi computador servirá para el taller?</h4>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Sí. Hemos diseñado todo el taller para que funcione desde portátiles modestos con <strong>4 GB de memoria RAM</strong> en Windows, Mac o Linux. No necesitas tarjetas gráficas Nvidia ni entornos pesados.</p>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-3">
           <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Qué pasa si no puedo asistir a una clase en vivo?</h4>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas las sesiones quedan grabadas en alta definición y se suben al canal de Telegram al terminar la clase, junto con los archivos y el código del día para que no te atrases.</p>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-4">
           <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué limitan el cupo a 30 participantes?</h4>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Porque en este taller el instructor revisa pantallas y desbloquea errores técnicos reales. En una sala con 200 personas nadie aprende; con 30 garantizamos atención y resultados concluyentes.</p>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-5">
           <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué enseñan con Google Antigravity y no con Cursor o ChatGPT?</h4>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas son herramientas extraordinarias: ChatGPT es excelente para idear y redactar copys, y Cursor es un pionero fantástico para desarrolladores avanzados. Elegimos <strong>Google Antigravity & Gemini</strong> para este taller porque ofrece la combinación perfecta de <strong>cero fricción de entrada</strong> (acceso directo con tu cuenta de Google, sin tarjetas internacionales), una ventana de contexto masiva de 1 millón de tokens para no perder la sincronía de tu proyecto, y un rendimiento sumamente ligero optimizado para laptops desde 4 GB de RAM.</p>
         </div>
