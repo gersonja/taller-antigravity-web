@@ -1,9 +1,10 @@
 /* ==========================================================================
-   ESTILOS PERSONALIZADOS & CONTROL DE HOSTING — EMBUDO ANTIGRAVITY.LAB
+   ESTILOS PERSONALIZADOS & CONTROL DE HOSTING — ANTIGRAVITY.LAB
+   SISTEMA DE DISEÑO DUAL: LIGHT THEME (DEFAULT) & DARK THEME
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. BLOQUEO ESTRICTO DE MARCAS, BADGES & WIDGETS DE NETLIFY (PLAN GRATUITO)
+   1. BLOQUEO ESTRICTO DE MARCAS, BADGES & WIDGETS DE TERCEROS (NETLIFY / FREE)
    -------------------------------------------------------------------------- */
 #netlify-badge,
 .netlify-badge,
@@ -46,69 +47,143 @@ html {
 }
 
 body {
-  background-color: #090d16;
-  color: #f1f5f9;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
-/* Scrollbar personalizado moderno */
+/* Scrollbar personalizado adaptativo */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
   background: #090d16;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
   border: 1px solid #334155;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #38bdf8;
 }
 
 /* --------------------------------------------------------------------------
-   3. EFECTOS GLOW, GLASSMORPHISM & TARJETAS
+   3. SISTEMA DE SUPERFICIES Y TARJETAS DUALES (LIGHT & DARK)
    -------------------------------------------------------------------------- */
-.glow-cyan {
-  box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.25);
-}
-
-.glow-emerald {
-  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
-}
-
+/* Tarjetas en Modo Claro (Default): Limpias, flotantes con sombra suave */
 .glow-card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glow-card:hover {
-  border-color: rgba(56, 189, 248, 0.45);
+  border-color: #38bdf8;
+  box-shadow: 0 12px 28px -4px rgba(14, 165, 233, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
   transform: translateY(-2px);
 }
 
+/* Tarjetas en Modo Oscuro: Glassmorphism translúcido con borde reactivo */
+.dark .glow-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dark .glow-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 35px -5px rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Resplandores de atmósfera (Glow Mesh) */
+.glow-cyan {
+  box-shadow: 0 0 40px -8px rgba(14, 165, 233, 0.18);
+}
+.dark .glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 40px -8px rgba(16, 185, 129, 0.18);
+}
+.dark .glow-emerald {
+  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+}
+
 /* --------------------------------------------------------------------------
-   4. DETALLES DE INTERACTIVIDAD & BOTONES
+   4. MAQUETA INTERACTIVA DE APLICACIÓN (HERO SHOWCASE MOCKUP)
    -------------------------------------------------------------------------- */
-.triage-btn {
-  transition: all 0.2s ease-in-out;
+.mockup-window {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  transition: all 0.3s ease;
 }
 
-.triage-btn:hover {
-  transform: translateY(-1px);
+.dark .mockup-window {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(51, 65, 85, 0.6), 0 0 40px -10px rgba(56, 189, 248, 0.15);
 }
 
-/* Asegurar que en pantallas táctiles los botones tengan respuesta táctil */
+.mockup-tab-btn {
+  transition: all 0.2s ease;
+}
+
+.mockup-tab-btn.active {
+  background: #ffffff;
+  color: #0284c7;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dark .mockup-tab-btn.active {
+  background: #1e293b;
+  color: #38bdf8;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   5. MENÚ HAMBURGUESA MÓVIL ANIMADO
+   -------------------------------------------------------------------------- */
+.hamburger-line {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.hamburger-active .hamburger-line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-active .hamburger-line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-active .hamburger-line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE TOUCH & INTERACTIVIDAD
+   -------------------------------------------------------------------------- */
 @media (hover: none) {
   .glow-card:hover {
     transform: none;
   }
 }
-
