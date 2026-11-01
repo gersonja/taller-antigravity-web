@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Wings Gradients -->
+    <linearGradient id="leftWingGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="rightWingGrad" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#38bdf8"/>
+      <stop offset="70%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Base Squircle with Glowing Border -->
+  <rect x="12" y="12" width="488" height="488" rx="112" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="6"/>
+
+  <!-- Background Ambient Glow -->
+  <circle cx="256" cy="240" r="130" fill="#0284c7" opacity="0.18" filter="url(#strongGlow)"/>
+  <circle cx="256" cy="220" r="60" fill="#38bdf8" opacity="0.28" filter="url(#glow)"/>
+
+  <!-- Gravitational Orbit Ring (Back Arc) -->
+  <g transform="rotate(-14 256 260)">
+    <ellipse cx="256" cy="265" rx="190" ry="52" fill="none" stroke="url(#ringGrad)" stroke-width="7" opacity="0.35" stroke-dasharray="24 12"/>
+  </g>
+
+  <!-- Left Wing (Levitating Delta - Left Facet) -->
+  <path d="M256,92 L146,322 L228,302 L256,190 Z" fill="url(#leftWingGrad)" filter="url(#glow)"/>
+  
+  <!-- Right Wing (Levitating Delta - Right Facet) -->
+  <path d="M256,92 L366,322 L284,302 L256,190 Z" fill="url(#rightWingGrad)" filter="url(#glow)"/>
+
+  <!-- Center Shading Line (Facet Separation) -->
+  <path d="M256,92 L256,336" stroke="#090d16" stroke-width="4" opacity="0.75" stroke-linecap="round"/>
+
+  <!-- Gravitational Orbit Ring (Front Glow Segment) -->
+  <g transform="rotate(-14 256 260)">
+    <path d="M 90,278 A 190 52 0 0,0 422,278" fill="none" stroke="url(#ringGrad)" stroke-width="11" stroke-linecap="round" filter="url(#glow)"/>
+    <!-- Orbiting Energy Particle -->
+    <circle cx="390" cy="272" r="7" fill="#ffffff" filter="url(#glow)"/>
+    <circle cx="390" cy="272" r="4" fill="#38bdf8"/>
+  </g>
+
+  <!-- Agéntic Diamond Core (Zero-G Levitation) -->
+  <polygon points="256,196 288,248 256,300 224,248" fill="url(#coreGrad)" filter="url(#glow)"/>
+  <polygon points="256,208 280,248 256,288 232,248" fill="#ffffff" opacity="0.9"/>
+
+  <!-- Apex Spark (The Antigravity Pulse) -->
+  <circle cx="256" cy="92" r="7" fill="#ffffff" filter="url(#glow)"/>
+  <circle cx="256" cy="92" r="3.5" fill="#38bdf8"/>
+
+  <!-- Floating Propulsion Energy Sparks (Subtle Bottom Dots) -->
+  <circle cx="256" cy="364" r="5" fill="#38bdf8" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="256" cy="396" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="256" cy="422" r="2" fill="#6366f1" opacity="0.3"/>
+</svg>

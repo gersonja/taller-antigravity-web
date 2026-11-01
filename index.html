@@ -10,6 +10,17 @@
   <meta property="og:title" content="Taller Práctico Intensivo: Antigravity & Creación de Software con IA">
   <meta property="og:description" content="Deja de pegar código a ciegas. Aprende Arquitectura Limpia, Ciclo SDD y despliega software real de negocio en vivo.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.png">
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#090d16">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,13 +93,13 @@
   <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-400/30 flex items-center justify-center text-sky-400 font-bold">
-          ⚡
-        </div>
-        <div>
-          <span class="font-extrabold tracking-tight text-white text-base sm:text-lg">Antigravity<span class="text-sky-400">.Lab</span></span>
-          <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Taller Práctico</span>
-        </div>
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="favicon.svg" alt="Antigravity.Lab" class="w-9 h-9 rounded-xl shadow-lg border border-sky-400/40 group-hover:scale-105 group-hover:border-sky-400 transition">
+          <div>
+            <span class="font-extrabold tracking-tight text-white text-base sm:text-lg">Antigravity<span class="text-sky-400">.Lab</span></span>
+            <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Taller Práctico</span>
+          </div>
+        </a>
       </div>
       
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
@@ -757,9 +768,10 @@
   <!-- FOOTER -->
   <footer class="py-10 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
     <div class="max-w-4xl mx-auto px-4 space-y-3">
-      <div class="flex items-center justify-center gap-2 font-bold text-slate-400">
-        <span>⚡ Antigravity.Lab</span>
-        <span>•</span>
+      <div class="flex items-center justify-center gap-2.5 font-bold text-slate-300">
+        <img src="favicon.svg" alt="Antigravity.Lab" class="w-6 h-6 rounded-lg shadow border border-sky-400/30">
+        <span class="text-white">Antigravity<span class="text-sky-400">.Lab</span></span>
+        <span class="text-slate-600">•</span>
         <span>Educación Concluyente en Software</span>
       </div>
       <p>Diseñado con rigor técnico para la comunidad de desarrolladores y creadores de software.</p>

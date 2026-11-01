@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="420" height="90" fill="none">
+  <defs>
+    <!-- Background Gradient for Emblem -->
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="logoBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Wings Gradients -->
+    <linearGradient id="logoLeftWing" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="logoRightWing" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+
+    <linearGradient id="logoCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="logoRing" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#38bdf8"/>
+      <stop offset="70%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Text Gradient for Accent -->
+    <linearGradient id="brandTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+
+    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- EMBLEM (Icon 70x70 positioned at x=8, y=10) -->
+  <g transform="translate(8, 10)">
+    <!-- Base Squircle -->
+    <rect width="70" height="70" rx="18" fill="url(#logoBgGrad)" stroke="url(#logoBorderGrad)" stroke-width="1.8"/>
+
+    <!-- Subtle ambient glow -->
+    <circle cx="35" cy="33" r="18" fill="#0284c7" opacity="0.25"/>
+
+    <!-- Gravitational Orbit Ring (Back Arc) -->
+    <g transform="rotate(-14 35 36)">
+      <ellipse cx="35" cy="37" rx="26" ry="7.5" fill="none" stroke="url(#logoRing)" stroke-width="1.2" opacity="0.4" stroke-dasharray="3 2"/>
+    </g>
+
+    <!-- Levitating Delta Wings -->
+    <!-- Left Wing -->
+    <path d="M35,13 L19,46 L31,43 L35,27 Z" fill="url(#logoLeftWing)"/>
+    <!-- Right Wing -->
+    <path d="M35,13 L51,46 L39,43 L35,27 Z" fill="url(#logoRightWing)"/>
+    <!-- Center Shading Line -->
+    <path d="M35,13 L35,48" stroke="#090d16" stroke-width="0.8" opacity="0.8"/>
+
+    <!-- Gravitational Orbit Ring (Front Arc) -->
+    <g transform="rotate(-14 35 36)">
+      <path d="M 12,39 A 26 7.5 0 0,0 58,39" fill="none" stroke="url(#logoRing)" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="53" cy="38" r="1.5" fill="#ffffff"/>
+      <circle cx="53" cy="38" r="0.8" fill="#38bdf8"/>
+    </g>
+
+    <!-- Agéntic Diamond Core -->
+    <polygon points="35,28 39.5,35.5 35,43 30.5,35.5" fill="url(#logoCore)"/>
+    <polygon points="35,30 38,35.5 35,41 32,35.5" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Apex Spark -->
+    <circle cx="35" cy="13" r="1.6" fill="#ffffff"/>
+    <circle cx="35" cy="13" r="0.8" fill="#38bdf8"/>
+
+    <!-- Floating bottom dots -->
+    <circle cx="35" cy="53" r="1" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="35" cy="57" r="0.7" fill="#0ea5e9" opacity="0.6"/>
+  </g>
+
+  <!-- TYPOGRAPHY BRANDING (x=94) -->
+  <g transform="translate(94, 0)">
+    <!-- Wordmark: Antigravity.Lab -->
+    <text x="0" y="47" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#ffffff" letter-spacing="-0.5">
+      Antigravity<tspan fill="url(#brandTextGrad)">.Lab</tspan>
+    </text>
+
+    <!-- Badge pill or Tagline -->
+    <rect x="0" y="58" width="102" height="18" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+    <text x="7" y="70.5" font-family="'JetBrains Mono', monospace, sans-serif" font-weight="700" font-size="8.5" fill="#38bdf8" letter-spacing="0.8">
+      TALLER PRÁCTICO
+    </text>
+
+    <text x="114" y="70.5" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="600" font-size="9" fill="#94a3b8" letter-spacing="0.5">
+      • SOFTWARE CON IA
+    </text>
+  </g>
+</svg>

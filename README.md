@@ -36,8 +36,17 @@
 ## 📁 Archivos en este Repositorio
 
 ```text
-├── index.html        # Página principal de ventas y triage interactivo
-├── gracias.html      # Página de confirmación y bienvenida
-├── styles.css        # Estilos visuales, efectos glow y tipografía
-└── README.md         # Documentación de despliegue
+├── index.html            # Página principal de ventas y triage interactivo
+├── gracias.html          # Página de confirmación y bienvenida
+├── styles.css            # Estilos visuales, efectos glow y tipografía
+├── logo.svg              # Logotipo horizontal oficial vectorizado
+├── logo.png              # Logotipo en alta resolución para OpenGraph
+├── favicon.svg           # Ícono vectorial con degradados para navegadores modernos
+├── favicon.ico           # Favicon multi-resolución (16x16, 32x32, 48x48)
+├── favicon-16x16.png     # Favicon rasterizado para pestañas estándar
+├── favicon-32x32.png     # Favicon rasterizado para pantallas Retina
+├── favicon-96x96.png     # Ícono para accesos directos
+├── apple-touch-icon.png  # Ícono iOS / Android para pantalla de inicio (180x180)
+├── site.webmanifest      # Manifiesto PWA para instalación en móviles
+└── README.md             # Documentación de despliegue
 ```
