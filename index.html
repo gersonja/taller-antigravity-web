@@ -28,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Custom Stylesheet & Anti-Watermark Overrides -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.2">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -96,14 +96,12 @@
         </a>
       </div>
       
-      <!-- MENÚ DE ESCRITORIO -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600 dark:text-slate-300">
+      <!-- MENÚ DE ESCRITORIO (4 ENLACES ESENCIALES, LIMPIO Y ESPACIOSO) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
         <a href="#metodo" class="hover:text-sky-600 dark:hover:text-sky-400 transition">El Método</a>
-        <a href="#antigravity" class="hover:text-sky-600 dark:hover:text-sky-400 transition">¿Por qué Google?</a>
-        <a href="#triage" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Calculadora</a>
         <a href="#temario" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Temario</a>
+        <a href="#triage" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Calculadora</a>
         <a href="#garantia" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Garantías</a>
-        <a href="#instructor" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Instructor</a>
       </nav>
 
       <!-- ACCIONES DE CABECERA (ESCRITORIO) -->
@@ -116,7 +114,8 @@
 
         <a href="#precio" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-sky-500/20 flex items-center gap-1.5 font-display tracking-wide">
           <span>Inscribirme</span>
-          <span id="header-cta-text" class="text-xs opacity-80 font-mono">(COP $100.000)</span>
+          <span class="text-xs">&rarr;</span>
+          <span id="header-cta-text" class="hidden"></span>
         </a>
       </div>
 
@@ -222,40 +221,19 @@
         </a>
       </div>
 
-      <!-- 4 Píldoras Rápidas de Confianza -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left mb-12">
-        <div class="p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-          <span class="text-xl">⏱️</span>
-          <div>
-            <div class="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-white">8h en Vivo</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">4 sesiones prácticas</div>
-          </div>
-        </div>
-        <div class="p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-          <span class="text-xl">👥</span>
-          <div>
-            <div class="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Solo 30 Cupos</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Revisión en pantalla</div>
-          </div>
-        </div>
-        <div class="p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-          <span class="text-xl">📱</span>
-          <div>
-            <div class="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-white">100% Concluyente</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">QR en tu celular</div>
-          </div>
-        </div>
-        <div class="p-3.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-          <span class="text-xl">💻</span>
-          <div>
-            <div class="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Desde 4 GB RAM</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Cero gastos extra</div>
-          </div>
-        </div>
+      <!-- Barra de Confianza Hero (Fluida, Elegante, Sin Saturación de Cajas) -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm max-w-3xl mx-auto mb-12 text-xs text-slate-600 dark:text-slate-300">
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">⏱️ 8h en Vivo</strong> (4 Sesiones)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">👥 Solo 30 Cupos</strong> (Revisión 1-a-1)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">📱 100% Concluyente</strong> (QR en Celular)</span>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">💻 Desde 4 GB RAM</strong></span>
       </div>
 
       <!-- MAQUETA INTERACTIVA DE APLICACIÓN (SHOWCASE WINDOW MOCKUP) -->
-      <div class="mockup-window bg-white dark:bg-slate-900 text-left border border-slate-200 dark:border-slate-800/90 shadow-2xl rounded-2xl max-w-4xl mx-auto overflow-hidden">
+      <div class="mockup-window bg-white dark:bg-slate-900 text-left border border-slate-200 dark:border-slate-800/90 shadow-2xl rounded-2xl max-w-4xl mx-auto overflow-hidden reveal-scale">
         
         <!-- Barra de Ventana Mac -->
         <div class="bg-slate-100 dark:bg-slate-950 px-4 py-3 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
@@ -380,7 +358,7 @@
   <section id="metodo" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-5xl mx-auto px-4">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Educación Concluyente</h2>
         <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-4">
           La Gran Frustración de los Tutoriales de YouTube
@@ -393,7 +371,7 @@
       <div class="grid md:grid-cols-2 gap-6">
         
         <!-- Tarjeta Roja: YouTube Promedio -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-red-50/60 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 text-left">
+        <div class="p-6 sm:p-7 rounded-2xl bg-red-50/60 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 text-left reveal-left">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-sm">✕</span>
             <h4 class="font-display font-bold text-lg text-red-950 dark:text-red-200">El Vibe Coder Frustrado (YouTube)</h4>
@@ -401,25 +379,25 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Tutoriales Inconclusos:</strong> Te muestran la pantalla pero no cómo correr los archivos ni dónde guardarlos.</span>
+              <span><strong>Tutoriales inconclusos:</strong> Te muestran la pantalla pero no cómo correr ni guardar tus archivos.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Regresiones Constantes:</strong> Al pedirle un cambio cosmético a ChatGPT, te borra la lógica anterior y te daña la app.</span>
+              <span><strong>Regresiones con ChatGPT:</strong> Pides un cambio cosmético y te borra la lógica anterior dañando la app.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Alucinación de Librerías:</strong> Librerías inventadas o desactualizadas que colapsan en la línea 30 sin soporte.</span>
+              <span><strong>Librerías alucinadas:</strong> Paquetes inventados o desactualizados que colapsan en la línea 30 sin soporte.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>El Abismo del Chat:</strong> Copia y pega infinito entre ventanas web sin control de versiones ni Git.</span>
+              <span><strong>El abismo del chat:</strong> Copia y pega infinito entre ventanas web sin control de versiones ni Git.</span>
             </li>
           </ul>
         </div>
 
         <!-- Tarjeta Verde: Antigravity.Lab -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-sm">
+        <div class="p-6 sm:p-7 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-sm reveal-right">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">✓</span>
             <h4 class="font-display font-bold text-lg text-emerald-950 dark:text-emerald-200">El Creador con Método (Antigravity.Lab)</h4>
@@ -427,19 +405,19 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Constitución <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">AGENTS.md</code> & <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">design.md</code>:</strong> Reglas inmutables para que la IA nunca deforme tu proyecto.</span>
+              <span><strong>Constitución inmutable:</strong> <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">AGENTS.md</code> y <code class="font-mono text-xs text-sky-600 dark:text-sky-300 font-bold">design.md</code> blindan tu software de cambios destructivos.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Ciclo SDD Determinista:</strong> La IA se detiene y redacta el plano técnico antes de tocar una sola línea de código.</span>
+              <span><strong>Ciclo SDD Determinista:</strong> La IA redacta y aprueba el plano técnico antes de tocar una sola línea de código.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Persistencia & Google Sheets:</strong> Almacenamiento local con LocalStorage y sincronización con hojas de cálculo cloud.</span>
+              <span><strong>Datos reales y Sheets:</strong> Persistencia local con LocalStorage + sincronización en tiempo real con Google Sheets.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emerald-500 font-bold">✓</span>
-              <span><strong>Despliegue HTTPS en Vivo:</strong> Publicación gratuita en GitHub Pages con código QR funcional en tu propio teléfono.</span>
+              <span><strong>Despliegue HTTPS en vivo:</strong> Publicación gratuita en GitHub Pages con código QR funcional en tu propio teléfono.</span>
             </li>
           </ul>
         </div>
@@ -453,7 +431,7 @@
   <section class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
     <div class="max-w-5xl mx-auto px-4">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Criterio Profesional</h2>
         <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
           El Mapa Mental del Software: 4 Niveles
@@ -466,7 +444,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
         
         <!-- Nivel 1 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 1</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -477,7 +455,7 @@
         </div>
 
         <!-- Nivel 2 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 2</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -488,7 +466,7 @@
         </div>
 
         <!-- Nivel 3 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500/60 shadow-md">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500/60 shadow-md reveal-up stagger-3">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 3</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold">Núcleo del Taller</span>
@@ -499,7 +477,7 @@
         </div>
 
         <!-- Nivel 4 -->
-        <div class="p-5 rounded-2xl bg-indigo-50/50 dark:bg-slate-900/80 border border-indigo-200 dark:border-indigo-900/60 shadow-sm">
+        <div class="p-5 rounded-2xl bg-indigo-50/50 dark:bg-slate-900/80 border border-indigo-200 dark:border-indigo-900/60 shadow-sm reveal-up stagger-4">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-indigo-600 dark:text-indigo-400">Nivel 4</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold">Zona Senior</span>
@@ -518,7 +496,7 @@
   <section id="antigravity" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-5xl mx-auto px-4">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Criterio Tecnológico</h2>
         <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
           ¿Por qué Google Antigravity & Gemini?
@@ -530,22 +508,22 @@
 
       <!-- Cuadrante Comparativo Objetivo -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">ChatGPT & Claude</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Ideación y Textos</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Insuperables para pulir propuestas de valor, lluvias de ideas y redacción de copys comerciales.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">GitHub Copilot</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Autocompletado Rápido</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Excelente para programadores que ya dominan la sintaxis y quieren teclear código más rápido en su editor.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Cursor & Windsurf</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Diffs Multi-archivo</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Pioneros destacados para desarrolladores avanzados con flujos de terminal y suscripciones por API.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border-2 border-sky-400 dark:border-sky-500/60 shadow-sm">
+        <div class="p-5 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border-2 border-sky-400 dark:border-sky-500/60 shadow-sm reveal-up stagger-4">
           <div class="font-display font-bold text-base text-sky-900 dark:text-sky-200 mb-1">Google Antigravity</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-bold">Creación Agéntica Unificada</div>
           <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">Cero barreras de pago con Gmail, ventana monumental de 1M de tokens y optimizado desde 4 GB de RAM.</p>
@@ -553,7 +531,7 @@
       </div>
 
       <!-- 5 Puntos Clave de Elección -->
-      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left">
+      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left reveal-up">
         <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div class="text-xl mb-1.5">🔑</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Cero Fricción</div>
@@ -610,7 +588,7 @@
       </div>
 
       <!-- Resultado de Triage -->
-      <div id="triage-result" class="glow-card rounded-2xl p-6 text-left max-w-3xl mx-auto">
+      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors">
         <!-- Renderizado dinámico vía JavaScript -->
       </div>
 
@@ -648,7 +626,7 @@
       </div>
 
       <!-- Tarjeta de Contenido del Módulo Activo -->
-      <div id="module-content-card" class="glow-card rounded-2xl p-6 sm:p-8 text-left">
+      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 sm:p-8 text-left transition-colors">
         <!-- Render dinámico por JavaScript -->
       </div>
 
@@ -658,7 +636,7 @@
   <!-- EL INSTRUCTOR: GERSON JAVIER -->
   <section id="instructor" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="glow-card rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 text-left">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors">
         <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
           <div class="relative flex-shrink-0">
             <img src="https://github.com/gersonja.png" alt="Gerson Javier" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-sky-400 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
@@ -763,7 +741,7 @@
       </div>
 
       <!-- Tarjeta de Precio -->
-      <div class="glow-card rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl transition-colors">
         
         <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
           Ahorras $50.000 COP
@@ -1186,9 +1164,38 @@
       `;
     }
 
+    // --- 7. OBSERVADOR DE ANIMACIONES DE SCROLL (60 FPS NATIVO) ---
+    function initScrollAnimations() {
+      const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('revealed'));
+        return;
+      }
+      
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+    }
+
     // Inicializaciones
     setTriage(2);
     setModuleTab(3);
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+      initScrollAnimations();
+    }
   </script>
 
 </body>

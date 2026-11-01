@@ -40,6 +40,8 @@ div[data-collaborative-tools],
 /* --------------------------------------------------------------------------
    2. MEJORAS DE RENDERIZADO, TIPOGRAFÍA & SUAVIZADO
    -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -47,8 +49,15 @@ html {
 }
 
 body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+}
+
+/* Encabezados con Personalidad: Outfit Obligatorio con Tracking Ajustado */
+h1, h2, h3, h4, h5, h6, .font-display, .brand-heading {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.025em;
 }
 
 /* Scrollbar personalizado adaptativo */
@@ -84,7 +93,9 @@ body {
    -------------------------------------------------------------------------- */
 /* Tarjetas en Modo Claro (Default): Limpias, flotantes con sombra suave */
 .glow-card {
-  background: #ffffff;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -98,8 +109,10 @@ body {
 
 /* Tarjetas en Modo Oscuro: Glassmorphism translúcido con borde reactivo */
 .dark .glow-card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
-  border: 1px solid rgba(51, 65, 85, 0.8);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
   box-shadow: none;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -185,5 +198,65 @@ body {
 @media (hover: none) {
   .glow-card:hover {
     transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. ANIMACIONES DE SCROLL DETERMINISTAS & LIGERAS (60 FPS NATIVAS)
+   -------------------------------------------------------------------------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  will-change: transform, opacity;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(20px);
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado Revelado */
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Retardos escalonados para tarjetas y cuadrículas */
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+.stagger-5 { transition-delay: 400ms; }
+
+/* En móviles, suavizar desplazamientos laterales a verticales para evitar jitter horizontal */
+@media (max-width: 768px) {
+  .reveal-left, .reveal-right {
+    transform: translateY(22px);
+  }
+}
+
+/* Accesibilidad: si el usuario prefiere reducir movimiento en su SO */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
