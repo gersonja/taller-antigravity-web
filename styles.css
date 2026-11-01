@@ -729,3 +729,188 @@ details[open] {
 .font-sans { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; }
 .font-display { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; }
 .scroll-smooth { scroll-behavior: smooth; }
+
+/* ==========================================================================
+   11. SOPORTE DE THEME DUAL (LIGHT / DARK) & VERSION COMPLETA ORIGINAL
+   ========================================================================== */
+
+/* Colores y Fondos de Superficie Modo Claro */
+.bg-slate-50 { background-color: #f8fafc; }
+.bg-slate-50\/50 { background-color: rgba(248, 250, 252, 0.5); }
+.bg-slate-200\/70 { background-color: rgba(226, 232, 240, 0.7); }
+.bg-slate-300 { background-color: #cbd5e1; }
+.bg-white\/85 { background-color: rgba(255, 255, 255, 0.85); }
+.bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
+.bg-sky-100\/90 { background-color: rgba(224, 242, 254, 0.9); }
+.bg-sky-400\/10 { background-color: rgba(56, 189, 248, 0.1); }
+.bg-emerald-400\/10 { background-color: rgba(52, 211, 153, 0.1); }
+.bg-red-50\/60 { background-color: rgba(254, 242, 242, 0.6); }
+.bg-emerald-50\/70 { background-color: rgba(236, 253, 245, 0.7); }
+.bg-indigo-50\/50 { background-color: rgba(238, 242, 255, 0.5); }
+.bg-indigo-100 { background-color: #e0e7ff; }
+
+/* Bordes Modo Claro */
+.border-slate-200\/80 { border-color: rgba(226, 232, 240, 0.8); }
+.border-sky-200\/80 { border-color: rgba(186, 230, 253, 0.8); }
+.divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #f1f5f9; }
+
+/* Tipografía Modo Claro */
+.text-slate-800 { color: #1e293b; }
+.text-sky-500 { color: #0ea5e9; }
+.text-sky-950 { color: #082f49; }
+.text-emerald-800 { color: #065f46; }
+.text-amber-500 { color: #f59e0b; }
+.leading-\[1\.12\] { line-height: 1.12; }
+.gap-x-6 { column-gap: 1.5rem; }
+
+/* Gradientes de Texto Modo Claro */
+.from-sky-600 { --tw-gradient-from: #0284c7; }
+.via-teal-500 { --tw-gradient-stops: var(--tw-gradient-from), #14b8a6, var(--tw-gradient-to, rgba(20, 184, 166, 0)); }
+.to-sky-500 { --tw-gradient-to: #0ea5e9; }
+
+/* Globos Decorativos de Fondo (Atmosphere) */
+.w-\[550px\] { width: 550px; }
+.h-\[550px\] { height: 550px; }
+.w-\[400px\] { width: 400px; }
+.h-\[400px\] { height: 400px; }
+.top-1\/4 { top: 25%; }
+.top-1\/3 { top: 33.333333%; }
+.left-1\/2 { left: 50%; }
+.left-1\/4 { left: 25%; }
+.-translate-x-1\/2 { transform: translateX(-50%); }
+.-translate-y-1\/2 { transform: translateY(-50%); }
+.-translate-x-1\/2.-translate-y-1\/2 { transform: translate(-50%, -50%); }
+
+/* Paddings y Espaciados */
+.pt-10 { padding-top: 2.5rem; }
+.pb-16 { padding-bottom: 4rem; }
+.w-28 { width: 7rem; }
+.h-28 { height: 7rem; }
+
+/* Hovers Modo Claro */
+.hover\:text-sky-500:hover { color: #0ea5e9 !important; }
+.hover\:text-sky-600:hover { color: #0284c7 !important; }
+.hover\:bg-slate-50:hover { background-color: #f8fafc !important; }
+.hover\:bg-slate-100:hover { background-color: #f1f5f9 !important; }
+.hover\:bg-slate-200:hover { background-color: #e2e8f0 !important; }
+.hover\:bg-sky-400:hover { background-color: #38bdf8 !important; }
+
+/* Switchers y Tabs */
+.module-tab-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.module-tab-btn.active {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+.dark .module-tab-btn.active {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+/* ==========================================================================
+   12. REGLAS ESPECÍFICAS DE DARK MODE (.dark ...)
+   ========================================================================== */
+
+/* Conmutador de Visibilidad Iconos Sol / Luna */
+.dark\:hidden { display: inline-flex; }
+.dark\:inline { display: none; }
+.dark .dark\:hidden { display: none !important; }
+.dark .dark\:inline { display: inline-flex !important; }
+
+/* Fondos Dark Mode */
+.dark body { background-color: #090d16 !important; color: #f8fafc !important; }
+.dark .dark\:bg-\[\#090d16\] { background-color: #090d16 !important; }
+.dark .dark\:bg-slate-800 { background-color: #1e293b !important; }
+.dark .dark\:bg-slate-800\/60 { background-color: rgba(30, 41, 59, 0.6) !important; }
+.dark .dark\:bg-slate-900 { background-color: #0f172a !important; }
+.dark .dark\:bg-slate-900\/50 { background-color: rgba(15, 23, 42, 0.5) !important; }
+.dark .dark\:bg-slate-900\/80 { background-color: rgba(15, 23, 42, 0.8) !important; }
+.dark .dark\:bg-slate-950 { background-color: #020617 !important; }
+.dark .dark\:bg-slate-950\/60 { background-color: rgba(2, 6, 23, 0.6) !important; }
+.dark .dark\:bg-slate-950\/70 { background-color: rgba(2, 6, 23, 0.7) !important; }
+.dark .dark\:bg-slate-950\/85 { background-color: rgba(2, 6, 23, 0.85) !important; }
+.dark .dark\:bg-slate-950\/95 { background-color: rgba(2, 6, 23, 0.95) !important; }
+.dark .dark\:bg-slate-700 { background-color: #334155 !important; }
+.dark .dark\:bg-slate-200 { background-color: #e2e8f0 !important; }
+.dark .dark\:bg-sky-950 { background-color: #082f49 !important; }
+.dark .dark\:bg-sky-950\/30 { background-color: rgba(8, 47, 73, 0.3) !important; }
+.dark .dark\:bg-sky-500\/15 { background-color: rgba(14, 165, 233, 0.15) !important; }
+.dark .dark\:bg-emerald-950 { background-color: #064e3b !important; }
+.dark .dark\:bg-emerald-950\/20 { background-color: rgba(6, 78, 59, 0.2) !important; }
+.dark .dark\:bg-emerald-900\/40 { background-color: rgba(6, 95, 70, 0.4) !important; }
+.dark .dark\:bg-emerald-500\/10 { background-color: rgba(16, 185, 129, 0.1) !important; }
+.dark .dark\:bg-indigo-950 { background-color: #1e1b4b !important; }
+.dark .dark\:bg-amber-950 { background-color: #451a03 !important; }
+.dark .dark\:bg-red-950\/20 { background-color: rgba(69, 10, 10, 0.2) !important; }
+.dark .dark\:bg-red-900\/40 { background-color: rgba(127, 29, 29, 0.4) !important; }
+
+/* Gradientes Dark Mode */
+.dark .dark\:bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops, #38bdf8, #818cf8)); }
+.dark .dark\:from-sky-950 { --tw-gradient-from: #082f49; }
+.dark .dark\:via-slate-900 { --tw-gradient-stops: var(--tw-gradient-from), #0f172a, var(--tw-gradient-to, rgba(15, 23, 42, 0)); }
+.dark .dark\:to-sky-950 { --tw-gradient-to: #082f49; }
+.dark .dark\:from-sky-400 { --tw-gradient-from: #38bdf8; }
+.dark .dark\:via-teal-300 { --tw-gradient-stops: var(--tw-gradient-from), #5eead4, var(--tw-gradient-to, rgba(94, 234, 212, 0)); }
+.dark .dark\:to-sky-300 { --tw-gradient-to: #7dd3fc; }
+
+/* Bordes Dark Mode */
+.dark .dark\:border-slate-700 { border-color: #334155 !important; }
+.dark .dark\:border-slate-700\/80 { border-color: rgba(51, 65, 85, 0.8) !important; }
+.dark .dark\:border-slate-800 { border-color: #1e293b !important; }
+.dark .dark\:border-slate-800\/80 { border-color: rgba(30, 41, 59, 0.8) !important; }
+.dark .dark\:border-slate-800\/90 { border-color: rgba(30, 41, 59, 0.9) !important; }
+.dark .dark\:border-sky-800\/40 { border-color: rgba(7, 89, 133, 0.4) !important; }
+.dark .dark\:border-sky-500\/60 { border-color: rgba(14, 165, 233, 0.6) !important; }
+.dark .dark\:border-indigo-900\/60 { border-color: rgba(49, 46, 129, 0.6) !important; }
+.dark .dark\:border-emerald-800 { border-color: #065f46 !important; }
+.dark .dark\:border-emerald-800\/50 { border-color: rgba(6, 95, 70, 0.5) !important; }
+.dark .dark\:border-amber-800 { border-color: #92400e !important; }
+.dark .dark\:border-red-900\/40 { border-color: rgba(127, 29, 29, 0.4) !important; }
+.dark .dark\:divide-slate-800 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b !important; }
+
+/* Textos Dark Mode */
+.dark .dark\:text-white { color: #ffffff !important; }
+.dark .dark\:text-slate-100 { color: #f1f5f9 !important; }
+.dark .dark\:text-slate-200 { color: #e2e8f0 !important; }
+.dark .dark\:text-slate-300 { color: #cbd5e1 !important; }
+.dark .dark\:text-slate-400 { color: #94a3b8 !important; }
+.dark .dark\:text-slate-600 { color: #475569 !important; }
+.dark .dark\:text-slate-700 { color: #334155 !important; }
+.dark .dark\:text-sky-200 { color: #bae6fd !important; }
+.dark .dark\:text-sky-300 { color: #7dd3fc !important; }
+.dark .dark\:text-sky-400 { color: #38bdf8 !important; }
+.dark .dark\:text-emerald-200 { color: #a7f3d0 !important; }
+.dark .dark\:text-emerald-300 { color: #6ee7b7 !important; }
+.dark .dark\:text-emerald-400 { color: #34d399 !important; }
+.dark .dark\:text-teal-400 { color: #2dd4bf !important; }
+.dark .dark\:text-indigo-300 { color: #a5b4fc !important; }
+.dark .dark\:text-indigo-400 { color: #818cf8 !important; }
+.dark .dark\:text-amber-300 { color: #fcd34d !important; }
+.dark .dark\:text-amber-400 { color: #fbbf24 !important; }
+.dark .dark\:text-red-200 { color: #fecaca !important; }
+.dark .dark\:text-red-400 { color: #f87171 !important; }
+
+/* Hovers Dark Mode */
+.dark .dark\:hover\:text-white:hover { color: #ffffff !important; }
+.dark .dark\:hover\:text-sky-300:hover { color: #7dd3fc !important; }
+.dark .dark\:hover\:text-sky-400:hover { color: #38bdf8 !important; }
+.dark .dark\:hover\:bg-slate-700:hover { background-color: #334155 !important; }
+.dark .dark\:hover\:bg-slate-800:hover { background-color: #1e293b !important; }
+.dark .dark\:hover\:bg-slate-900\/50:hover { background-color: rgba(15, 23, 42, 0.5) !important; }
+
+/* Responsive Media Queries Adicionales (sm, md) */
+@media (min-width: 640px) {
+  .sm\:w-36 { width: 9rem !important; }
+  .sm\:h-36 { height: 9rem !important; }
+  .sm\:p-8 { padding: 2rem !important; }
+}
+
+@media (min-width: 768px) {
+  .md\:pt-16 { padding-top: 4rem !important; }
+  .md\:pb-24 { padding-bottom: 6rem !important; }
+  .md\:inline-flex { display: inline-flex !important; }
+}
