@@ -27,10 +27,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Custom Stylesheet (v2.3 Cache Busting) -->
-  <link rel="stylesheet" href="styles.css?v=2.3">
+  <!-- Custom Stylesheet (v2.5 Blindaje Total) -->
+  <link rel="stylesheet" href="styles.css?v=2.5">
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Fallback Inmediato para Accesibilidad & Bloqueadores de JS -->
+  <noscript>
+    <style>
+      .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+  
+  <!-- Tailwind CSS CDN (Carga progresiva como soporte auxiliar) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
