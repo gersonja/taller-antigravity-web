@@ -81,7 +81,34 @@
     })();
   </script>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-[#090d16] dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white pb-20 md:pb-0 transition-colors duration-300">
+<body class="bg-slate-50/90 text-slate-800 dark:bg-[#090d16] dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white pb-20 md:pb-0 transition-colors duration-300 relative">
+
+  <!-- LIENZO DE DESTELLOS Y PARALLAX REACTIVO AL SCROLL (ATMÓSFERA MODO CLARO & OSCURO) -->
+  <div id="scroll-ambient-canvas" aria-hidden="true">
+    <!-- Destello 1 (Sky / Cyan) -->
+    <div id="glow-orb-1" class="glow-orb transition-transform duration-700 ease-out"></div>
+
+    <!-- Destello 2 (Indigo / Violeta) -->
+    <div id="glow-orb-2" class="glow-orb transition-transform duration-700 ease-out"></div>
+
+    <!-- Destello 3 (Teal / Esmeralda) -->
+    <div id="glow-orb-3" class="glow-orb transition-transform duration-700 ease-out"></div>
+
+    <!-- Marca de Agua Sutil Antigravity en Parallax Rotativo -->
+    <div id="watermark-logo" class="transition-transform duration-500 ease-out pointer-events-none">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-sky-600 dark:text-sky-400">
+        <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="3" stroke-dasharray="14 10" />
+        <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.6"/>
+        <polygon points="100,32 165,152 35,152" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="100,58 145,142 55,142" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/>
+        <circle cx="100" cy="108" r="16" fill="currentColor"/>
+        <line x1="100" y1="4" x2="100" y2="24" stroke="currentColor" stroke-width="3"/>
+        <line x1="100" y1="176" x2="100" y2="196" stroke="currentColor" stroke-width="3"/>
+        <line x1="4" y1="100" x2="24" y2="100" stroke="currentColor" stroke-width="3"/>
+        <line x1="176" y1="100" x2="196" y2="100" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </div>
+  </div>
 
   <!-- BARRA SUPERIOR DE ALERTA DE COHORTE -->
   <div class="bg-gradient-to-r from-sky-100 via-indigo-50 to-sky-100 dark:from-sky-950 dark:via-slate-900 dark:to-indigo-950 border-b border-sky-200/80 dark:border-sky-800/40 py-2.5 px-4 text-center text-xs sm:text-sm text-sky-950 dark:text-slate-200 transition-colors shadow-xs">
@@ -197,7 +224,7 @@
   </header>
 
   <!-- HERO SECTION CON MAQUETA INTERACTIVA -->
-  <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-white dark:bg-[#090d16] bg-grid-subtle transition-colors">
+  <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-white/75 dark:bg-[#090d16]/90 backdrop-blur-sm bg-grid-subtle transition-colors">
     <!-- Luces de atmósfera difusas -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-400/12 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-emerald-400/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -226,19 +253,19 @@
         Domina <strong>Google Antigravity IDE</strong>, el motor <strong>Gemini 3.8 Flash (High)</strong> y la metodología <strong>SDD</strong>. Sales con tu primera aplicación de gestión en vivo, enlace HTTPS y código QR en tu celular.
       </p>
 
-      <!-- Botones de Acción -->
+      <!-- Botones de Acción con Profundidad Táctil -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white font-display font-bold text-base sm:text-lg transition shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2">
+        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white font-display font-bold text-base sm:text-lg transition btn-tactile-sky flex items-center justify-center gap-2">
           <span>🚀</span>
           <span id="hero-cta-text">Asegurar mi Cupo (COP $100.000)</span>
         </a>
-        <a href="#triage" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-display font-bold text-base border border-slate-200 dark:border-slate-700 transition shadow-sm flex items-center justify-center gap-2">
+        <a href="#triage" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-display font-bold text-base border border-slate-200 dark:border-slate-700 transition shadow-soft-card flex items-center justify-center gap-2">
           <span>🧭 Probar Calculadora de Triage</span>
         </a>
       </div>
 
-      <!-- Barra de Confianza Hero (Fluida, Elegante, Sin Saturación de Cajas) -->
-      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm max-w-3xl mx-auto mb-12 text-xs text-slate-600 dark:text-slate-300">
+      <!-- Barra de Confianza Hero (Fluida, Elegante, Con Sombra Suave y Relieve) -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card max-w-3xl mx-auto mb-12 text-xs text-slate-600 dark:text-slate-300">
         <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">⏱️ 8h en Vivo</strong> (4 Sesiones)</span>
         <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
         <span class="flex items-center gap-1.5 font-medium"><strong class="font-bold text-slate-900 dark:text-white">👥 Solo 30 Cupos</strong> (Revisión 1-a-1)</span>
@@ -371,7 +398,7 @@
   </section>
 
   <!-- CONTRASTE VISUAL: YOUTUBE VS ANTIGRAVITY.LAB -->
-  <section id="metodo" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <section id="metodo" class="py-16 bg-white/75 dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors backdrop-blur-sm">
     <div class="max-w-5xl mx-auto px-4">
       
       <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
@@ -387,7 +414,7 @@
       <div class="grid md:grid-cols-2 gap-6">
         
         <!-- Tarjeta Roja: YouTube Promedio -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-red-50/80 to-white dark:from-red-950/25 dark:to-slate-900 border-t-4 border-t-red-500 border border-red-200 dark:border-red-900/40 text-left shadow-sm reveal-left">
+        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-red-50/80 to-white dark:from-red-950/25 dark:to-slate-900 border-t-4 border-t-red-500 border border-red-200 dark:border-red-900/40 text-left shadow-soft-card reveal-left">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-sm">✕</span>
             <h4 class="font-display font-bold text-lg text-red-950 dark:text-red-200">El Vibe Coder Frustrado (YouTube)</h4>
@@ -413,7 +440,7 @@
         </div>
 
         <!-- Tarjeta Verde: Antigravity.Lab -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-emerald-50/80 to-white dark:from-emerald-950/25 dark:to-slate-900 border-t-4 border-t-emerald-500 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-lg glow-border-sky reveal-right">
+        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-emerald-50/80 to-white dark:from-emerald-950/25 dark:to-slate-900 border-t-4 border-t-emerald-500 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-soft-card glow-border-sky reveal-right">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">✓</span>
             <h4 class="font-display font-bold text-lg text-emerald-950 dark:text-emerald-200">El Creador con Método (Antigravity.Lab)</h4>
@@ -444,7 +471,7 @@
   </section>
 
   <!-- EL MAPA MENTAL: 4 NIVELES Y EL MURO DE LA REALIDAD -->
-  <section id="niveles" class="py-16 bg-slate-50/70 dark:bg-[#090d16] bg-lines-subtle transition-colors border-y border-slate-200/80 dark:border-slate-800/80">
+  <section id="niveles" class="py-16 bg-slate-50/75 dark:bg-[#090d16] bg-lines-subtle transition-colors border-y border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
     <div class="max-w-5xl mx-auto px-4">
       
       <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
@@ -460,7 +487,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
         
         <!-- Nivel 1 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-left stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-left stagger-1">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 1</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -471,7 +498,7 @@
         </div>
 
         <!-- Nivel 2 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-teal-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-teal-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-up stagger-2">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-teal-600 dark:text-teal-400">Nivel 2</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -482,7 +509,7 @@
         </div>
 
         <!-- Nivel 3 -->
-        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/70 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-xl glow-border-sky reveal-scale stagger-3 relative">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/70 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-soft-card glow-border-sky reveal-scale stagger-3 relative">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 3</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold">Núcleo del Taller</span>
@@ -493,7 +520,7 @@
         </div>
 
         <!-- Nivel 4 -->
-        <div class="p-5 rounded-2xl bg-indigo-50/40 dark:bg-slate-900/90 border-t-4 border-t-indigo-500 border border-indigo-200 dark:border-indigo-900/60 shadow-sm hover:shadow-md transition reveal-right stagger-4">
+        <div class="p-5 rounded-2xl bg-indigo-50/40 dark:bg-slate-900/90 border-t-4 border-t-indigo-500 border border-indigo-200 dark:border-indigo-900/60 shadow-soft-card reveal-right stagger-4">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-indigo-600 dark:text-indigo-400">Nivel 4</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold">Zona Senior</span>
@@ -509,7 +536,7 @@
   </section>
 
   <!-- ¿POR QUÉ GOOGLE ANTIGRAVITY & GEMINI? -->
-  <section id="antigravity" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <section id="antigravity" class="py-16 bg-white/75 dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors backdrop-blur-sm">
     <div class="max-w-5xl mx-auto px-4">
       
       <div class="text-center max-w-3xl mx-auto mb-12 reveal-down">
@@ -524,22 +551,22 @@
 
       <!-- Cuadrante Comparativo Objetivo -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-left stagger-1">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">ChatGPT & Claude</div>
           <div class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-2 font-semibold">Ideación y Textos</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Insuperables para pulir propuestas de valor, lluvias de ideas y redacción de copys comerciales.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-down stagger-2">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">GitHub Copilot</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Autocompletado Rápido</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Excelente para programadores que ya dominan la sintaxis y quieren teclear código más rápido en su editor.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-purple-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-purple-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-up stagger-3">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Cursor & Windsurf</div>
           <div class="text-xs font-mono text-purple-600 dark:text-purple-400 mb-2 font-semibold">Diffs Multi-archivo</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Pioneros destacados para desarrolladores avanzados con flujos de terminal y suscripciones por API.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/80 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-500/70 shadow-xl glow-border-sky reveal-right stagger-4">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/80 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-500/70 shadow-soft-card glow-border-sky reveal-right stagger-4">
           <div class="font-display font-bold text-base text-sky-900 dark:text-sky-200 mb-1">Google Antigravity</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-bold">Creación Agéntica Unificada</div>
           <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">Cero barreras de pago con Gmail, ventana monumental de 1M de tokens y optimizado desde 4 GB de RAM.</p>
@@ -548,27 +575,27 @@
 
       <!-- 5 Puntos Clave de Elección -->
       <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left">
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-left stagger-1">
           <div class="text-xl mb-1.5">🔑</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Cero Fricción</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Acceso inmediato con tu cuenta de Google (Gmail). Sin tarjetas de crédito internacionales.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-down stagger-2">
           <div class="text-xl mb-1.5">🧠</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">1M+ Tokens</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Gemini retiene tu proyecto entero en memoria para no desincronizar HTML, CSS y lógica.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-scale stagger-3">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-scale stagger-3">
           <div class="text-xl mb-1.5">📐</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">High Reasoning</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Obliga al agente a reflexionar, simular dependencias y actuar como arquitecto sénior.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-up stagger-4">
           <div class="text-xl mb-1.5">💻</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Desde 4 GB RAM</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Ligero y accesible para computadoras portátiles normales sin tarjetas gráficas caras.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-right stagger-5">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-right stagger-5">
           <div class="text-xl mb-1.5">📊</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Google Sheets</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Sincronización en la nube en tiempo real sin pagar costos mensuales de servidores.</div>
@@ -579,7 +606,7 @@
   </section>
 
   <!-- CALCULADORA DE TRIAGE INTERACTIVA -->
-  <section id="triage" class="py-16 bg-white dark:bg-[#090d16] bg-grid-subtle transition-colors">
+  <section id="triage" class="py-16 bg-slate-50/75 dark:bg-[#090d16] bg-grid-subtle transition-colors backdrop-blur-sm">
     <div class="max-w-4xl mx-auto px-4 text-center">
       
       <div class="reveal-up">
@@ -594,19 +621,19 @@
 
       <!-- Selector de Casos -->
       <div class="flex flex-wrap items-center justify-center gap-2 mb-6 reveal-down">
-        <button id="btn-1" onclick="setTriage(1)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
+        <button id="btn-1" onclick="setTriage(1)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-soft-card">
           1. Landing con Cotizador
         </button>
-        <button id="btn-2" onclick="setTriage(2)" class="triage-btn px-4 py-2.5 rounded-xl border-2 border-sky-500 bg-sky-50 dark:bg-slate-800 text-sky-900 dark:text-sky-300 text-xs sm:text-sm font-bold transition shadow-sm">
+        <button id="btn-2" onclick="setTriage(2)" class="triage-btn px-4 py-2.5 rounded-xl border-2 border-sky-500 bg-sky-50 dark:bg-slate-800 text-sky-900 dark:text-sky-300 text-xs sm:text-sm font-bold transition shadow-soft-card">
           2. Sistema de Requerimientos & PQRs
         </button>
-        <button id="btn-3" onclick="setTriage(3)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
+        <button id="btn-3" onclick="setTriage(3)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-soft-card">
           3. Software Corporativo Multiusuario
         </button>
       </div>
 
       <!-- Resultado de Triage -->
-      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors reveal-scale">
+      <div id="triage-result" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card rounded-2xl p-6 text-left max-w-3xl mx-auto transition-colors reveal-scale">
         <!-- Renderizado dinámico vía JavaScript -->
       </div>
 
@@ -614,7 +641,7 @@
   </section>
 
   <!-- TEMARIO: NAVEGADOR INTERACTIVO DE MÓDULOS (TABS) -->
-  <section id="temario" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <section id="temario" class="py-16 bg-white/75 dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors backdrop-blur-sm">
     <div class="max-w-4xl mx-auto px-4">
       
       <div class="text-center max-w-3xl mx-auto mb-10 reveal-up">
@@ -648,7 +675,7 @@
       </div>
 
       <!-- Tarjeta de Contenido del Módulo Activo -->
-      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm rounded-2xl p-6 sm:p-8 text-left transition-colors reveal-scale">
+      <div id="module-content-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card rounded-2xl p-6 sm:p-8 text-left transition-colors reveal-scale">
         <!-- Render dinámico por JavaScript -->
       </div>
 
@@ -656,9 +683,9 @@
   </section>
 
   <!-- EL INSTRUCTOR: GERSON JAVIER -->
-  <section id="instructor" class="py-16 bg-slate-50 dark:bg-[#090d16] transition-colors">
+  <section id="instructor" class="py-16 bg-slate-50/75 dark:bg-[#090d16] transition-colors backdrop-blur-sm">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors reveal-scale">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-soft-card text-left transition-colors reveal-scale">
         <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
           <div class="relative flex-shrink-0 reveal-left stagger-1">
             <img src="https://github.com/gersonja.png" alt="Gerson Javier" width="144" height="144" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-sky-400 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
@@ -708,7 +735,7 @@
   </section>
 
   <!-- GARANTÍAS CERO HUMO -->
-  <section id="garantia" class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <section id="garantia" class="py-16 bg-white/75 dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors backdrop-blur-sm">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <div class="reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Tu Tranquilidad Primero</h2>
@@ -718,22 +745,22 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-left stagger-1">
           <div class="text-2xl mb-2">🎯</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Software en Producción</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No te vas con apuntes teóricos. Sales con tu aplicación desplegada con enlace público HTTPS y código QR.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-down stagger-2">
           <div class="text-2xl mb-2">💻</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Cero Gastos Ocultos</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Todo el taller corre sobre herramientas 100% gratuitas (Google Antigravity, Gemini Flash y GitHub Pages).</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-amber-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-amber-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-up stagger-3">
           <div class="text-2xl mb-2">🤝</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Desbloqueo en Vivo</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dedicamos 30 a 60 minutos exclusivos por sesión para revisar pantallas y destrabar cualquier error.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-indigo-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-right stagger-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-indigo-500 border border-slate-200 dark:border-slate-800 shadow-soft-card reveal-right stagger-4">
           <div class="text-2xl mb-2">🔒</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Satisfacción Total</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Participa en la Sesión 1. Si sientes que no era lo que esperabas, te reembolsamos el 100% de inmediato.</p>
@@ -743,7 +770,7 @@
   </section>
 
   <!-- TARJETA DE PRECIO Y RETORNO DE INVERSIÓN (ROI) -->
-  <section id="precio" class="py-16 bg-white dark:bg-[#090d16] bg-grid-subtle border-t border-slate-200/80 dark:border-slate-800/80 transition-colors relative overflow-hidden">
+  <section id="precio" class="py-16 bg-white/75 dark:bg-[#090d16]/90 bg-grid-subtle border-t border-slate-200/80 dark:border-slate-800/80 transition-colors relative overflow-hidden backdrop-blur-sm">
     <!-- Luces de atmósfera difusas -->
     <div class="absolute top-1/3 left-1/4 w-[450px] h-[450px] bg-sky-400/10 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-400/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -761,7 +788,7 @@
       </div>
 
       <!-- Selector de Moneda Dinámico (COP / USD) -->
-      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-down">
+      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card mb-8 reveal-down">
         <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md">
           <span>🇨🇴</span> Pesos Colombianos (COP)
         </button>
@@ -770,8 +797,8 @@
         </button>
       </div>
 
-      <!-- Tarjeta de Precio -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/70 relative text-left shadow-2xl glow-border-sky transition-colors reveal-scale">
+      <!-- Tarjeta de Precio con Profundidad Destacada -->
+      <div class="card-featured rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/70 relative text-left transition-colors reveal-scale">
         
         <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
           Ahorras $50.000 COP
@@ -792,7 +819,7 @@
 
 
         <!-- Cronograma Oficial de la Cohorte -->
-        <div class="mb-6 p-4 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60">
+        <div class="mb-6 p-4 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 shadow-xs">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5 pb-2 border-b border-sky-200/80 dark:border-sky-800/60">
             <span class="text-xs font-mono font-bold text-sky-800 dark:text-sky-300 uppercase tracking-wider flex items-center gap-1.5">
               <span>🗓️</span> Cronograma En Vivo · Cohorte Noviembre 2026
@@ -845,8 +872,8 @@
           </div>
         </div>
 
-        <!-- Botón de Pago Principal (WhatsApp) -->
-        <a id="cta-whatsapp" href="https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre" target="_blank" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-display font-black text-center text-base sm:text-lg block transition shadow-lg shadow-emerald-500/20 mb-4 tracking-wide">
+        <!-- Botón de Pago Principal con Profundidad Táctil (WhatsApp) -->
+        <a id="cta-whatsapp" href="https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre" target="_blank" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-display font-black text-center text-base sm:text-lg block transition btn-tactile-emerald mb-4 tracking-wide">
           📲 Reservar mi Cupo por WhatsApp (COP $100.000)
         </a>
 
@@ -867,7 +894,7 @@
   </section>
 
   <!-- PREGUNTAS FRECUENTES (FAQ) INTERACTIVO -->
-  <section id="faq" class="py-16 bg-slate-50/70 dark:bg-[#0c1220] border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <section id="faq" class="py-16 bg-slate-50/75 dark:bg-[#0c1220] border-t border-slate-200/80 dark:border-slate-800/80 transition-colors backdrop-blur-sm">
     <div class="max-w-3xl mx-auto px-4">
       <div class="text-center mb-10 reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Transparencia Total</h2>
@@ -1355,14 +1382,66 @@
       revealElements.forEach(el => observer.observe(el));
     }
 
+    // --- 9. EFECTO PARALLAX AMBIENTAL DE FONDO Y MARCA DE AGUA (MODO CLARO Y OSCURO) ---
+    function initScrollParallax() {
+      const orb1 = document.getElementById('glow-orb-1');
+      const orb2 = document.getElementById('glow-orb-2');
+      const orb3 = document.getElementById('glow-orb-3');
+      const watermark = document.getElementById('watermark-logo');
+      if (!orb1 && !watermark) return;
+
+      let ticking = false;
+      function updateParallax() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+        if (orb1) {
+          const y1 = progress * 650 - 50;
+          const x1 = Math.sin(progress * Math.PI) * 130;
+          orb1.style.transform = `translate3d(${x1.toFixed(1)}px, ${y1.toFixed(1)}px, 0)`;
+        }
+        if (orb2) {
+          const y2 = -progress * 480 + 40;
+          const x2 = -Math.sin(progress * Math.PI) * 110;
+          orb2.style.transform = `translate3d(${x2.toFixed(1)}px, ${y2.toFixed(1)}px, 0)`;
+        }
+        if (orb3) {
+          const y3 = -(1 - progress) * 380;
+          const x3 = Math.cos(progress * Math.PI) * 75;
+          orb3.style.transform = `translate3d(${x3.toFixed(1)}px, ${y3.toFixed(1)}px, 0)`;
+        }
+        if (watermark) {
+          const deg = progress * 40;
+          const yWm = progress * 300;
+          watermark.style.transform = `translate3d(0, ${yWm.toFixed(1)}px, 0) rotate(${deg.toFixed(1)}deg)`;
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateParallax();
+    }
+
     // Inicializaciones
     setTriage(2);
     setModuleTab(3);
     
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initScrollAnimations);
-    } else {
+    function initApp() {
       initScrollAnimations();
+      initScrollParallax();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
     }
   </script>
 

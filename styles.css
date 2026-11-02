@@ -339,7 +339,21 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .bg-white { background-color: #ffffff; }
 .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
 .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
+.bg-white\/60 { background-color: rgba(255, 255, 255, 0.6); }
+.bg-white\/70 { background-color: rgba(255, 255, 255, 0.7); }
+.bg-white\/75 { background-color: rgba(255, 255, 255, 0.75); }
+.bg-white\/80 { background-color: rgba(255, 255, 255, 0.8); }
+.bg-white\/85 { background-color: rgba(255, 255, 255, 0.85); }
+.bg-white\/90 { background-color: rgba(255, 255, 255, 0.9); }
+.bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
 .bg-slate-50 { background-color: #f8fafc; }
+.bg-slate-50\/50 { background-color: rgba(248, 250, 252, 0.5); }
+.bg-slate-50\/60 { background-color: rgba(248, 250, 252, 0.6); }
+.bg-slate-50\/70 { background-color: rgba(248, 250, 252, 0.7); }
+.bg-slate-50\/75 { background-color: rgba(248, 250, 252, 0.75); }
+.bg-slate-50\/80 { background-color: rgba(248, 250, 252, 0.8); }
+.bg-slate-50\/85 { background-color: rgba(248, 250, 252, 0.85); }
+.bg-slate-50\/90 { background-color: rgba(248, 250, 252, 0.9); }
 .bg-slate-100 { background-color: #f1f5f9; }
 .bg-slate-700 { background-color: #334155; }
 .bg-slate-800 { background-color: #1e293b; }
@@ -373,15 +387,49 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .bg-emerald-400 { background-color: #34d399; }
 
 /* --------------------------------------------------------------------------
-   8. COMPONENTES: SOMBRAS, MAQUETA & HERO
+   8. COMPONENTES: SOMBRAS MULTICAPA, ELEVACIÓN 3D & MAQUETA
    -------------------------------------------------------------------------- */
-.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15); }
-.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-.shadow-sky-500\/20 { box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.25); }
-.shadow-emerald-500\/20 { box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.25); }
+.shadow-xs {
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+}
+.shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+}
+.shadow-md {
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.05), 0 10px 20px -8px rgba(14, 165, 233, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+.shadow-lg {
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.10), 0 4px 8px -2px rgba(15, 23, 42, 0.05), 0 18px 28px -10px rgba(14, 165, 233, 0.12), inset 0 1px 0 0 #ffffff;
+}
+.shadow-xl {
+  box-shadow: 0 20px 35px -6px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.06), 0 24px 38px -12px rgba(14, 165, 233, 0.16), inset 0 1px 0 0 #ffffff;
+}
+.shadow-2xl {
+  box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.16), 0 12px 24px -6px rgba(14, 165, 233, 0.18), 0 0 40px -5px rgba(14, 165, 233, 0.22), inset 0 1px 0 0 #ffffff;
+}
+.shadow-sky-500\/20 { box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.35); }
+.shadow-emerald-500\/20 { box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35); }
+
+/* Sombras en Modo Oscuro (.dark) */
+.dark .shadow-xs { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6); }
+.dark .shadow-sm { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(30, 41, 59, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.06); }
+.dark .shadow-md { box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.75), 0 0 15px -3px rgba(56, 189, 248, 0.12), 0 0 0 1px rgba(30, 41, 59, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.08); }
+.dark .shadow-lg { box-shadow: 0 16px 32px -6px rgba(0, 0, 0, 0.85), 0 0 25px -4px rgba(56, 189, 248, 0.20), 0 0 0 1px rgba(51, 65, 85, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+.dark .shadow-xl { box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.92), 0 0 35px -5px rgba(56, 189, 248, 0.25), 0 0 0 1px rgba(56, 189, 248, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.12); }
+.dark .shadow-2xl { box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.98), 0 0 50px -5px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.15); }
+
+/* Elevación al pasar el cursor (Hover States) */
+.hover\:shadow-md {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover\:shadow-md:hover {
+  box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(15, 23, 42, 0.06), 0 16px 28px -8px rgba(14, 165, 233, 0.14), inset 0 1px 0 0 #ffffff !important;
+  transform: translateY(-3px);
+}
+.dark .hover\:shadow-md:hover {
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.85), 0 0 30px -4px rgba(56, 189, 248, 0.25), 0 0 0 1px rgba(56, 189, 248, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12) !important;
+  transform: translateY(-3px);
+}
 
 .sticky { position: sticky; }
 .relative { position: relative; }
@@ -417,12 +465,22 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .w-full { width: 100%; }
 .h-16 { height: 4rem; }
 
-/* Maqueta Hero Inclinada (Desktop) */
+/* Maqueta Hero Inclinada (Desktop) con Profundidad 3D */
 .mockup-window {
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(51, 65, 85, 0.6), 0 0 40px -10px rgba(56, 189, 248, 0.15);
+  box-shadow: 
+    0 28px 65px -12px rgba(15, 23, 42, 0.22),
+    0 12px 28px -6px rgba(14, 165, 233, 0.22),
+    0 0 0 1px rgba(203, 213, 225, 0.8),
+    0 0 45px -5px rgba(14, 165, 233, 0.18);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .mockup-window {
+  box-shadow: 
+    0 30px 75px -15px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(51, 65, 85, 0.8),
+    0 0 50px -5px rgba(56, 189, 248, 0.25);
 }
 
 @media (min-width: 1024px) {
@@ -586,6 +644,7 @@ details[open] summary span:last-child {
 
 /* Filtros & Desenfoques */
 .blur-3xl { filter: blur(64px); }
+.backdrop-blur-sm { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
 .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
 
@@ -985,10 +1044,21 @@ details[open] {
 }
 
 /* --------------------------------------------------------------------------
-   ESTILOS PARA EL ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
+   ESTILOS PARA EL ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ) CON PROFUNDIDAD
    -------------------------------------------------------------------------- */
 .faq-item {
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 5px 0 rgba(15, 23, 42, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.faq-item:hover {
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(56, 189, 248, 0.3);
+  transform: translateY(-1px);
+}
+.dark .faq-item {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+.dark .faq-item:hover {
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.7), 0 0 15px -3px rgba(56, 189, 248, 0.2);
 }
 .faq-icon {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
@@ -1013,21 +1083,190 @@ details[open] {
   pointer-events: none;
 }
 
-/* Sombra suave de elevación para tarjetas (rompe la apariencia plana) */
-.shadow-soft-card {
-  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(14, 165, 233, 0.04), 0 0 0 1px rgba(226, 232, 240, 0.85);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+#glow-orb-1 {
+  width: 650px;
+  height: 650px;
+  top: -100px;
+  left: -80px;
+  filter: blur(80px);
+  -webkit-filter: blur(80px);
+  opacity: 0.85;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.32) 0%, rgba(56, 189, 248, 0.14) 45%, transparent 70%);
 }
-.shadow-soft-card:hover {
-  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12), 0 6px 14px -3px rgba(14, 165, 233, 0.08), 0 0 0 1px rgba(14, 165, 233, 0.3);
+.dark #glow-orb-1 {
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  opacity: 0.28;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(56, 189, 248, 0.1) 50%, transparent 70%);
+}
+
+#glow-orb-2 {
+  width: 620px;
+  height: 620px;
+  top: 32%;
+  right: -100px;
+  filter: blur(85px);
+  -webkit-filter: blur(85px);
+  opacity: 0.80;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.30) 0%, rgba(139, 92, 246, 0.12) 45%, transparent 70%);
+}
+.dark #glow-orb-2 {
+  filter: blur(110px);
+  -webkit-filter: blur(110px);
+  opacity: 0.25;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
+}
+
+#glow-orb-3 {
+  width: 680px;
+  height: 680px;
+  bottom: 8%;
+  left: 18%;
+  filter: blur(80px);
+  -webkit-filter: blur(80px);
+  opacity: 0.85;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.32) 0%, rgba(16, 185, 129, 0.12) 50%, transparent 70%);
+}
+.dark #glow-orb-3 {
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  opacity: 0.25;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.25) 0%, rgba(16, 185, 129, 0.08) 50%, transparent 70%);
+}
+
+#watermark-logo {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  top: 22%;
+  right: -80px;
+  opacity: 0.08;
+  filter: drop-shadow(0 20px 30px rgba(14, 165, 233, 0.2));
+  will-change: transform;
+  pointer-events: none;
+}
+.dark #watermark-logo {
+  opacity: 0.035;
+  filter: drop-shadow(0 20px 30px rgba(56, 189, 248, 0.25));
+}
+
+/* --------------------------------------------------------------------------
+   SISTEMA DE ELEVACIÓN Y TARJETAS 3D FLOTANTES (MODERN LUXURY UI)
+   -------------------------------------------------------------------------- */
+.card-3d, .shadow-soft-card {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 2px 4px 0 rgba(15, 23, 42, 0.04),
+    0 12px 28px -6px rgba(15, 23, 42, 0.08),
+    0 18px 30px -12px rgba(14, 165, 233, 0.09),
+    inset 0 1px 0 0 #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+.card-3d:hover, .shadow-soft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 8px -2px rgba(15, 23, 42, 0.05),
+    0 22px 40px -8px rgba(15, 23, 42, 0.13),
+    0 30px 48px -15px rgba(14, 165, 233, 0.22),
+    inset 0 1px 0 0 #ffffff;
+  border-color: rgba(56, 189, 248, 0.5);
+}
+.dark .card-3d, .dark .shadow-soft-card {
+  background-color: rgba(15, 23, 42, 0.9);
+  box-shadow: 
+    0 12px 32px -8px rgba(0, 0, 0, 0.75),
+    0 0 25px -8px rgba(56, 189, 248, 0.15),
+    0 0 0 1px rgba(30, 41, 59, 0.9),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+}
+.dark .card-3d:hover, .dark .shadow-soft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 24px 50px -10px rgba(0, 0, 0, 0.9),
+    0 0 40px -5px rgba(56, 189, 248, 0.3),
+    0 0 0 1px rgba(56, 189, 248, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Tarjeta Principal de Precio con Máxima Jerarquía (Showstopper) */
+.card-featured {
+  background: #ffffff;
+  box-shadow: 
+    0 25px 65px -15px rgba(15, 23, 42, 0.15),
+    0 0 45px -8px rgba(14, 165, 233, 0.26),
+    0 0 0 2px rgba(56, 189, 248, 0.8),
+    inset 0 1px 0 0 #ffffff;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.card-featured:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 35px 80px -15px rgba(15, 23, 42, 0.20),
+    0 0 60px -5px rgba(14, 165, 233, 0.40),
+    0 0 0 2px rgba(14, 165, 233, 1),
+    inset 0 1px 0 0 #ffffff;
+}
+.dark .card-featured {
+  background: #0f172a;
+  box-shadow: 
+    0 30px 75px -15px rgba(0, 0, 0, 0.9),
+    0 0 55px -5px rgba(56, 189, 248, 0.35),
+    0 0 0 2px rgba(56, 189, 248, 0.75),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+.dark .card-featured:hover {
+  box-shadow: 
+    0 40px 90px -15px rgba(0, 0, 0, 0.98),
+    0 0 75px -5px rgba(56, 189, 248, 0.5),
+    0 0 0 2px rgba(56, 189, 248, 1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+}
+
+/* Botones con Profundidad Táctil */
+.btn-tactile-emerald {
+  box-shadow: 
+    0 4px 14px -1px rgba(16, 185, 129, 0.45),
+    0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile-emerald:hover {
   transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px -2px rgba(16, 185, 129, 0.6),
+    0 3px 6px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
 }
-.dark .shadow-soft-card {
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(30, 41, 59, 0.85);
+.btn-tactile-emerald:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 2px 8px -1px rgba(16, 185, 129, 0.4),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
-.dark .shadow-soft-card:hover {
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.85), 0 0 20px -3px rgba(56, 189, 248, 0.2), 0 0 0 1px rgba(56, 189, 248, 0.4);
+
+.btn-tactile-sky {
+  box-shadow: 
+    0 4px 14px -1px rgba(14, 165, 233, 0.45),
+    0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile-sky:hover {
   transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px -2px rgba(14, 165, 233, 0.6),
+    0 3px 6px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
+}
+.btn-tactile-sky:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 2px 8px -1px rgba(14, 165, 233, 0.4),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 
