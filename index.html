@@ -27,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Custom Stylesheet & Anti-Watermark Overrides -->
-  <link rel="stylesheet" href="styles.css?v=2.6">
+  <!-- Custom Stylesheet & Anti-Watermark Overrides (v2.7) -->
+  <link rel="stylesheet" href="styles.css?v=2.7">
   
   <!-- Fallback Inmediato para Accesibilidad & Bloqueadores de JS -->
   <noscript>
@@ -116,10 +116,10 @@
 
       <!-- ACCIONES DE CABECERA (ESCRITORIO) -->
       <div class="hidden md:flex items-center gap-3">
-        <!-- Switch Sun / Moon -->
-        <button onclick="toggleTheme()" id="theme-btn-desktop" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition shadow-sm" title="Alternar Modo Claro / Modo Oscuro">
-          <span class="dark:hidden text-base">🌙</span>
-          <span class="hidden dark:inline text-base">☀️</span>
+        <!-- Switch Sun / Moon (Escritorio) -->
+        <button onclick="toggleTheme()" id="theme-btn-desktop" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition shadow-sm cursor-pointer" title="Alternar Modo Claro / Modo Oscuro">
+          <span class="theme-icon-moon text-base">🌙</span>
+          <span class="theme-icon-sun text-base">☀️</span>
         </button>
 
         <a href="#precio" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-sky-500/20 flex items-center gap-1.5 font-display tracking-wide">
@@ -132,9 +132,9 @@
       <!-- BOTONES MÓVIL: TEMA + HAMBURGUESA -->
       <div class="flex items-center gap-2 md:hidden">
         <!-- Switch Sun/Moon móvil -->
-        <button onclick="toggleTheme()" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition">
-          <span class="dark:hidden text-sm">🌙</span>
-          <span class="hidden dark:inline text-sm">☀️</span>
+        <button onclick="toggleTheme()" id="theme-btn-mobile" aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center transition cursor-pointer" title="Alternar Modo Claro / Modo Oscuro">
+          <span class="theme-icon-moon text-sm">🌙</span>
+          <span class="theme-icon-sun text-sm">☀️</span>
         </button>
 
         <!-- Botón Hamburguesa Animado -->
