@@ -1509,16 +1509,19 @@
         if (watermark) {
           const vh = window.innerHeight || 800;
           const vw = window.innerWidth || 1200;
+          const isMobile = vw <= 768;
 
-          // 1. Recorrido Vertical (Y): Mayor amplitud para mayor velocidad visual
-          const totalTravelY = Math.round(vh * 0.85 + 320);
+          // Calibramos la mitad real del logo según la pantalla para garantizar el 50% visible en el top
+          const logoHalf = watermark.offsetHeight ? Math.round(watermark.offsetHeight / 2) : (isMobile ? 140 : 320);
+
+          // 1. Recorrido Vertical (Y): Desde el top con 50% hasta cerca del footer
+          const totalTravelY = Math.round(vh * 0.82 + logoHalf);
           const yWm = progress * totalTravelY;
 
           // 2. Recorrido Horizontal (X) en Arco Senoidal (Izquierda -> Derecha/Centro -> Izquierda):
-          // En progress = 0: sin(0) = 0 -> Inicia en la esquina superior izquierda
-          // En progress = 0.5: sin(PI/2) = 1 -> Se desplaza hacia la derecha y al centro
-          // En progress = 1: sin(PI) = 0 -> Vuelve a ubicarse a la izquierda cerca del footer
-          const maxSwingX = vw > 768 ? Math.max(vw - 520, 360) : Math.max(vw * 0.45, 120);
+          // En móviles el swing es proporcional al ancho de pantalla (~38% del ancho)
+          // En escritorio cruza ampliamente hacia el centro-derecha
+          const maxSwingX = isMobile ? Math.round(vw * 0.38) : Math.max(vw - 520, 360);
           const xWm = Math.sin(progress * Math.PI) * maxSwingX;
 
           // 3. Rotación dinámica continua (140 grados)
