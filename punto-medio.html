@@ -84,7 +84,7 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-[#090d16] dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white pb-20 md:pb-0 transition-colors duration-300">
 
   <!-- BARRA SUPERIOR DE ALERTA DE COHORTE -->
-  <div class="bg-sky-100/90 dark:bg-gradient-to-r dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 border-b border-sky-200/80 dark:border-sky-800/40 py-2.5 px-4 text-center text-xs sm:text-sm text-sky-950 dark:text-slate-200 transition-colors">
+  <div class="bg-gradient-to-r from-sky-100 via-indigo-50 to-sky-100 dark:from-sky-950 dark:via-slate-900 dark:to-indigo-950 border-b border-sky-200/80 dark:border-sky-800/40 py-2.5 px-4 text-center text-xs sm:text-sm text-sky-950 dark:text-slate-200 transition-colors shadow-xs">
     <div class="max-w-6xl mx-auto flex items-center justify-center gap-2 font-medium">
       <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/30">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1.5"></span> Cohorte En Vivo: 06 al 08 de Noviembre 2026
@@ -127,7 +127,7 @@
           <span class="theme-icon-sun text-base">☀️</span>
         </button>
 
-        <a href="#precio" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-sky-500/20 flex items-center gap-1.5 font-display tracking-wide">
+        <a href="#precio" class="bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition shadow-lg shadow-sky-500/25 flex items-center gap-1.5 font-display tracking-wide">
           <span>Inscribirme</span>
           <span class="text-xs">&rarr;</span>
           <span id="header-cta-text" class="hidden"></span>
@@ -189,7 +189,7 @@
       </div>
 
       <div class="pt-2">
-        <a href="#precio" onclick="toggleMobileMenu()" class="w-full py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-center block shadow-lg shadow-sky-500/20 font-display">
+        <a href="#precio" onclick="toggleMobileMenu()" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-bold text-center block shadow-lg shadow-sky-500/20 font-display">
           Inscribirme al Taller
         </a>
       </div>
@@ -199,8 +199,9 @@
   <!-- HERO SECTION CON MAQUETA INTERACTIVA -->
   <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-white dark:bg-[#090d16] bg-grid-subtle transition-colors">
     <!-- Luces de atmósfera difusas -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-400/10 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-400/12 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-emerald-400/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 right-1/4 w-[420px] h-[420px] bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
       
@@ -215,7 +216,7 @@
       <!-- Título Principal con Outfit (Display) -->
       <h1 class="font-display font-black text-3xl sm:text-5xl md:text-6xl tracking-tight text-slate-950 dark:text-white leading-[1.12] mb-5">
         Deja de pegar código a ciegas en ChatGPT. <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-500 to-sky-500 dark:from-sky-400 dark:via-teal-300 dark:to-sky-300">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-500 to-indigo-600 dark:from-sky-400 dark:via-teal-300 dark:to-indigo-300">
           Aprende a construir software real con Antigravity & IA.
         </span>
       </h1>
@@ -227,7 +228,7 @@
 
       <!-- Botones de Acción -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-display font-bold text-base sm:text-lg transition shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2">
+        <a href="#precio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white font-display font-bold text-base sm:text-lg transition shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2">
           <span>🚀</span>
           <span id="hero-cta-text">Asegurar mi Cupo (COP $100.000)</span>
         </a>
@@ -303,15 +304,15 @@
 
           <!-- Tarjetas KPI del Software -->
           <div class="grid grid-cols-3 gap-3 mb-5">
-            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border-t-2 border-t-sky-500 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
               <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Total Solicitudes</div>
               <div id="kpi-total" class="font-display font-black text-xl sm:text-2xl text-sky-600 dark:text-sky-400">12</div>
             </div>
-            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border-t-2 border-t-amber-500 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
               <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Pendientes</div>
               <div id="kpi-pendientes" class="font-display font-black text-xl sm:text-2xl text-amber-500">4</div>
             </div>
-            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border-t-2 border-t-emerald-500 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
               <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase font-semibold">Resueltos</div>
               <div id="kpi-resueltos" class="font-display font-black text-xl sm:text-2xl text-emerald-500">8</div>
             </div>
@@ -386,7 +387,7 @@
       <div class="grid md:grid-cols-2 gap-6">
         
         <!-- Tarjeta Roja: YouTube Promedio -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-red-50/60 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 text-left reveal-left">
+        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-red-50/80 to-white dark:from-red-950/25 dark:to-slate-900 border-t-4 border-t-red-500 border border-red-200 dark:border-red-900/40 text-left shadow-sm reveal-left">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-sm">✕</span>
             <h4 class="font-display font-bold text-lg text-red-950 dark:text-red-200">El Vibe Coder Frustrado (YouTube)</h4>
@@ -412,7 +413,7 @@
         </div>
 
         <!-- Tarjeta Verde: Antigravity.Lab -->
-        <div class="p-6 sm:p-7 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-sm reveal-right">
+        <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-emerald-50/80 to-white dark:from-emerald-950/25 dark:to-slate-900 border-t-4 border-t-emerald-500 border border-emerald-200 dark:border-emerald-800/50 text-left shadow-lg glow-border-sky reveal-right">
           <div class="flex items-center gap-2.5 mb-4">
             <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">✓</span>
             <h4 class="font-display font-bold text-lg text-emerald-950 dark:text-emerald-200">El Creador con Método (Antigravity.Lab)</h4>
@@ -459,7 +460,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
         
         <!-- Nivel 1 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-up stagger-1">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 1</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -470,9 +471,9 @@
         </div>
 
         <!-- Nivel 2 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-teal-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-up stagger-2">
           <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 2</span>
+            <span class="font-display font-bold text-sm text-teal-600 dark:text-teal-400">Nivel 2</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
           </div>
           <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Mini-App con Memoria</h4>
@@ -481,7 +482,7 @@
         </div>
 
         <!-- Nivel 3 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-xl glow-border-sky reveal-up stagger-3 relative">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/70 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-xl glow-border-sky reveal-up stagger-3 relative">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 3</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold">Núcleo del Taller</span>
@@ -492,7 +493,7 @@
         </div>
 
         <!-- Nivel 4 -->
-        <div class="p-5 rounded-2xl bg-indigo-50/50 dark:bg-slate-900/80 border border-indigo-200 dark:border-indigo-900/60 shadow-sm reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-indigo-50/40 dark:bg-slate-900/90 border-t-4 border-t-indigo-500 border border-indigo-200 dark:border-indigo-900/60 shadow-sm hover:shadow-md transition reveal-up stagger-4">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-indigo-600 dark:text-indigo-400">Nivel 4</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold">Zona Senior</span>
@@ -523,22 +524,22 @@
 
       <!-- Cuadrante Comparativo Objetivo -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">ChatGPT & Claude</div>
-          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Ideación y Textos</div>
+          <div class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-2 font-semibold">Ideación y Textos</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Insuperables para pulir propuestas de valor, lluvias de ideas y redacción de copys comerciales.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">GitHub Copilot</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Autocompletado Rápido</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Excelente para programadores que ya dominan la sintaxis y quieren teclear código más rápido en su editor.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-purple-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">Cursor & Windsurf</div>
-          <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Diffs Multi-archivo</div>
+          <div class="text-xs font-mono text-purple-600 dark:text-purple-400 mb-2 font-semibold">Diffs Multi-archivo</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Pioneros destacados para desarrolladores avanzados con flujos de terminal y suscripciones por API.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border-2 border-sky-400 dark:border-sky-500/60 shadow-sm reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/80 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-500/70 shadow-xl glow-border-sky reveal-up stagger-4">
           <div class="font-display font-bold text-base text-sky-900 dark:text-sky-200 mb-1">Google Antigravity</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-bold">Creación Agéntica Unificada</div>
           <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">Cero barreras de pago con Gmail, ventana monumental de 1M de tokens y optimizado desde 4 GB de RAM.</p>
@@ -717,22 +718,22 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
           <div class="text-2xl mb-2">🎯</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Software en Producción</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No te vas con apuntes teóricos. Sales con tu aplicación desplegada con enlace público HTTPS y código QR.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
           <div class="text-2xl mb-2">💻</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Cero Gastos Ocultos</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Todo el taller corre sobre herramientas 100% gratuitas (Google Antigravity, Gemini Flash y GitHub Pages).</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-amber-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-3">
           <div class="text-2xl mb-2">🤝</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Desbloqueo en Vivo</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dedicamos 30 a 60 minutos exclusivos por sesión para revisar pantallas y destrabar cualquier error.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-indigo-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
           <div class="text-2xl mb-2">🔒</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Satisfacción Total</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Participa en la Sesión 1. Si sientes que no era lo que esperabas, te reembolsamos el 100% de inmediato.</p>
@@ -742,8 +743,12 @@
   </section>
 
   <!-- TARJETA DE PRECIO Y RETORNO DE INVERSIÓN (ROI) -->
-  <section id="precio" class="py-16 bg-white dark:bg-[#090d16] bg-grid-subtle border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
-    <div class="max-w-3xl mx-auto px-4 text-center">
+  <section id="precio" class="py-16 bg-white dark:bg-[#090d16] bg-grid-subtle border-t border-slate-200/80 dark:border-slate-800/80 transition-colors relative overflow-hidden">
+    <!-- Luces de atmósfera difusas -->
+    <div class="absolute top-1/3 left-1/4 w-[450px] h-[450px] bg-sky-400/10 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-400/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
       
       <div class="reveal-up">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Inversión & Reserva</h2>
@@ -757,7 +762,7 @@
 
       <!-- Selector de Moneda Dinámico (COP / USD) -->
       <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-up">
-        <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md">
+        <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md">
           <span>🇨🇴</span> Pesos Colombianos (COP)
         </button>
         <button id="curr-usd" onclick="setCurrency('USD')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5">
@@ -766,7 +771,7 @@
       </div>
 
       <!-- Tarjeta de Precio -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/60 relative text-left shadow-xl transition-colors reveal-scale">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/70 relative text-left shadow-2xl glow-border-sky transition-colors reveal-scale">
         
         <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
           Ahorras $50.000 COP
@@ -861,39 +866,113 @@
     </div>
   </section>
 
-  <!-- PREGUNTAS FRECUENTES (FAQ) -->
-  <section class="py-16 bg-white dark:bg-slate-950/70 border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <!-- PREGUNTAS FRECUENTES (FAQ) INTERACTIVO -->
+  <section id="faq" class="py-16 bg-slate-50/70 dark:bg-[#0c1220] border-t border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-3xl mx-auto px-4">
       <div class="text-center mb-10 reveal-up">
+        <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Transparencia Total</h2>
         <h3 class="font-display font-black text-2xl sm:text-3xl text-slate-950 dark:text-white">Preguntas Frecuentes</h3>
-        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Resolvemos tus dudas con total transparencia</p>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Toca cualquier pregunta para desplegar la respuesta con un clic</p>
       </div>
 
-      <div class="space-y-3">
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-1">
-          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Necesito ser un programador experto?</h4>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">No. Si entiendes conceptos básicos de qué es una página web, botones e interfaces, el taller te enseñará a gobernar la IA con rigor. No necesitas saber escribir algoritmos complejos de memoria.</p>
+      <div class="space-y-3" id="faq-accordion">
+        
+        <!-- Pregunta 1 (Abierta por defecto) -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500 shadow-md overflow-hidden transition-all duration-200" id="faq-item-1">
+          <button type="button" onclick="toggleFaq(1)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="true" id="faq-btn-1">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">01</span>
+              <span>¿Necesito ser un programador experto para tomar el taller?</span>
+            </span>
+            <span class="faq-icon text-sky-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-1">
+              ▲
+            </span>
+          </button>
+          <div id="faq-ans-1" class="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>No. Si entiendes conceptos básicos de qué es una página web, botones e interfaces, el taller te enseñará a gobernar la IA con rigor paso a paso. No necesitas saber escribir algoritmos complejos de memoria; aprenderás a ser el arquitecto que guía a <strong>Google Antigravity</strong> con especificaciones claras (SDD) para que la IA genere código defensivo y modular por ti.</p>
+          </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-2">
-          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Mi computador servirá para el taller?</h4>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Sí. Hemos diseñado todo el taller para que funcione desde portátiles modestos con <strong>4 GB de memoria RAM</strong> en Windows, Mac o Linux. No necesitas tarjetas gráficas Nvidia ni entornos pesados.</p>
+        <!-- Pregunta 2 -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-2">
+          <button type="button" onclick="toggleFaq(2)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-2">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">02</span>
+              <span>¿Mi computador servirá para el taller?</span>
+            </span>
+            <span class="faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-2">
+              ▼
+            </span>
+          </button>
+          <div id="faq-ans-2" class="hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>Sí. Hemos diseñado todo el taller para que funcione fluido desde portátiles modestos con <strong>4 GB de memoria RAM</strong> en Windows, macOS o Linux. No necesitas tarjetas gráficas Nvidia ni procesadores de gama alta; Google Antigravity corre optimizado y ligero en tu máquina.</p>
+          </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-3">
-          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Qué pasa si no puedo asistir a una clase en vivo?</h4>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas las sesiones quedan grabadas en alta definición y se suben al canal de Telegram al terminar la clase, junto con los archivos y el código del día para que no te atrases.</p>
+        <!-- Pregunta 3 -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-3">
+          <button type="button" onclick="toggleFaq(3)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-3">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">03</span>
+              <span>¿Debo pagar suscripciones mensuales o comprar créditos de API?</span>
+            </span>
+            <span class="faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-3">
+              ▼
+            </span>
+          </button>
+          <div id="faq-ans-3" class="hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>No. Todo el taller corre sobre herramientas <strong>100% gratuitas</strong>: Google Antigravity se activa directamente con tu cuenta normal de Gmail, el motor Gemini Flash ofrece cuota amplia sin costo, y el despliegue se realiza en <strong>GitHub Pages</strong> con certificado SSL gratis. Cero gastos ocultos.</p>
+          </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-4">
-          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué limitan el cupo a 30 participantes?</h4>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Porque en este taller el instructor revisa pantallas y desbloquea errores técnicos reales. En una sala con 200 personas nadie aprende; con 30 garantizamos atención y resultados concluyentes.</p>
+        <!-- Pregunta 4 -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-4">
+          <button type="button" onclick="toggleFaq(4)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-4">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">04</span>
+              <span>¿Qué pasa si no puedo asistir a una clase en vivo?</span>
+            </span>
+            <span class="faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-4">
+              ▼
+            </span>
+          </button>
+          <div id="faq-ans-4" class="hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>Todas las 4 sesiones se graban en alta definición (1080p) y se comparten en el canal privado de Telegram inmediatamente después de cada clase, junto con las plantillas, prompts y código de la sesión. Tendrás acceso de por vida a las grabaciones.</p>
+          </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 reveal-up stagger-5">
-          <h4 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1">¿Por qué enseñan con Google Antigravity y no con Cursor o ChatGPT?</h4>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Todas son herramientas extraordinarias: ChatGPT es excelente para idear y redactar copys, y Cursor es un pionero fantástico para desarrolladores avanzados. Elegimos <strong>Google Antigravity & Gemini</strong> para este taller porque ofrece la combinación perfecta de <strong>cero fricción de entrada</strong> (acceso directo con tu cuenta de Google, sin tarjetas internacionales), una ventana de contexto masiva de 1 millón de tokens para no perder la sincronía de tu proyecto, y un rendimiento sumamente ligero optimizado para laptops desde 4 GB de RAM.</p>
+        <!-- Pregunta 5 -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-5">
+          <button type="button" onclick="toggleFaq(5)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-5">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">05</span>
+              <span>¿Por qué limitan el cupo a solo 30 participantes?</span>
+            </span>
+            <span class="faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-5">
+              ▼
+            </span>
+          </button>
+          <div id="faq-ans-5" class="hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>Porque dedicamos entre 30 y 60 minutos en cada sesión a revisar pantallas en vivo y desbloquear errores puntuales de los participantes. En un auditorio con cientos de personas es imposible dar soporte personalizado; con 30 participantes garantizamos que todos alcancen el objetivo y publiquen su aplicación.</p>
+          </div>
         </div>
+
+        <!-- Pregunta 6 -->
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-6">
+          <button type="button" onclick="toggleFaq(6)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-6">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">06</span>
+              <span>¿Cómo funciona la Garantía de Satisfacción Total?</span>
+            </span>
+            <span class="faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0" id="faq-icon-6">
+              ▼
+            </span>
+          </button>
+          <div id="faq-ans-6" class="hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80">
+            <p>Participa en la Sesión 1 completa el viernes. Si al terminar sientes que el contenido o la pedagogía no cumplen con tus expectativas, nos avisas por WhatsApp antes del inicio de la Sesión 2 y te transferimos el 100% de tu dinero de vuelta, sin preguntas incómodas ni trámites burocráticos.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1070,8 +1149,8 @@
             </div>
           `).join('')}
         </div>
-        <div class="p-3.5 bg-emerald-50 dark:bg-slate-950/70 rounded-xl border border-emerald-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2.5">
-          <span class="text-emerald-600 dark:text-emerald-400 font-bold">🎯 Entregable Concluyente:</span>
+        <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-slate-950 rounded-xl border border-emerald-300 dark:border-emerald-800/80 text-xs sm:text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2.5 shadow-sm">
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold flex-shrink-0">🎯 Entregable Concluyente:</span>
           <span>${mod.deliverable}</span>
         </div>
       `;
@@ -1128,10 +1207,10 @@
       if (!btnCop || !btnUsd) return;
 
       if (curr === 'COP') {
-        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md';
         btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
       } else {
-        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-sky-500 text-slate-950 shadow-md';
+        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md';
         btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
       }
 
@@ -1217,7 +1296,38 @@
       `;
     }
 
-    // --- 7. OBSERVADOR DE ANIMACIONES DE SCROLL (60 FPS NATIVO) ---
+    // --- 7. ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ) ---
+    function toggleFaq(id) {
+      const item = document.getElementById('faq-item-' + id);
+      const ans = document.getElementById('faq-ans-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      const btn = document.getElementById('faq-btn-' + id);
+      if (!ans || !icon) return;
+
+      const isHidden = ans.classList.contains('hidden');
+
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        icon.innerText = '▲';
+        icon.className = 'faq-icon text-sky-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0';
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (item) {
+          item.classList.add('border-2', 'border-sky-400', 'dark:border-sky-500', 'shadow-md');
+          item.classList.remove('border-slate-200', 'dark:border-slate-800');
+        }
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = '▼';
+        icon.className = 'faq-icon text-slate-400 dark:text-slate-500 font-bold text-xs sm:text-sm transition-transform duration-300 flex-shrink-0';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (item) {
+          item.classList.remove('border-2', 'border-sky-400', 'dark:border-sky-500', 'shadow-md');
+          item.classList.add('border', 'border-slate-200', 'dark:border-slate-800');
+        }
+      }
+    }
+
+    // --- 8. OBSERVADOR DE ANIMACIONES DE SCROLL (60 FPS NATIVO) ---
     function initScrollAnimations() {
       const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
       if (!('IntersectionObserver' in window)) {
