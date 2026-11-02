@@ -1508,10 +1508,23 @@
         }
         if (watermark) {
           const vh = window.innerHeight || 800;
-          const totalTravel = Math.round(vh * 0.62 + 320);
-          const deg = progress * 75;
-          const yWm = progress * totalTravel;
-          watermark.style.transform = `translate3d(0, ${yWm.toFixed(1)}px, 0) rotate(${deg.toFixed(1)}deg)`;
+          const vw = window.innerWidth || 1200;
+
+          // 1. Recorrido Vertical (Y): Mayor amplitud para mayor velocidad visual
+          const totalTravelY = Math.round(vh * 0.85 + 320);
+          const yWm = progress * totalTravelY;
+
+          // 2. Recorrido Horizontal (X) en Arco Senoidal (Izquierda -> Derecha/Centro -> Izquierda):
+          // En progress = 0: sin(0) = 0 -> Inicia en la esquina superior izquierda
+          // En progress = 0.5: sin(PI/2) = 1 -> Se desplaza hacia la derecha y al centro
+          // En progress = 1: sin(PI) = 0 -> Vuelve a ubicarse a la izquierda cerca del footer
+          const maxSwingX = vw > 768 ? Math.max(vw - 520, 360) : Math.max(vw * 0.45, 120);
+          const xWm = Math.sin(progress * Math.PI) * maxSwingX;
+
+          // 3. Rotación dinámica continua (140 grados)
+          const deg = progress * 140;
+
+          watermark.style.transform = `translate3d(${xWm.toFixed(1)}px, ${yWm.toFixed(1)}px, 0) rotate(${deg.toFixed(1)}deg)`;
         }
         ticking = false;
       }
