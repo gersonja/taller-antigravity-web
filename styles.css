@@ -340,6 +340,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .bg-\[\#0b1020\] { background-color: #0b1020 !important; }
 .bg-\[\#070a14\] { background-color: #070a14 !important; }
 .bg-\[\#f8fafc\] { background-color: #f8fafc !important; }
+.bg-transparent { background-color: transparent !important; }
 
 .bg-white { background-color: #ffffff; }
 .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
@@ -945,6 +946,7 @@ details[open] {
 .dark .dark\:bg-amber-950 { background-color: #451a03 !important; }
 .dark .dark\:bg-red-950\/20 { background-color: rgba(69, 10, 10, 0.2) !important; }
 .dark .dark\:bg-red-900\/40 { background-color: rgba(127, 29, 29, 0.4) !important; }
+.dark .dark\:bg-transparent { background-color: transparent !important; }
 
 /* Gradientes Dark Mode */
 .dark .dark\:bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops, #38bdf8, #818cf8)); }
@@ -1156,18 +1158,18 @@ details[open] {
 
 #watermark-logo {
   position: absolute;
-  width: 620px;
-  height: 620px;
-  top: 22%;
-  right: -80px;
-  opacity: 0.08;
-  filter: drop-shadow(0 20px 30px rgba(14, 165, 233, 0.2));
+  width: 640px;
+  height: 640px;
+  top: 18%;
+  right: -50px;
+  opacity: 0.16;
+  filter: drop-shadow(0 20px 35px rgba(14, 165, 233, 0.35));
   will-change: transform;
   pointer-events: none;
 }
 .dark #watermark-logo {
-  opacity: 0.035;
-  filter: drop-shadow(0 20px 30px rgba(56, 189, 248, 0.25));
+  opacity: 0.10;
+  filter: drop-shadow(0 20px 35px rgba(56, 189, 248, 0.4));
 }
 
 /* --------------------------------------------------------------------------
