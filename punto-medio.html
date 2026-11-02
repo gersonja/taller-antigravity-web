@@ -1507,8 +1507,10 @@
           orb3.style.transform = `translate3d(${x3.toFixed(1)}px, ${y3.toFixed(1)}px, 0)`;
         }
         if (watermark) {
-          const deg = progress * 45;
-          const yWm = progress * 360;
+          const vh = window.innerHeight || 800;
+          const totalTravel = Math.round(vh * 0.62 + 320);
+          const deg = progress * 75;
+          const yWm = progress * totalTravel;
           watermark.style.transform = `translate3d(0, ${yWm.toFixed(1)}px, 0) rotate(${deg.toFixed(1)}deg)`;
         }
         ticking = false;
