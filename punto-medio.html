@@ -202,20 +202,7 @@
         </a>
       </nav>
 
-      <!-- Selector de Moneda en Móvil -->
-      <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
-        <div class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-2">Moneda del taller:</div>
-        <div class="grid grid-cols-2 gap-2">
-          <button onclick="setCurrency('COP'); toggleMobileMenu()" class="py-2 rounded-lg text-xs font-bold bg-sky-500 text-slate-950 text-center">
-            🇨🇴 Pesos (COP)
-          </button>
-          <button onclick="setCurrency('USD'); toggleMobileMenu()" class="py-2 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-center">
-            💵 Dólares (USD)
-          </button>
-        </div>
-      </div>
-
-      <div class="pt-2">
+      <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
         <a href="#precio" onclick="toggleMobileMenu()" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-bold text-center block shadow-lg shadow-sky-500/20 font-display">
           Inscribirme al Taller
         </a>
@@ -787,18 +774,8 @@
         </p>
       </div>
 
-      <!-- Selector de Moneda Dinámico (COP / USD) -->
-      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft-card mb-8 reveal-down">
-        <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md">
-          <span>🇨🇴</span> Pesos Colombianos (COP)
-        </button>
-        <button id="curr-usd" onclick="setCurrency('USD')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5">
-          <span>💵</span> Dólares (USD / Ecuador)
-        </button>
-      </div>
-
-      <!-- Tarjeta de Precio con Profundidad Destacada -->
-      <div class="card-featured rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/70 relative text-left transition-colors reveal-scale">
+      <!-- Tarjeta de Precio con Profundidad Destacada (Auto-localizada vía GeoIP) -->
+      <div class="card-featured rounded-3xl p-6 sm:p-10 border-2 border-sky-400 dark:border-sky-500/70 relative text-left transition-colors reveal-scale mb-4">
         
         <div id="price-savings" class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md">
           Ahorras $50.000 COP
@@ -877,7 +854,7 @@
           📲 Reservar mi Cupo por WhatsApp (COP $100.000)
         </a>
 
-        <div id="payment-methods-info" class="text-center text-xs text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center gap-2 pt-2">
+        <div id="payment-methods-info" class="text-center text-xs text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center gap-2 pt-2 mb-3">
           <div class="flex items-center gap-2">
             <span>💳 Medios de pago Colombia:</span>
             <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Nequi</span>
@@ -886,6 +863,18 @@
           <p class="text-[11px]">
             Los datos exactos de transferencia o código QR te los compartimos directamente en la conversación de WhatsApp al escribirnos.
           </p>
+        </div>
+
+        <!-- Respaldo discreto para VPN / Cambio de país -->
+        <div class="text-[11px] text-slate-400 dark:text-slate-500 pt-3 border-t border-slate-100 dark:border-slate-800/80 text-center flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+          <span>📍 <span id="detected-country-label">🇨🇴 Colombia</span> · ¿Pagas desde otro país?</span>
+          <button type="button" onclick="setCurrency('COP')" class="hover:text-sky-500 dark:hover:text-sky-400 font-semibold underline transition cursor-pointer">🇨🇴 Colombia</button>
+          <span class="opacity-40">•</span>
+          <button type="button" onclick="setCurrency('USD')" class="hover:text-sky-500 dark:hover:text-sky-400 font-semibold underline transition cursor-pointer">🇪🇨 Ecuador</button>
+          <span class="opacity-40">•</span>
+          <button type="button" onclick="setCurrency('PEN')" class="hover:text-sky-500 dark:hover:text-sky-400 font-semibold underline transition cursor-pointer">🇵🇪 Perú</button>
+          <span class="opacity-40">•</span>
+          <button type="button" onclick="setCurrency('INT')" class="hover:text-sky-500 dark:hover:text-sky-400 font-semibold underline transition cursor-pointer">🌎 Internacional</button>
         </div>
 
       </div>
@@ -1183,18 +1172,21 @@
       `;
     }
 
-    // --- 5. GESTIÓN DE MONEDAS (COP / USD) ---
+    // --- 5. GESTIÓN MULTI-PAÍS, MONEDAS Y MEDIOS DE PAGO LOCALES ---
     const currencyData = {
       COP: {
+        code: "COP",
+        countryName: "Colombia",
+        flag: "🇨🇴",
         regular: "COP $150.000",
         active: "COP $100.000",
         savings: "Ahorras $50.000 COP",
         headerCta: "(COP $100.000)",
         heroCta: "Asegurar mi Cupo (COP $100.000)",
         btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (COP $100.000)",
-        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$100.000%20COP%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre%20(Colombia)",
         methodsHtml: `
-          <div class="flex items-center gap-2">
+          <div class="flex items-center justify-center gap-2">
             <span>💳 Medios de pago Colombia:</span>
             <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Nequi</span>
             <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-mono font-bold">Bancolombia</span>
@@ -1205,40 +1197,79 @@
         `
       },
       USD: {
+        code: "USD",
+        countryName: "Ecuador",
+        flag: "🇪🇨",
         regular: "USD $40",
         active: "USD $25",
         savings: "Ahorras $15 USD",
         headerCta: "(USD $25)",
         heroCta: "Asegurar mi Cupo (USD $25)",
         btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (USD $25)",
-        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$25%20USD%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$25%20USD%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre%20(Ecuador)",
         methodsHtml: `
           <div class="flex flex-wrap items-center justify-center gap-2">
-            <span>💳 Medios de pago Ecuador / Internacional:</span>
-            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-mono font-bold">Banco Pichincha</span>
+            <span>💳 Medios de pago Ecuador:</span>
+            <span class="px-2.5 py-0.5 rounded bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-mono font-bold border border-teal-200 dark:border-teal-800">Deuna</span>
             <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-mono font-bold">Banco Guayaquil</span>
-            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 font-mono font-bold">Deuna</span>
-            <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-mono font-bold">PayPal</span>
           </div>
           <p class="text-[11px]">
-            Los datos de transferencia bancaria en Ecuador (o enlace PayPal internacional) te los compartimos directamente por WhatsApp.
+            Los datos de transferencia a Banco Guayaquil o código QR Deuna te los compartimos por WhatsApp al escribirnos.
+          </p>
+        `
+      },
+      PEN: {
+        code: "PEN",
+        countryName: "Perú",
+        flag: "🇵🇪",
+        regular: "PEN S/ 150",
+        active: "PEN S/ 95",
+        savings: "Ahorras S/ 55 PEN",
+        headerCta: "(S/ 95 PEN)",
+        heroCta: "Asegurar mi Cupo (S/ 95 PEN)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (S/ 95 PEN - Yape)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20S/%2095%20PEN%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre%20(Per%C3%BA:%20Yape)",
+        methodsHtml: `
+          <div class="flex items-center justify-center gap-2">
+            <span>💳 Medio de pago Perú:</span>
+            <span class="px-2.5 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-mono font-bold border border-purple-200 dark:border-purple-800">Yape</span>
+          </div>
+          <p class="text-[11px]">
+            El número o código QR de Yape en Perú te lo compartimos directamente al escribirnos por WhatsApp.
+          </p>
+        `
+      },
+      INT: {
+        code: "USD",
+        countryName: "Internacional",
+        flag: "🌎",
+        regular: "USD $40",
+        active: "USD $25",
+        savings: "Ahorras $15 USD",
+        headerCta: "(USD $25)",
+        heroCta: "Asegurar mi Cupo (USD $25)",
+        btnWhatsapp: "📲 Reservar mi Cupo por WhatsApp (USD $25 - PayPal)",
+        whatsappUrl: "https://wa.me/573245596884?text=Hola!%20Quiero%20asegurar%20mi%20cupo%20en%20el%20Taller%20Pr%C3%A1ctico%20de%20Antigravity%20por%20$25%20USD%20para%20la%20cohorte%20del%206%20al%208%20de%20Noviembre%20(Internacional:%20PayPal)",
+        methodsHtml: `
+          <div class="flex items-center justify-center gap-2">
+            <span>💳 Medio de pago Internacional:</span>
+            <span class="px-2.5 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-mono font-bold border border-indigo-200 dark:border-indigo-800">PayPal</span>
+            <span class="text-slate-400 dark:text-slate-500">(Tarjetas Débito / Crédito)</span>
+          </div>
+          <p class="text-[11px]">
+            Te compartimos el enlace seguro de PayPal (admite tarjetas de cualquier país sin costos ocultos).
           </p>
         `
       }
     };
 
-    function setCurrency(curr) {
-      const btnCop = document.getElementById('curr-cop');
-      const btnUsd = document.getElementById('curr-usd');
-      
-      if (!btnCop || !btnUsd) return;
+    function setCurrency(curr, isUserManual = true) {
+      if (!currencyData[curr]) curr = 'COP';
 
-      if (curr === 'COP') {
-        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md';
-        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
-      } else {
-        btnUsd.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md';
-        btnCop.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5';
+      if (isUserManual) {
+        try {
+          localStorage.setItem('antigravity_currency', curr);
+        } catch(e) {}
       }
 
       const d = currencyData[curr];
@@ -1250,6 +1281,7 @@
       const mobilePrice = document.getElementById('mobile-price');
       const ctaWa = document.getElementById('cta-whatsapp');
       const methodsEl = document.getElementById('payment-methods-info');
+      const detectedLabel = document.getElementById('detected-country-label');
 
       if (savingsEl) savingsEl.innerText = d.savings;
       if (regularEl) regularEl.innerText = d.regular;
@@ -1257,11 +1289,74 @@
       if (headerCta) headerCta.innerText = d.headerCta;
       if (heroCta) heroCta.innerText = d.heroCta;
       if (mobilePrice) mobilePrice.innerText = d.active;
+      if (detectedLabel) detectedLabel.innerText = d.flag + " " + d.countryName;
       if (ctaWa) {
         ctaWa.innerText = d.btnWhatsapp;
         ctaWa.href = d.whatsappUrl;
       }
       if (methodsEl) methodsEl.innerHTML = d.methodsHtml;
+    }
+
+    // --- 6. DETECCIÓN AUTOMÁTICA DE PAÍS CON GEOIP (VANILLA JS NO BLOQUEANTE) ---
+    async function initGeoCountry() {
+      // 1. Si el usuario ya eligió manualmente una moneda antes, se respeta estrictamente
+      try {
+        const saved = localStorage.getItem('antigravity_currency');
+        if (saved && currencyData[saved]) {
+          setCurrency(saved, false);
+          return;
+        }
+      } catch(e) {}
+
+      // 2. Comprobación inicial por locale del navegador (0 ms, sin esperar red)
+      const browserLang = (navigator.language || navigator.userLanguage || '').toUpperCase();
+      if (browserLang.includes('-PE')) {
+        setCurrency('PEN', false);
+      } else if (browserLang.includes('-EC')) {
+        setCurrency('USD', false);
+      } else if (browserLang.includes('-CO')) {
+        setCurrency('COP', false);
+      }
+
+      // 3. Consulta GeoIP asíncrona no bloqueante (AbortController a 2.5s)
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+        let detectedCountry = null;
+        try {
+          const res = await fetch('https://api.country.is/', { signal: controller.signal });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.country) detectedCountry = data.country;
+          }
+        } catch(e1) {
+          // Fallback a ipwho.is si api.country.is estuviese inaccesible
+          try {
+            const res2 = await fetch('https://ipwho.is/', { signal: controller.signal });
+            if (res2.ok) {
+              const data2 = await res2.json();
+              if (data2 && data2.country_code) detectedCountry = data2.country_code;
+            }
+          } catch(e2) {}
+        }
+        clearTimeout(timeoutId);
+
+        if (detectedCountry) {
+          const code = detectedCountry.toUpperCase();
+          if (code === 'CO') {
+            setCurrency('COP', false);
+          } else if (code === 'EC') {
+            setCurrency('USD', false);
+          } else if (code === 'PE') {
+            setCurrency('PEN', false);
+          } else {
+            setCurrency('INT', false);
+          }
+        }
+      } catch(err) {
+        // En caso de modo avión o bloqueo de red, mantiene la moneda por defecto sin romper la página
+      }
     }
 
     // --- 6. CALCULADORA DE TRIAGE ---
@@ -1436,6 +1531,7 @@
     function initApp() {
       initScrollAnimations();
       initScrollParallax();
+      initGeoCountry();
     }
 
     if (document.readyState === 'loading') {
