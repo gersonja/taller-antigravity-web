@@ -995,4 +995,40 @@ details[open] {
   user-select: none;
 }
 
+/* --------------------------------------------------------------------------
+   LIENZO DE DESTELLOS DINÁMICOS & PARALLAX DE FONDO (MODO CLARO & OSCURO)
+   -------------------------------------------------------------------------- */
+#scroll-ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Sombra suave de elevación para tarjetas (rompe la apariencia plana) */
+.shadow-soft-card {
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(14, 165, 233, 0.04), 0 0 0 1px rgba(226, 232, 240, 0.85);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.shadow-soft-card:hover {
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12), 0 6px 14px -3px rgba(14, 165, 233, 0.08), 0 0 0 1px rgba(14, 165, 233, 0.3);
+  transform: translateY(-2px);
+}
+.dark .shadow-soft-card {
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(30, 41, 59, 0.85);
+}
+.dark .shadow-soft-card:hover {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.85), 0 0 20px -3px rgba(56, 189, 248, 0.2), 0 0 0 1px rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+
 
