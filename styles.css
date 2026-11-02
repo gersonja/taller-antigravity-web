@@ -921,3 +921,52 @@ details[open] {
   .md\:pb-24 { padding-bottom: 6rem !important; }
   .md\:inline-flex { display: inline-flex !important; }
 }
+
+/* ==========================================================================
+   13. PROFUNDIDAD, PERSPECTIVA Y TEXTURAS DE FONDO PARA THEMING
+   ========================================================================== */
+
+/* Cuadrícula tecnológica sutil para fondos de secciones */
+.bg-grid-subtle {
+  background-image: radial-gradient(rgba(14, 165, 233, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .bg-grid-subtle {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.16) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Patrón de líneas arquitectónicas sutiles */
+.bg-lines-subtle {
+  background-image: linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.dark .bg-lines-subtle {
+  background-image: linear-gradient(to right, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Sombra y elevación con perspectiva para tarjetas y maquetas */
+.shadow-perspective {
+  box-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+}
+.dark .shadow-perspective {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(14, 165, 233, 0.12), 0 0 0 1px rgba(30, 41, 59, 0.9);
+}
+
+/* Resplandores y bordes con profundidad */
+.glow-border-sky {
+  box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.25);
+}
+.dark .glow-border-sky {
+  box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.35);
+}
+.glow-border-purple {
+  box-shadow: 0 0 25px -5px rgba(147, 51, 234, 0.25);
+}
+.dark .glow-border-purple {
+  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.35);
+}
+
