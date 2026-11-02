@@ -33,7 +33,7 @@
   <!-- Fallback Inmediato para Accesibilidad & Bloqueadores de JS -->
   <noscript>
     <style>
-      .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+      .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -460,7 +460,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
         
         <!-- Nivel 1 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition reveal-left stagger-1">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 1</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">Zona Autonomía</span>
@@ -482,7 +482,7 @@
         </div>
 
         <!-- Nivel 3 -->
-        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/70 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-xl glow-border-sky reveal-up stagger-3 relative">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/70 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-400 shadow-xl glow-border-sky reveal-scale stagger-3 relative">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-sky-600 dark:text-sky-400">Nivel 3</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold">Núcleo del Taller</span>
@@ -493,7 +493,7 @@
         </div>
 
         <!-- Nivel 4 -->
-        <div class="p-5 rounded-2xl bg-indigo-50/40 dark:bg-slate-900/90 border-t-4 border-t-indigo-500 border border-indigo-200 dark:border-indigo-900/60 shadow-sm hover:shadow-md transition reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-indigo-50/40 dark:bg-slate-900/90 border-t-4 border-t-indigo-500 border border-indigo-200 dark:border-indigo-900/60 shadow-sm hover:shadow-md transition reveal-right stagger-4">
           <div class="flex items-center justify-between gap-2 mb-3">
             <span class="font-display font-bold text-sm text-indigo-600 dark:text-indigo-400">Nivel 4</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-bold">Zona Senior</span>
@@ -512,7 +512,7 @@
   <section id="antigravity" class="py-16 bg-white dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-5xl mx-auto px-4">
       
-      <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-down">
         <h2 class="text-xs uppercase font-mono tracking-widest text-sky-600 dark:text-sky-400 font-bold mb-2">Criterio Tecnológico</h2>
         <h3 class="font-display font-black text-2xl sm:text-4xl text-slate-950 dark:text-white tracking-tight mb-3">
           ¿Por qué Google Antigravity & Gemini?
@@ -524,12 +524,12 @@
 
       <!-- Cuadrante Comparativo Objetivo -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 text-left">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">ChatGPT & Claude</div>
           <div class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-2 font-semibold">Ideación y Textos</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Insuperables para pulir propuestas de valor, lluvias de ideas y redacción de copys comerciales.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
           <div class="font-display font-bold text-base text-slate-900 dark:text-white mb-1">GitHub Copilot</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-semibold">Autocompletado Rápido</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Excelente para programadores que ya dominan la sintaxis y quieren teclear código más rápido en su editor.</p>
@@ -539,7 +539,7 @@
           <div class="text-xs font-mono text-purple-600 dark:text-purple-400 mb-2 font-semibold">Diffs Multi-archivo</div>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Pioneros destacados para desarrolladores avanzados con flujos de terminal y suscripciones por API.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/80 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-500/70 shadow-xl glow-border-sky reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-gradient-to-b from-sky-50/80 to-white dark:from-sky-950/40 dark:to-slate-900 border-2 border-sky-400 dark:border-sky-500/70 shadow-xl glow-border-sky reveal-right stagger-4">
           <div class="font-display font-bold text-base text-sky-900 dark:text-sky-200 mb-1">Google Antigravity</div>
           <div class="text-xs font-mono text-sky-600 dark:text-sky-400 mb-2 font-bold">Creación Agéntica Unificada</div>
           <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">Cero barreras de pago con Gmail, ventana monumental de 1M de tokens y optimizado desde 4 GB de RAM.</p>
@@ -547,28 +547,28 @@
       </div>
 
       <!-- 5 Puntos Clave de Elección -->
-      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left reveal-up">
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 text-left">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
           <div class="text-xl mb-1.5">🔑</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Cero Fricción</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Acceso inmediato con tu cuenta de Google (Gmail). Sin tarjetas de crédito internacionales.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
           <div class="text-xl mb-1.5">🧠</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">1M+ Tokens</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Gemini retiene tu proyecto entero en memoria para no desincronizar HTML, CSS y lógica.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-scale stagger-3">
           <div class="text-xl mb-1.5">📐</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">High Reasoning</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Obliga al agente a reflexionar, simular dependencias y actuar como arquitecto sénior.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
           <div class="text-xl mb-1.5">💻</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Desde 4 GB RAM</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Ligero y accesible para computadoras portátiles normales sin tarjetas gráficas caras.</div>
         </div>
-        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm reveal-right stagger-5">
           <div class="text-xl mb-1.5">📊</div>
           <div class="font-display font-bold text-xs text-slate-900 dark:text-white mb-1">Google Sheets</div>
           <div class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Sincronización en la nube en tiempo real sin pagar costos mensuales de servidores.</div>
@@ -593,7 +593,7 @@
       </div>
 
       <!-- Selector de Casos -->
-      <div class="flex flex-wrap items-center justify-center gap-2 mb-6 reveal-up">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-6 reveal-down">
         <button id="btn-1" onclick="setTriage(1)" class="triage-btn px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-xs sm:text-sm font-semibold transition shadow-sm">
           1. Landing con Cotizador
         </button>
@@ -628,7 +628,7 @@
       </div>
 
       <!-- Selector de Pestañas de Módulos -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 reveal-up">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 reveal-down">
         <button id="mod-tab-1" onclick="setModuleTab(1)" class="module-tab-btn py-3 px-3 rounded-xl text-xs sm:text-sm font-display font-bold border transition text-center border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300">
           Módulo 1: El Despegue
           <span class="block text-[10px] opacity-75 font-mono mt-0.5">Vie 06 Nov · 6:00 PM</span>
@@ -660,13 +660,13 @@
     <div class="max-w-4xl mx-auto px-4">
       <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm text-left transition-colors reveal-scale">
         <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
-          <div class="relative flex-shrink-0">
+          <div class="relative flex-shrink-0 reveal-left stagger-1">
             <img src="https://github.com/gersonja.png" alt="Gerson Javier" width="144" height="144" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-sky-400 shadow-xl" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Gerson+Javier&background=0284c7&color=fff&size=256';">
             <div class="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] px-2.5 py-0.5 rounded-full font-bold shadow-md">
               En Vivo
             </div>
           </div>
-          <div>
+          <div class="reveal-right stagger-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-slate-800 text-sky-700 dark:text-sky-400 text-xs font-bold mb-2">
               Instructor & Mentor
             </div>
@@ -718,12 +718,12 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-1">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-sky-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-left stagger-1">
           <div class="text-2xl mb-2">🎯</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Software en Producción</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No te vas con apuntes teóricos. Sales con tu aplicación desplegada con enlace público HTTPS y código QR.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-2">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-emerald-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-down stagger-2">
           <div class="text-2xl mb-2">💻</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Cero Gastos Ocultos</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Todo el taller corre sobre herramientas 100% gratuitas (Google Antigravity, Gemini Flash y GitHub Pages).</p>
@@ -733,7 +733,7 @@
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Desbloqueo en Vivo</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dedicamos 30 a 60 minutos exclusivos por sesión para revisar pantallas y destrabar cualquier error.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-indigo-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-up stagger-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-t-4 border-t-indigo-500 border border-slate-200 dark:border-slate-800 shadow-sm reveal-right stagger-4">
           <div class="text-2xl mb-2">🔒</div>
           <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white mb-1">Satisfacción Total</h4>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Participa en la Sesión 1. Si sientes que no era lo que esperabas, te reembolsamos el 100% de inmediato.</p>
@@ -761,7 +761,7 @@
       </div>
 
       <!-- Selector de Moneda Dinámico (COP / USD) -->
-      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-up">
+      <div class="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 reveal-down">
         <button id="curr-cop" onclick="setCurrency('COP')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 shadow-md">
           <span>🇨🇴</span> Pesos Colombianos (COP)
         </button>
@@ -878,7 +878,7 @@
       <div class="space-y-3" id="faq-accordion">
         
         <!-- Pregunta 1 (Abierta por defecto) -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500 shadow-md overflow-hidden transition-all duration-200" id="faq-item-1">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500 shadow-md overflow-hidden transition-all duration-200 reveal-left stagger-1" id="faq-item-1">
           <button type="button" onclick="toggleFaq(1)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="true" id="faq-btn-1">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">01</span>
@@ -894,7 +894,7 @@
         </div>
 
         <!-- Pregunta 2 -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-2">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200 reveal-right stagger-2" id="faq-item-2">
           <button type="button" onclick="toggleFaq(2)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-2">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">02</span>
@@ -910,7 +910,7 @@
         </div>
 
         <!-- Pregunta 3 -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-3">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200 reveal-left stagger-3" id="faq-item-3">
           <button type="button" onclick="toggleFaq(3)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-3">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">03</span>
@@ -926,7 +926,7 @@
         </div>
 
         <!-- Pregunta 4 -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-4">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200 reveal-right stagger-4" id="faq-item-4">
           <button type="button" onclick="toggleFaq(4)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-4">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">04</span>
@@ -942,7 +942,7 @@
         </div>
 
         <!-- Pregunta 5 -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-5">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200 reveal-left stagger-5" id="faq-item-5">
           <button type="button" onclick="toggleFaq(5)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-5">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">05</span>
@@ -958,7 +958,7 @@
         </div>
 
         <!-- Pregunta 6 -->
-        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200" id="faq-item-6">
+        <div class="faq-item rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-200 reveal-right stagger-5" id="faq-item-6">
           <button type="button" onclick="toggleFaq(6)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition" aria-expanded="false" id="faq-btn-6">
             <span class="flex items-center gap-3">
               <span class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">06</span>
@@ -1327,23 +1327,28 @@
       }
     }
 
-    // --- 8. OBSERVADOR DE ANIMACIONES DE SCROLL (60 FPS NATIVO) ---
+    // --- 8. OBSERVADOR DE ANIMACIONES DE SCROLL BIDIRECCIONAL (60 FPS NATIVO) ---
     function initScrollAnimations() {
-      const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+      const revealElements = document.querySelectorAll('.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate');
       if (!('IntersectionObserver' in window)) {
         revealElements.forEach(el => el.classList.add('revealed'));
         return;
       }
       
-      const observer = new IntersectionObserver((entries, obs) => {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            obs.unobserve(entry.target);
+          } else {
+            // Re-arma la animación al salir del campo visual para que al subir o bajar vuelva a animar
+            const rect = entry.target.getBoundingClientRect();
+            if (rect.top > window.innerHeight || rect.bottom < 0) {
+              entry.target.classList.remove('revealed');
+            }
           }
         });
       }, {
-        threshold: 0.1,
+        threshold: 0.12,
         rootMargin: '0px 0px -40px 0px'
       });
 
